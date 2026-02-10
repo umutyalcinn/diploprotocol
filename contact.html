@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Diplomatic Protocol</title>
+    <meta name="description" content="Get in touch with Diplomatic Protocol for inquiries about our services, training programs, and event management.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Mobile & Call Widget Overrides + Contact Page Styles -->
+    <style>
+        /* Genel container güvenliği */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-inline: 1.5rem;
+        }
+
+        /* HERO alanı (contact için video yok ama stil aynı kalıyor) */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            color: #fff;
+            overflow: hidden;
+        }
+        .hero-content {
+            max-width: 640px;
+            padding-block: 5rem;
+        }
+        .hero-title {
+            font-size: clamp(2.2rem, 4vw, 3.5rem);
+            line-height: 1.1;
+        }
+        .hero-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Sections */
+        .section {
+            padding: 4rem 0;
+        }
+        .section-beige {
+            padding: 4rem 0;
+        }
+
+        /* GRID’LERİN TEMEL HALİ (DESKTOP) */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 2rem;
+        }
+        .two-col {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 2.5rem;
+            align-items: center;
+        }
+        .two-col-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 12px;
+        }
+
+        .benefits-strip {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+            padding-block: 1rem;
+        }
+        .benefit-item {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 2rem;
+        }
+
+        /* CALL WIDGET – HER ZAMAN GÖRÜNÜR & RESPONSIVE */
+        .call-widget {
+            position: fixed;
+            left: 24px;
+            bottom: 24px;
+            z-index: 9999;
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .call-widget-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            border-radius: 999px;
+            background: rgba(0, 0, 0, 0.82);
+            border: 1px solid rgba(201, 162, 39, 0.8);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(18px);
+        }
+        .call-agent-img {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        .call-widget-texts {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            text-align: center;
+            width: 100%;
+        }
+        .call-widget-text {
+            margin: 0;
+            font-size: 0.9rem;
+            line-height: 1.3;
+            color: #f9fafb;
+        }
+        .call-start-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            border: none;
+            background: linear-gradient(135deg, #c9a227, #e5c872);
+            color: #111827;
+            font-size: 0.8rem;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            white-space: nowrap;
+        }
+        .call-start-btn svg {
+            flex-shrink: 0;
+        }
+
+        /* CONTACT SAYFASINA ÖZEL STİLLER */
+        .contact-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+        .contact-info-card {
+            background: var(--beige-light);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .contact-info-card h4 {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .contact-info-card h4 svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--gold);
+            stroke-width: 1.5;
+            fill: none;
+        }
+        .contact-info-card p,
+        .contact-info-card a {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+        .contact-info-card a:hover {
+            color: var(--gold);
+        }
+        .map-container {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            height: 300px;
+            background: var(--beige);
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* LANG SELECTOR (SADECE BAYRAKLI DROPDOWN) */
+        .navbar .lang-selector {
+            position: relative;
+            margin-left: 1.5rem;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .lang-selector {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0.5rem;
+            background: none;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+        }
+
+        .lang-current,
+        .lang-option {
+            width: 42px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .lang-current img,
+        .lang-option img {
+            width: 32px;
+            height: 24px;
+            object-fit: cover;
+            display: block;
+            border-radius: 4px;
+        }
+
+        .lang-current svg {
+            margin-left: 6px;
+        }
+
+        .lang-dropdown {
+            position: absolute;
+            top: 110%;
+            left: 0;
+
+            border-radius: 0.75rem;
+            padding: 0.4rem 0.3rem;
+            display: none;
+            flex-direction: column;
+            gap: 0.35rem;
+            z-index: 10000;
+
+            transform: scale(0.92) translateY(4px);
+            opacity: 0;
+            transition: transform 0.18s ease-out, opacity 0.18s ease-out, box-shadow 0.18s ease-out;
+      
+        }
+
+        .lang-selector.open .lang-dropdown {
+            display: flex;
+            transform: scale(1) translateY(0);
+            opacity: 1;
+   
+        }
+
+        .lang-option img {
+            transition: transform 0.15s ease-out;
+        }
+
+        .lang-option:hover img {
+            transform: scale(1.18);
+        }
+
+        /* Tablet ve küçük ekranlar */
+        @media (max-width: 992px) {
+            .services-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+            .two-col-image {
+                order: -1;
+            }
+            .footer-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            /* Contact grid tek kolona düşsün */
+            .contact-section {
+                grid-template-columns: 1fr;
+            }
+
+            .navbar .lang-selector {
+                margin-left: 0.75rem;
+            }
+        }
+
+        /* Telefon (mobil) */
+        @media (max-width: 768px) {
+            .hero {
+                text-align: left;
+                align-items: flex-end;
+            }
+            .hero-content {
+                padding-block: 5rem 6.5rem;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .section,
+            .section-beige {
+                padding: 3rem 0;
+            }
+            .section .services-grid[style*="repeat(4"] {
+                grid-template-columns: 1fr !important;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .call-widget {
+                left: 12px;
+                right: 12px;
+                bottom: 16px;
+            }
+            .call-widget-box {
+                width: 100%;
+                border-radius: 18px;
+                padding: 10px 12px;
+            }
+            .call-agent-img {
+                width: 64px;
+                height: 64px;
+            }
+            .call-widget-text {
+                font-size: 0.8rem;
+                text-align: center;
+                width: 240px;
+            }
+            .call-start-btn {
+                font-size: 0.75rem;
+                padding: 5px 10px;
+            }
+        }
+
+        /* Çok küçük ekranlar */
+        @media (max-width: 420px) {
+            .call-widget-text {
+                font-size: 0.75rem;
+                text-align: center;
+                width: 90%;
+            }
+            .call-widget-box {
+                width: 240px;
+            }
+            .call-agent-img {
+                width: 64px;
+                height: 64px;
+            }
+        }
+.footer-social-icons .social-icon {
+    width: 45px;
+    height: 45px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-social-icons .social-icon svg {
+    fill: white;
+    transition: fill 0.25s ease;
+}
+
+/* Instagram */
+.footer-social-icons a[aria-label="Instagram"]:hover svg {
+    fill: #E1306C;
+}
+
+/* Twitter */
+.footer-social-icons a[aria-label="Twitter"]:hover svg {
+    fill: #1DA1F2;
+}
+
+/* LinkedIn */
+.footer-social-icons a[aria-label="LinkedIn"]:hover svg {
+    fill: #0077B5;
+}
+
+/* TikTok */
+.footer-social-icons a[aria-label="TikTok"]:hover svg {
+    fill: #69C9D0;
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                <img src="images/logo1yesil.png" alt="Diplomatic Protocol Logo" 
+                    style="width: 100px; 
+                            height: 100%; 
+                            max-height: 150px; 
+                            background-color: var(--dark-green);">
+                <span>DIPLOMATIC PROTOCOL</span>
+            </a>
+            
+            <div class="navbar-menu">
+                <a href="index.html" class="active" data-i18n="nav.home">Home</a>
+                <a href="about.html" data-i18n="nav.about">About Us</a>
+                <a href="services.html" data-i18n="nav.services">Services</a>
+
+                <div class="dropdown hover-dropdown">
+                    <a href="academy.html" class="dropdown-toggle" data-i18n="nav.academy">
+                        Diplomatic Protocol Academy
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="academy.html#approach" data-i18n="nav.academyApproach">Our Approach</a>
+                        <a href="academy.html#programs" data-i18n="nav.academyPrograms">Programs & Training Levels</a>
+                        <a href="academy.html#formats" data-i18n="nav.academyFormats">Formats of Training</a>
+                        <a href="academy.html#benefits" data-i18n="nav.academyBenefits">Benefits of the Training</a>
+                        <a href="academy.html#certificates" data-i18n="nav.academyCertificates">Certificates & Recognition</a>
+                    </div>
+                </div>
+
+                <a href="contact.html" data-i18n="nav.contact">Contact Us</a>
+
+                <!-- LANG SELECTOR DROPDOWN: SADECE BAYRAKLAR -->
+                <div class="lang-selector">
+                    <button class="lang-current" type="button" data-lang="en" aria-label="Change language">
+                        <img src="https://flagcdn.com/w40/gb.png" alt="English">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+
+                    <div class="lang-dropdown" aria-label="Language options">
+                        <button class="lang-option" type="button" data-lang="en">
+                            <img src="https://flagcdn.com/w40/gb.png" alt="English">
+                        </button>
+                        <button class="lang-option" type="button" data-lang="tr">
+                            <img src="https://flagcdn.com/w40/tr.png" alt="Türkçe">
+                        </button>
+                        <button class="lang-option" type="button" data-lang="me">
+                            <img src="https://flagcdn.com/w40/me.png" alt="Montenegrin">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" style="min-height: 50vh;">
+        <div class="container">
+            <div class="hero-content" style="max-width: 100%; text-align: center;">
+                <p class="hero-subtitle" data-i18n="contactPage.heroSubtitle">GET IN TOUCH</p>
+                <h1 class="hero-title" style="color: #c9a227;" data-i18n="contactPage.heroTitle">Contact Us</h1>
+                <p class="hero-description" style="max-width: 700px; margin: 0 auto;" data-i18n="contactPage.heroDescription">
+                    Ready to elevate your protocol standards? We're here to discuss how we can serve your organization.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section">
+        <div class="container">
+            <div class="contact-section">
+                <!-- Form -->
+                <div class="animate-on-scroll">
+                    <h2 class="mb-3" data-i18n="contactPage.form.title">Send Us a Message</h2>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="name" data-i18n="contactPage.form.nameLabel">Full Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="Your full name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="organization" data-i18n="contactPage.form.organizationLabel">Organization</label>
+                            <input type="text" id="organization" name="organization" placeholder="Your organization">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" data-i18n="contactPage.form.emailLabel">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="your@email.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone" data-i18n="contactPage.form.phoneLabel">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+382 (555) 000-0000">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject" data-i18n="contactPage.form.subjectLabel">Subject *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="" data-i18n="contactPage.form.subjectPlaceholder">Select a subject</option>
+                                <option value="training" data-i18n="contactPage.form.subjectTraining">Training Programs</option>
+                                <option value="events" data-i18n="contactPage.form.subjectEvents">Event Management</option>
+                                <option value="protocol" data-i18n="contactPage.form.subjectProtocol">Protocol Services</option>
+                                <option value="vip" data-i18n="contactPage.form.subjectVip">VIP Services</option>
+                                <option value="careers" data-i18n="contactPage.form.subjectCareers">Careers</option>
+                                <option value="other" data-i18n="contactPage.form.subjectOther">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" data-i18n="contactPage.form.messageLabel">Message *</label>
+                            <textarea id="message" name="message" required placeholder="How can we help you?"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-outline" data-i18n="contactPage.form.button">Send Message</button>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="animate-on-scroll">
+                    <h2 class="mb-3" data-i18n="contactPage.info.title">Contact Information</h2>
+
+                    <div class="contact-info-card">
+                        <h4>
+                            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <span data-i18n="contactPage.info.addressTitle">Address</span>
+                        </h4>
+                        <p data-i18n="contactPage.info.addressText">
+                            Bulevar Svetog Petra Cetinjskog 1<br>Podgorica, 81000<br>Montenegro
+                        </p>
+                    </div>
+
+                    <div class="contact-info-card">
+                        <h4>
+                            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            <span data-i18n="contactPage.info.phoneTitle">Phone</span>
+                        </h4>
+                        <p>
+                            <a href="tel:+3825551234567" data-i18n="contactPage.info.phoneLine1">+382 (555) 123-4567</a><br>
+                            <a href="tel:+3825551234568" data-i18n="contactPage.info.phoneLine2">+382 (555) 123-4568</a>
+                        </p>
+                    </div>
+
+                    <div class="contact-info-card">
+                        <h4>
+                            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            <span data-i18n="contactPage.info.emailTitle">Email</span>
+                        </h4>
+                        <p>
+                            <a href="mailto:info@diplomaticprotocol.me" data-i18n="contactPage.info.emailLine1">info@diplomaticprotocol.me</a><br>
+                            <a href="mailto:training@diplomaticprotocol.me" data-i18n="contactPage.info.emailLine2">training@diplomaticprotocol.me</a>
+                        </p>
+                    </div>
+
+                    <div class="contact-info-card">
+                        <h4>
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            <span data-i18n="contactPage.info.hoursTitle">Office Hours</span>
+                        </h4>
+                        <p data-i18n="contactPage.info.hoursText">
+                            Monday - Friday: 9:00 AM - 6:00 PM<br>
+                            Saturday: 10:00 AM - 2:00 PM<br>
+                            Sunday: Closed
+                        </p>
+                    </div>
+<div class="footer-social-icons" style="display: flex; gap: 1rem; margin-top: 2rem;">
+    
+    <!-- Instagram -->
+    <a href="#" aria-label="Instagram" class="social-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="18" cy="6" r="1"/>
+        </svg>
+    </a>
+
+    <!-- Twitter -->
+    <a href="#" aria-label="Twitter" class="social-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24">
+            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+        </svg>
+    </a>
+
+    <!-- LinkedIn -->
+    <a href="#" aria-label="LinkedIn" class="social-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/>
+            <circle cx="4" cy="4" r="2"/>
+        </svg>
+    </a>
+
+    <!-- TikTok -->
+    <a href="#" aria-label="TikTok" class="social-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24">
+            <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+        </svg>
+    </a>
+
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map -->
+    <section class="section section-beige">
+        <div class="container">
+            <div class="map-container animate-on-scroll">
+                <iframe
+                    width="100%"
+                    height="100%"
+                    style="border:0;"
+                    loading="lazy"
+                    allowfullscreen
+                    referrerpolicy="no-referrer-when-downgrade"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28462.027595398736!2d19.228643!3d42.441286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x134deb61b5cd2d1f%3A0x6f6e2e3aa8b0c21!2sPodgorica!5e0!3m2!1sen!2sme!4v1700000000000!5m2!1sen!2sme">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4 data-i18n="footer.exploreTitle">Explore</h4>
+                    <ul>
+                        <li><a href="index.html" data-i18n="footer.exploreHome">Home</a></li>
+                        <li><a href="about.html" data-i18n="footer.exploreWhoWeAre">Who We Are</a></li>
+                        <li><a href="about.html#team" data-i18n="footer.exploreTeam">Team</a></li>
+                        <li><a href="references.html" data-i18n="footer.explorePastEvents">Past Events</a></li>
+                        <li><a href="contact.html" data-i18n="footer.exploreCareers">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer.servicesTitle">Services</h4>
+                    <ul>
+                        <li><a href="academy.html" data-i18n="footer.servicesTrainingInstitute">Training Institute</a></li>
+                        <li><a href="services.html#protocol" data-i18n="footer.servicesProtocol">Protocol Services</a></li>
+                        <li><a href="services.html#events" data-i18n="footer.servicesEvents">Events Planning & Management</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer.scheduleTitle">Schedule / Programs</h4>
+                    <ul>
+                        <li><a href="academy.html#programs" data-i18n="footer.schedulePublic">Public Trainings</a></li>
+                        <li><a href="academy.html#formats" data-i18n="footer.schedulePrivate">Private Group Trainings</a></li>
+                        <li><a href="academy.html#programs" data-i18n="footer.scheduleUpcoming">Upcoming Programs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer.companyTitle">Diplomatic Protocol</h4>
+                    <p data-i18n="footer.companyDescription">Leading provider of diplomatic protocol services, training, and event management.</p>
+                    <p style="margin-top: 1rem;">
+                        <strong data-i18n="footer.emailLabel">Email:</strong> info@diplomaticprotocol.me<br>
+                        <strong data-i18n="footer.phoneLabel">Phone:</strong> +382 (555) 123-4567
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r="1"/></svg></a>
+                        <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+                        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                        <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer.rights">&copy; 2025 DiplomaticProtocol.me – All rights reserved.</p>
+                <div>
+                    <a href="#" data-i18n="footer.privacy">Privacy Policy</a> | 
+                    <a href="#" data-i18n="footer.refund">Refund Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Call Widget -->
+    <div class="call-widget">
+        <div class="call-widget-box">
+            <img src="images/help1.png" alt="Support Agent" class="call-agent-img">
+
+            <div class="call-widget-texts">
+                <p class="call-widget-text" data-i18n="callWidget.text">We’re here to ensure<br>perfection</p>
+
+                <a href="contact.html" class="call-start-btn" data-i18n="buttons.startCall">
+                    <svg width="18" height="18" fill="white" viewBox="0 0 24 24">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 3 5.18
+                        2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.72c.12 1.05.37 2.07.73 3.06a2
+                        2 0 0 1-.45 2.11l-1.27 1.27a16 16 0 0 0 7.07 7.07l1.27-1.27a2
+                        2 0 0 1 2.11-.45 12.84 12.84 0 0 0 3.06.73A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                    Start a call
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script src="js/main.js"></script>
+
+    <!-- i18n + Lang Menu + Call Widget JS -->
+    <script>
+        const translations = {
+            en: {
+                nav: {
+                    home: `Home`,
+                    about: `About Us`,
+                    services: `Services`,
+                    academy: `Diplomatic Protocol Academy`,
+                    academyApproach: `Our Approach`,
+                    academyPrograms: `Programs & Training Levels`,
+                    academyFormats: `Formats of Training`,
+                    academyBenefits: `Benefits of the Training`,
+                    academyCertificates: `Certificates & Recognition`,
+                    academyCalendar: `Calendar`,
+                    contact: `Contact Us`
+                },
+                buttons: {
+                    exploreServices: `Explore Our Services`,
+                    contact: `Contact Us`,
+                    learnMore: `Learn More`,
+                    joinNow: `Join Us Now`,
+                    exploreAcademy: `Explore the Academy`,
+                    startCall: `Start a call`
+                },
+                callWidget: {
+                    text: `We’re here to ensure<br>perfection`
+                },
+                footer: {
+                    exploreTitle: `Explore`,
+                    exploreHome: `Home`,
+                    exploreWhoWeAre: `Who We Are`,
+                    exploreTeam: `Team`,
+                    explorePastEvents: `Past Events`,
+                    exploreCareers: `Careers`,
+                    servicesTitle: `Services`,
+                    servicesTrainingInstitute: `Training Institute`,
+                    servicesProtocol: `Protocol Services`,
+                    servicesEvents: `Events Planning & Management`,
+                    scheduleTitle: `Schedule / Programs`,
+                    schedulePublic: `Public Trainings`,
+                    schedulePrivate: `Private Group Trainings`,
+                    scheduleUpcoming: `Upcoming Programs`,
+                    companyTitle: `Diplomatic Protocol`,
+                    companyDescription: `Leading provider of diplomatic protocol services, training, and event management.`,
+                    emailLabel: `Email:`,
+                    phoneLabel: `Phone:`,
+                    rights: `© 2025 DiplomaticProtocol.me – All rights reserved.`,
+                    privacy: `Privacy Policy`,
+                    refund: `Refund Policy`
+                },
+                contactPage: {
+                    heroSubtitle: `GET IN TOUCH`,
+                    heroTitle: `Contact Us`,
+                    heroDescription: `Ready to elevate your protocol standards? We're here to discuss how we can serve your organization.`,
+                    form: {
+                        title: `Send Us a Message`,
+                        nameLabel: `Full Name *`,
+                        organizationLabel: `Organization`,
+                        emailLabel: `Email Address *`,
+                        phoneLabel: `Phone Number`,
+                        subjectLabel: `Subject *`,
+                        subjectPlaceholder: `Select a subject`,
+                        subjectTraining: `Training Programs`,
+                        subjectEvents: `Event Management`,
+                        subjectProtocol: `Protocol Services`,
+                        subjectVip: `VIP Services`,
+                        subjectCareers: `Careers`,
+                        subjectOther: `Other`,
+                        messageLabel: `Message *`,
+                        button: `Send Message`
+                    },
+                    info: {
+                        title: `Contact Information`,
+                        addressTitle: `Address`,
+                        addressText: `Bulevar Svetog Petra Cetinjskog 1<br>Podgorica, 81000<br>Montenegro`,
+                        phoneTitle: `Phone`,
+                        phoneLine1: `+382 (555) 123-4567`,
+                        phoneLine2: `+382 (555) 123-4568`,
+                        emailTitle: `Email`,
+                        emailLine1: `info@diplomaticprotocol.me`,
+                        emailLine2: `training@diplomaticprotocol.me`,
+                        hoursTitle: `Office Hours`,
+                        hoursText: `Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 2:00 PM<br>Sunday: Closed`
+                    }
+                }
+            },
+            tr: {
+                nav: {
+                    home: `Ana Sayfa`,
+                    about: `Hakkımızda`,
+                    services: `Hizmetler`,
+                    academy: `Diplomatik Protokol Akademisi`,
+                    academyApproach: `Yaklaşımımız`,
+                    academyPrograms: `Programlar & Eğitim Seviyeleri`,
+                    academyFormats: `Eğitim Formatları`,
+                    academyBenefits: `Eğitimin Faydaları`,
+                    academyCertificates: `Sertifikalar & Tanınırlık`,
+                    academyCalendar: `Takvim`,
+                    contact: `İletişim`
+                },
+                buttons: {
+                    exploreServices: `Hizmetlerimizi Keşfedin`,
+                    contact: `Bize Ulaşın`,
+                    learnMore: `Detaylı Bilgi`,
+                    joinNow: `Hemen Katılın`,
+                    exploreAcademy: `Akademiyi Keşfedin`,
+                    startCall: `Görüşme Başlat`
+                },
+                callWidget: {
+                    text: `Sizin için buradayız<br>mükemmellik için`
+                },
+                footer: {
+                    exploreTitle: `Keşfet`,
+                    exploreHome: `Ana Sayfa`,
+                    exploreWhoWeAre: `Biz Kimiz`,
+                    exploreTeam: `Ekip`,
+                    explorePastEvents: `Geçmiş Etkinlikler`,
+                    exploreCareers: `Kariyer`,
+                    servicesTitle: `Hizmetler`,
+                    servicesTrainingInstitute: `Eğitim Enstitüsü`,
+                    servicesProtocol: `Protokol Hizmetleri`,
+                    servicesEvents: `Etkinlik Planlama & Yönetimi`,
+                    scheduleTitle: `Takvim / Programlar`,
+                    schedulePublic: `Açık Eğitimler`,
+                    schedulePrivate: `Kuruma Özel Eğitimler`,
+                    scheduleUpcoming: `Yaklaşan Programlar`,
+                    companyTitle: `Diplomatic Protocol`,
+                    companyDescription: `Diplomatik protokol hizmetleri, eğitim ve etkinlik yönetimi alanında lider bir sağlayıcıdır.`,
+                    emailLabel: `E-posta:`,
+                    phoneLabel: `Telefon:`,
+                    rights: `© 2025 DiplomaticProtocol.me – Tüm hakları saklıdır.`,
+                    privacy: `Gizlilik Politikası`,
+                    refund: `İade Politikası`
+                },
+                contactPage: {
+                    heroSubtitle: `BİZE ULAŞIN`,
+                    heroTitle: `İletişim`,
+                    heroDescription: `Protokol standartlarınızı yükseltmeye hazır mısınız? Kurumunuza nasıl destek olabileceğimizi konuşmak için buradayız.`,
+                    form: {
+                        title: `Bize Mesaj Gönderin`,
+                        nameLabel: `Ad Soyad *`,
+                        organizationLabel: `Kurum / Şirket`,
+                        emailLabel: `E-posta Adresi *`,
+                        phoneLabel: `Telefon Numarası`,
+                        subjectLabel: `Konu *`,
+                        subjectPlaceholder: `Bir konu seçin`,
+                        subjectTraining: `Eğitim Programları`,
+                        subjectEvents: `Etkinlik Yönetimi`,
+                        subjectProtocol: `Protokol Hizmetleri`,
+                        subjectVip: `VIP Hizmetleri`,
+                        subjectCareers: `Kariyer`,
+                        subjectOther: `Diğer`,
+                        messageLabel: `Mesajınız *`,
+                        button: `Mesaj Gönder`
+                    },
+                    info: {
+                        title: `İletişim Bilgileri`,
+                        addressTitle: `Adres`,
+                        addressText: ` Bulevar Svetog Petra Cetinjskog 1<br>Podgorica, 81000<br>Karadağ`,
+                        phoneTitle: `Telefon`,
+                        phoneLine1: `+382 (555) 123-4567`,
+                        phoneLine2: `+382 (555) 123-4568`,
+                        emailTitle: `E-posta`,
+                        emailLine1: `info@diplomaticprotocol.me`,
+                        emailLine2: `training@diplomaticprotocol.me`,
+                        hoursTitle: `Çalışma Saatleri`,
+                        hoursText: `Pazartesi - Cuma: 09:00 - 18:00<br>Cumartesi: 10:00 - 14:00<br>Pazar: Kapalı`
+                    }
+                }
+            },
+            me: {
+                nav: {
+                    home: `Početna`,
+                    about: `O nama`,
+                    services: `Usluge`,
+                    academy: `Akademija diplomatskog protokola`,
+                    academyApproach: `Naš pristup`,
+                    academyPrograms: `Programi i nivoi obuke`,
+                    academyFormats: `Formati obuke`,
+                    academyBenefits: `Prednosti obuke`,
+                    academyCertificates: `Sertifikati i priznanja`,
+                    academyCalendar: `Kalendar`,
+                    contact: `Kontakt`
+                },
+                buttons: {
+                    exploreServices: `Pogledaj naše usluge`,
+                    contact: `Kontaktiraj nas`,
+                    learnMore: `Saznaj više`,
+                    joinNow: `Pridruži se sada`,
+                    exploreAcademy: `Istraži Akademiju`,
+                    startCall: `Započni poziv`
+                },
+                callWidget: {
+                    text: `Tu smo da obezbijedimo<br>savršenu izvedbu`
+                },
+                footer: {
+                    exploreTitle: `Istraži`,
+                    exploreHome: `Početna`,
+                    exploreWhoWeAre: `Ko smo`,
+                    exploreTeam: `Tim`,
+                    explorePastEvents: `Prethodni događaji`,
+                    exploreCareers: `Karijera`,
+                    servicesTitle: `Usluge`,
+                    servicesTrainingInstitute: `Trening institut`,
+                    servicesProtocol: `Protokolarne usluge`,
+                    servicesEvents: `Planiranje i organizacija događaja`,
+                    scheduleTitle: `Raspored / Programi`,
+                    schedulePublic: `Javne obuke`,
+                    schedulePrivate: `Privatne grupne obuke`,
+                    scheduleUpcoming: `Predstojeći programi`,
+                    companyTitle: `Diplomatic Protocol`,
+                    companyDescription: `Vodeći provajder protokolarnih usluga, obuka i menadžmenta događaja.`,
+                    emailLabel: `Email:`,
+                    phoneLabel: `Telefon:`,
+                    rights: `© 2025 DiplomaticProtocol.me – Sva prava zadržana.`,
+                    privacy: `Politika privatnosti`,
+                    refund: `Pravila povraćaja`
+                },
+                contactPage: {
+                    heroSubtitle: `KONTAKTIRAJTE NAS`,
+                    heroTitle: `Kontakt`,
+                    heroDescription: `Spremni da podignete svoje protokolarne standarde? Tu smo da razgovaramo kako možemo podržati vašu organizaciju.`,
+                    form: {
+                        title: `Pošaljite nam poruku`,
+                        nameLabel: `Ime i prezime *`,
+                        organizationLabel: `Organizacija / Kompanija`,
+                        emailLabel: `Email adresa *`,
+                        phoneLabel: `Broj telefona`,
+                        subjectLabel: `Tema *`,
+                        subjectPlaceholder: `Odaberite temu`,
+                        subjectTraining: `Programi obuke`,
+                        subjectEvents: `Organizacija događaja`,
+                        subjectProtocol: `Protokolarne usluge`,
+                        subjectVip: `VIP usluge`,
+                        subjectCareers: `Karijera`,
+                        subjectOther: `Ostalo`,
+                        messageLabel: `Vaša poruka *`,
+                        button: `Pošalji poruku`
+                    },
+                    info: {
+                        title: `Kontakt informacije`,
+                        addressTitle: `Adresa`,
+                        addressText: `Bulevar Svetog Petra Cetinjskog 1<br>Podgorica, 81000<br>Crna Gora`,
+                        phoneTitle: `Telefon`,
+                        phoneLine1: `+382 (555) 123-4567`,
+                        phoneLine2: `+382 (555) 123-4568`,
+                        emailTitle: `Email`,
+                        emailLine1: `info@diplomaticprotocol.me`,
+                        emailLine2: `training@diplomaticprotocol.me`,
+                        hoursTitle: `Radno vrijeme`,
+                        hoursText: `Ponedjeljak - Petak: 09:00 - 18:00<br>Subota: 10:00 - 14:00<br>Nedjelja: Ne radimo`
+                    }
+                }
+            }
+        };
+
+        const LANG_FLAGS = {
+            en: 'https://flagcdn.com/w40/gb.png',
+            tr: 'https://flagcdn.com/w40/tr.png',
+            me: 'https://flagcdn.com/w40/me.png'
+        };
+
+        const LANG_NAMES = {
+            en: 'English',
+            tr: 'Türkçe',
+            me: 'Montenegrin'
+        };
+
+        function setLanguage(lang) {
+            const supported = ['en', 'tr', 'me'];
+            if (!supported.includes(lang)) lang = 'en';
+
+            document.documentElement.lang = lang;
+
+            const dict = translations[lang] || translations.en;
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.dataset.i18n;
+                const parts = key.split('.');
+                let value = dict;
+                parts.forEach(p => {
+                    if (value && typeof value === 'object') value = value[p];
+                });
+                if (typeof value === 'string') {
+                    el.innerHTML = value;
+                }
+            });
+
+            const langSelector = document.querySelector('.lang-selector');
+            if (langSelector) {
+                const currentBtn = langSelector.querySelector('.lang-current');
+                const img = currentBtn ? currentBtn.querySelector('img') : null;
+                if (currentBtn) currentBtn.dataset.lang = lang;
+                if (img && LANG_FLAGS[lang]) {
+                    img.src = LANG_FLAGS[lang];
+                    img.alt = LANG_NAMES[lang] || '';
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Call widget aktif
+            const callWidget = document.querySelector('.call-widget');
+            if (callWidget) {
+                callWidget.style.opacity = '1';
+                callWidget.style.pointerEvents = 'auto';
+            }
+
+            const langSelector = document.querySelector('.lang-selector');
+            if (langSelector) {
+                const dropdown = langSelector.querySelector('.lang-dropdown');
+                const savedLang = localStorage.getItem('dp_lang') || 'en';
+                setLanguage(savedLang);
+
+                let langCloseTimeout = null;
+
+                langSelector.addEventListener('mouseenter', () => {
+                    if (langCloseTimeout) clearTimeout(langCloseTimeout);
+                    langSelector.classList.add('open');
+                });
+
+                langSelector.addEventListener('mouseleave', () => {
+                    langCloseTimeout = setTimeout(() => {
+                        langSelector.classList.remove('open');
+                    }, 200);
+                });
+
+                if (dropdown) {
+                    dropdown.querySelectorAll('[data-lang]').forEach(btn => {
+                        btn.addEventListener('click', function (e) {
+                            e.preventDefault();
+                            const lang = this.dataset.lang;
+                            setLanguage(lang);
+                            localStorage.setItem('dp_lang', lang);
+                        });
+                    });
+                }
+            } else {
+                const savedLang = localStorage.getItem('dp_lang') || 'en';
+                setLanguage(savedLang);
+            }
+        });
+    </script>
+</body>
+</html>

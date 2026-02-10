@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diplomatic Protocol Academy | Training & Certification</title>
+    <meta name="description" content="Professional training in diplomatic protocol, business etiquette, and international communication. Certification programs for individuals and organizations.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* LANG SELECTOR (SADECE BAYRAKLI DROPDOWN) */
+        .navbar .lang-selector {
+            position: relative;
+            margin-left: 1.5rem;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .lang-selector {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0.5rem;
+            background: none;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+        }
+
+        /* Üst ve alt tüm bayrak kutuları aynı genişlikte olsun */
+        .lang-current,
+        .lang-option {
+            width: 42px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .lang-current img,
+        .lang-option img {
+            width: 32px;
+            height: 24px;
+            object-fit: cover;
+            display: block;
+            border-radius: 4px;
+        }
+
+        .lang-current svg {
+            margin-left: 6px;
+        }
+
+        /* Dropdown kutusu başlangıç hali */
+        .lang-dropdown {
+            position: absolute;
+            top: 110%;
+            left: 0;
+
+            border-radius: 0.75rem;
+            padding: 0.4rem 0.3rem;
+            display: none;
+            flex-direction: column;
+            gap: 0.35rem;
+            z-index: 10000;
+
+            transform: scale(0.92) translateY(4px);
+            opacity: 0;
+            transition: transform 0.18s ease-out, opacity 0.18s ease-out, box-shadow 0.18s ease-out;
+
+        }
+
+        .lang-selector.open .lang-dropdown {
+            display: flex;
+            transform: scale(1) translateY(0);
+            opacity: 1;
+  
+        }
+
+        /* Sadece dropdown’daki bayrak hover olunca büyüsün */
+        .lang-option img {
+            transition: transform 0.15s ease-out;
+        }
+
+        .lang-option:hover img {
+            transform: scale(1.18);
+        }
+
+        @media (max-width: 992px) {
+            .navbar .lang-selector {
+                margin-left: 0.75rem;
+            }
+        }
+        /* Sayfa içeriği navbar'dan sonra başlasın (fixed navbar offset) */
+body{
+  padding-top: 80px; /* navbar yüksekliğin kadar */
+}
+
+/* Mobilde navbar biraz farklıysa */
+@media (max-width: 992px){
+  body{ padding-top: 86px; }
+}
+
+/* Anchor linklerde (#approach vs) başlık navbar altında kalmasın */
+section[id]{
+  scroll-margin-top: 90px;
+}
+/* Academy hero: içerik uzunsa kesilmesin */
+.hero.hero-academy{
+  height: auto !important;
+  min-height: 70vh !important;
+  overflow: visible !important;
+  padding-bottom: 3rem; /* altta nefes */
+}
+
+/* Grid içindeki video/resim kutuları düzgün dursun */
+.hero.hero-academy .hero-three-grid{
+  align-items: stretch;
+}
+
+.hero.hero-academy .hero-video-right,
+.hero.hero-academy .hero-image-left{
+  min-height: 320px; /* istersen 360 yap */
+}
+
+.hero.hero-academy .hero-video-right video,
+.hero.hero-academy .hero-image-left img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Mobilde alt grid tek kolona düşsün */
+@media (max-width: 992px){
+  .hero.hero-academy .hero-three-grid{
+    grid-template-columns: 1fr !important;
+  }
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                <img src="images/logo1yesil.png" alt="Diplomatic Protocol Logo" 
+                    style="width: 100px; 
+                           height: 100%; 
+                           max-height: 150px; 
+                           background-color: var(--dark-green);">
+                <span>DIPLOMATIC PROTOCOL</span>
+            </a>
+            
+            <div class="navbar-menu">
+                <a href="index.html" class="active" data-i18n="nav.home">Home</a>
+                <a href="about.html" data-i18n="nav.about">About Us</a>
+                <a href="services.html" data-i18n="nav.services">Services</a>
+
+                <div class="dropdown hover-dropdown">
+                    <a href="academy.html" class="dropdown-toggle" data-i18n="nav.academy">
+                        Diplomatic Protocol Academy
+                    </a>
+
+                    <div class="dropdown-menu">
+                        <a href="academy.html#approach" data-i18n="nav.academyApproach">Our Approach</a>
+                        <a href="academy.html#programs" data-i18n="nav.academyPrograms">Programs & Training Levels</a>
+                        <a href="academy.html#formats" data-i18n="nav.academyFormats">Formats of Training</a>
+                        <a href="academy.html#benefits" data-i18n="nav.academyBenefits">Benefits of the Training</a>
+                        <a href="academy.html#certificates" data-i18n="nav.academyCertificates">Certificates & Recognition</a>
+                    </div>
+                </div>
+
+                <a href="contact.html" data-i18n="nav.contact">Contact Us</a>
+
+                <!-- LANG SELECTOR DROPDOWN: SADECE BAYRAKLAR -->
+                <div class="lang-selector">
+                    <button class="lang-current" type="button" data-lang="en" aria-label="Change language">
+                        <img src="https://flagcdn.com/w40/gb.png" alt="English">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+
+                    <div class="lang-dropdown" aria-label="Language options">
+                        <button class="lang-option" type="button" data-lang="en">
+                            <img src="https://flagcdn.com/w40/gb.png" alt="English">
+                        </button>
+                        <button class="lang-option" type="button" data-lang="tr">
+                            <img src="https://flagcdn.com/w40/tr.png" alt="Türkçe">
+                        </button>
+                        <button class="lang-option" type="button" data-lang="me">
+                            <img src="https://flagcdn.com/w40/me.png" alt="Montenegrin">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero hero-academy" style="min-height: 70vh;">
+
+        <div class="container">
+            <div class="hero-content">
+                <p class="hero-subtitle" data-i18n="academyPage.heroSubtitle">PROFESSIONAL DEVELOPMENT</p>
+                <h1 class="hero-title" data-i18n="academyPage.heroTitle">Diplomatic Protocol <span>Academy</span></h1>
+                <p class="hero-description" data-i18n="academyPage.heroDescription">
+                        At the Diplomatic Protocol Academy, we empower organizations to elevate their standards of professionalism, service, and client engagement. 
+                        Our exclusive programs are designed to train executives,
+                        teams, and staff in the art of diplomatic protocol, corporate etiquette, and high-level business communication.</p>
+                
+                <p class="hero-description" data-i18n="academyPage.heroDescription2">
+                        Through hands-on training, immersive simulations, and expert guidance, we help companies enhance their operational excellence, strengthen 
+                        client relationships, and deliver experiences that reflect prestige, sophistication, and impeccable professionalism.</p>
+
+                <p class="hero-description" data-i18n="academyPage.heroDescription3">
+                    Whether preparing teams for international events, VIP engagements, or high-profile corporate gatherings, the Diplomatic Protocol Institute ensures 
+                    your organization operates with the precision, discretion, and elegance expected at the highest levels.
+                </p>
+                <a href="#approach" class="btn btn-outline" data-i18n="academyPage.heroCta">Discover Our Programs</a>
+            </div>
+
+            <div class="hero-three-grid" style="
+                display: grid;
+                grid-template-columns: 1fr 0.3fr 1fr;
+                align-items: center;
+                gap: 2rem;
+            ">
+                <!-- SOL TARAF — RESİM -->
+                <div class="hero-image-left" style="
+                    position: relative; 
+                    border-radius: var(--radius-lg); 
+                    overflow: hidden; 
+                    box-shadow: var(--shadow-lg);
+                ">
+                    <img 
+                        src="images/ourprogram.jpg"
+                        alt="Academy Training"
+                        style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+
+                <!-- ORTA KISIM — BOŞLUK -->
+                <div></div>
+
+                <!-- SAĞ TARAF — OTOMATİK OYNAYAN VİDEO -->
+                <div class="hero-video-right" style="
+                    position: relative; 
+                    border-radius: var(--radius-lg); 
+                    overflow: hidden; 
+                    box-shadow: var(--shadow-lg);
+                    height: 100%;
+                ">
+                    <img 
+                        src="images/programs1.jpg"
+                        alt="Programs Overview"
+                        style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 1. Our Approach -->
+    <section class="section" id="approach">
+        <div class="container">
+            <div class="two-col">
+                <div class="two-col-content animate-on-scroll">
+                    <p class="text-gold" style="font-weight: 600; letter-spacing: 2px; margin-bottom: 0.5rem;" data-i18n="academyPage.approach.label">OUR APPROACH</p>
+                    <h2 data-i18n="academyPage.approach.title">How We Design and Deliver Training</h2>
+                    <p data-i18n="academyPage.approach.p1">In today’s professional and international environment, mastery of protocol, etiquette, and high-level business 
+                                                             communication is a defining factor for leaving a lasting impression. Our academy is designed 
+                                                            to empower individuals and organizations, elevating their expertise, confidence, and cultural competence.</p>
+                    <p data-i18n="academyPage.approach.p2">Our methodology combines theoretical knowledge with practical examples from diplomatic and corporate protocol.
+                                                             Participants gain the ability to navigate formal, international, and high-profile settings with 
+                                                            elegance and professionalism, leaving a lasting positive impact on partners, clients, and audiences.</p>
+                    <p data-i18n="academyPage.approach.p3">Our instructors are seasoned experts with extensive experience in governmental, diplomatic, and corporate sectors,
+                                                 ready to impart not only knowledge but the subtle nuances of behavior that define true professional and diplomatic excellence.</p>
+
+                    <ul class="mt-3">
+                        <li data-i18n="academyPage.approach.li1">Simulation exercises replicating real diplomatic scenarios</li>
+                        <li data-i18n="academyPage.approach.li2">Case studies from international summits and state visits</li>
+                        <li data-i18n="academyPage.approach.li3">Role-playing activities for practical skill development</li>
+                        <li data-i18n="academyPage.approach.li4">Personalized feedback and coaching</li>
+                    </ul>
+                    
+                    <a href="#programs" class="btn btn-outline mt-3" data-i18n="academyPage.approach.button">Learn More About Our Method</a>
+                </div>
+                <div class="two-col-image animate-on-scroll">
+                    <img src="images/training.jpg" alt="Training Session">
+                </div>
+            </div>
+        </div>
+    </section>
+<style>
+    /* Programs cards grid */
+.programs-grid{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.25rem;
+}
+
+/* Tablet */
+@media (max-width: 1200px){
+  .programs-grid{ grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Mobil */
+@media (max-width: 992px){
+  .programs-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Küçük mobil */
+@media (max-width: 576px){
+  .programs-grid{ grid-template-columns: 1fr; }
+}
+
+/* Kart içi taşmaları azalt (opsiyonel ama faydalı) */
+.programs-grid .card{
+  height: 100%;
+}
+.programs-grid .card p{
+  overflow-wrap: anywhere;
+}
+
+</style>
+    <!-- 2. Programs & Training Levels -->
+    <section class="section section-beige" id="programs">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+            <p class="text-gold" style="font-weight: 600; letter-spacing: 2px; margin-bottom: 0.5rem;" data-i18n="academyPage.programs.label">
+                PROGRAMS & TRAINING LEVELS
+            </p>
+
+            <h2 data-i18n="academyPage.programs.title">
+                Each level of training at the Diplomatic Protocol Academy is carefully crafted to provide practical skills and cultural awareness that participants can immediately apply.
+            </h2>
+
+            <!-- Not: burada <p> yerine <div> kullandım ki içerde <ul> sorunsuz çalışsın -->
+            <div data-i18n="academyPage.programs.subtitle">
+                Our programs include:
+                <ul style="margin-top: 1rem;">
+                <li>Developing and deepening understanding of etiquette – mastering the rules of polite, cultured, and professional conduct applicable in all business and diplomatic contexts.</li>
+                <li>Mastering principles of diplomatic and corporate protocol – aligned with contemporary international standards, enabling confident and elegant navigation of formal events and meetings.</li>
+                <li>Acquiring practical skills – through simulations and real-life examples, participants learn how to act and respond effectively in national and international settings.</li>
+                </ul>
+                <p style="margin-top: 1rem; margin-bottom: 0;">
+                Our courses are designed to enhance personal and organizational reputation, enabling participants to make a lasting impression on clients, partners, and VIP guests.
+                </p>
+            </div>
+            </div>
+
+            
+            <div class="services-grid stagger-children programs-grid">
+
+                <div class="card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    </div>
+                    <h4 data-i18n="academyPage.programs.card1.title">Diplomatic Protocol</h4>
+                    <p data-i18n="academyPage.programs.card1.text">State visits, ceremonial procedures & international relations</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                    </div>
+                    <h4 data-i18n="academyPage.programs.card2.title">Business Protocol</h4>
+                    <p data-i18n="academyPage.programs.card2.text">Corporate engagements & professional conduct</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" 
+     stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="10" />
+    <path d="M7 16v-4" />
+    <path d="M12 16v-6" />
+    <path d="M17 16v-4" />
+    <path d="M5 10h14" />
+</svg>
+                    </div>
+                    <h4 data-i18n="academyPage.programs.card3.title">Operational & Corporate Protocol</h4>
+                    <p data-i18n="academyPage.programs.card3.text">Event logistics & organizational standards</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <h4 data-i18n="academyPage.programs.card4.title">Business Etiquette</h4>
+                    <p data-i18n="academyPage.programs.card4.text">Professional manners & social grace</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    </div>
+                    <h4 data-i18n="academyPage.programs.card5.title">Business Communication</h4>
+                    <p data-i18n="academyPage.programs.card5.text">Cross-cultural dialogue & presentation skills</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Formats of Training -->
+    <section class="section" id="formats">
+        <div class="container">
+            <div class="two-col two-col-reverse">
+                <div class="two-col-content animate-on-scroll">
+                    <p class="text-gold"
+                    style="font-weight: 600; letter-spacing: 2px; margin-bottom: 0.5rem;"
+                    data-i18n="academyPage.formats.label">
+                    FORMATS OF TRAINING
+                    </p>
+
+                    <h2 data-i18n="academyPage.formats.title">
+                    Flexible Formats for Modern Organizations
+                    </h2>
+
+                    <p data-i18n="academyPage.formats.p1">
+                    We understand that each organization and team has unique needs and schedules.
+                    </p>
+
+                    <ul class="mt-3">
+                    <li data-i18n="academyPage.formats.li1">
+                        In-House / Live Training
+                    </li>
+                    <li data-i18n="academyPage.formats.li2">
+                        Online Interactive Sessions
+                    </li>
+                    <li data-i18n="academyPage.formats.li3">
+                        VIP / Individual Sessions
+                    </li>
+                    </ul>
+
+                    <p class="mt-3" data-i18n="academyPage.formats.p2">
+                    These flexible formats ensure that every organization and team can fully benefit.
+                    </p>
+
+
+                    
+                    <a href="contact.html" class="btn btn-outline mt-3" data-i18n="academyPage.formats.button">Explore Training Formats</a>
+                </div>
+                <div class="two-col-image animate-on-scroll">
+                    <img src="images/formattraining.jpg" alt="Executive Coaching">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Benefits of Training -->
+    <section class="section section-beige" id="benefits">
+        <div class="container">
+            <div class="two-col">
+                <div class="two-col-content animate-on-scroll">
+                    <p class="text-gold" style="font-weight: 600; letter-spacing: 2px; margin-bottom: 0.5rem;" data-i18n="academyPage.benefits.label">BENEFITS OF THE TRAINING</p>
+                    <h2 data-i18n="academyPage.benefits.title">Tangible Impact on Your Organization</h2>
+                        <p data-i18n="academyPage.benefits.p1">
+                        Participants gain knowledge and skills that directly enhance professional success and reputation.
+                        </p>
+
+                        <ul class="mt-3">
+                        <li data-i18n="academyPage.benefits.li1">
+                            Certificate of Completion
+                        </li>
+                        <li data-i18n="academyPage.benefits.li2">
+                            Comprehensive learning materials
+                        </li>
+                        <li data-i18n="academyPage.benefits.li3">
+                            Practical, immediately applicable skills
+                        </li>
+                        <li data-i18n="academyPage.benefits.li4">
+                            Enhanced confidence in communication and presentation
+                        </li>
+                        <li data-i18n="academyPage.benefits.li5">
+                            Strengthened professional reputation and credibility
+                        </li>
+                        </ul>
+
+                    
+                    <a href="contact.html" class="btn btn-outline mt-3" data-i18n="academyPage.benefits.button">See Key Benefits</a>
+                </div>
+                <div class="two-col-image animate-on-scroll">
+                    <img src="images/benefittraining.jpg" alt="Business Success">
+                </div>
+            </div>
+        </div>
+    </section>
+<style>
+    /* Certificates cards grid */
+.certificates-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+/* Tablet */
+@media (max-width: 992px){
+  .certificates-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Mobil */
+@media (max-width: 576px){
+  .certificates-grid{ grid-template-columns: 1fr; }
+}
+
+/* Taşmaları engelle (özellikle uzun çevirilerde) */
+.certificates-grid .card{
+  height: 100%;
+  min-width: 0;
+}
+.certificates-grid .card p,
+.certificates-grid .card h4{
+  overflow-wrap: anywhere;
+}
+
+</style>
+    <!-- 5. Certificates & Recognition -->
+    <section class="section" id="certificates">
+        <div class="container">
+            <div class="two-col two-col-reverse">
+                <div class="two-col-content animate-on-scroll">
+                    <p class="text-gold" style="font-weight: 600; letter-spacing: 2px; margin-bottom: 0.5rem;" data-i18n="academyPage.certificates.label">CERTIFICATES & RECOGNITION</p>
+                    <h2 data-i18n="academyPage.certificates.title">Internationally Aligned Certification</h2>
+                    <p data-i18n="academyPage.certificates.p1">The Diplomatic Protocol Academy offers certified programs recognized in both international and corporate contexts. Certificates not only validate mastered knowledge but also enhance the reputation of both participants and their organizations. Our programs are designed to:</p>
+                    
+                    <div class="services-grid mt-4 certificates-grid">
+
+                        <div class="card card-beige" style="padding: 1.25rem;">
+                            <h4 style="font-size: 1rem; margin-bottom: 0.5rem;" data-i18n="academyPage.certificates.card1.title">Expertise</h4>
+                            <p style="font-size: 0.9rem;" data-i18n="academyPage.certificates.card1.text">Recognize participants as experts in protocol and professional etiquette.</p>
+                        </div>
+                        <div class="card card-beige" style="padding: 1.25rem;">
+                            <h4 style="font-size: 1rem; margin-bottom: 0.5rem;" data-i18n="academyPage.certificates.card2.title">Professionalism</h4>
+                            <p style="font-size: 0.9rem;" data-i18n="academyPage.certificates.card2.text">Elevate organizational standards of professionalism.</p>
+                        </div>
+                        <div class="card card-beige" style="padding: 1.25rem;">
+                            <h4 style="font-size: 1rem; margin-bottom: 0.5rem;" data-i18n="academyPage.certificates.card3.title">Trust</h4>
+                            <p style="font-size: 0.9rem;" data-i18n="academyPage.certificates.card3.text">Increase client and partner trust through flawless application of protocol and etiquette.</p>
+                        </div>
+                    </div>
+                    
+                    <a href="contact.html" class="btn btn-outline mt-3" data-i18n="academyPage.certificates.button">Learn About Certificates</a>
+                </div>
+                <div class="two-col-image animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1431540015161-0bf868a2d407?w=600&h=400&fit=crop" alt="Conference Room">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exclusive Training Programs -->
+    <section class="section section-dark">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 style="color: var(--white);" data-i18n="academyPage.exclusive.title">Exclusive Training & Certification Programs</h2>
+                <p style="color: rgba(255,255,255,0.8);" data-i18n="academyPage.exclusive.subtitle">Specialized programs designed for professionals seeking mastery in specific areas of protocol and international engagement</p>
+            </div>
+            
+            <div class="program-tags stagger-children">
+                <span class="program-tag" data-i18n="academyPage.exclusive.tag1">The Art of International Protocol & VIP Management</span>
+                <span class="program-tag" data-i18n="academyPage.exclusive.tag2">Change Management</span>
+                <span class="program-tag" data-i18n="academyPage.exclusive.tag3">Emotional Intelligence in the Digital Work Sphere</span>
+                <span class="program-tag" data-i18n="academyPage.exclusive.tag4">Business Etiquette & Professionalism</span>
+                <span class="program-tag" data-i18n="academyPage.exclusive.tag5">Cross-Cultural Communication</span>
+                <span class="program-tag" data-i18n="academyPage.exclusive.tag6">Protocol of Royals & Heads of State</span>
+                <span class="program-tag" data-i18n="academyPage.exclusive.tag7">Soft Diplomacy & Global Leadership</span>
+                <span class="program-tag" data-i18n="academyPage.exclusive.tag8">VIP & Event Management Essentials</span>
+                <span class="program-tag" data-i18n="academyPage.exclusive.tag9">Driving with Distinction: Skills for Professional Drivers</span>
+                <span class="program-tag" data-i18n="academyPage.exclusive.tag10">Beyond Traditional Media</span>
+            </div>
+            
+            <div class="text-center mt-4 animate-on-scroll">
+                <a href="contact.html" class="btn btn-gold" data-i18n="academyPage.exclusive.button">Inquire About Programs</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call Widget -->
+    <div class="call-widget">
+        <div class="call-widget-box">
+            <img src="images/help1.png" alt="Support Agent" class="call-agent-img">
+
+            <div class="call-widget-texts">
+                <p class="call-widget-text" data-i18n="callWidget.text">We’re here to ensure<br>perfection</p>
+
+                <a href="contact.html" class="call-start-btn" data-i18n="buttons.startCall">
+                    <svg width="18" height="18" fill="white" viewBox="0 0 24 24">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 3 5.18
+                        2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.72c.12 1.05.37 2.07.73 3.06a2
+                        2 0 0 1-.45 2.11l-1.27 1.27a16 16 0 0 0 7.07 7.07l1.27-1.27a2
+                        2 0 0 1 2.11-.45 12.84 12.84 0 0 0 3.06.73A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                    Start a call
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4 data-i18n="footer.exploreTitle">Explore</h4>
+                    <ul>
+                        <li><a href="index.html" data-i18n="footer.exploreHome">Home</a></li>
+                        <li><a href="about.html" data-i18n="footer.exploreWhoWeAre">Who We Are</a></li>
+                        <li><a href="about.html#team" data-i18n="footer.exploreTeam">Team</a></li>
+                        <li><a href="references.html" data-i18n="footer.explorePastEvents">Past Events</a></li>
+                        <li><a href="contact.html" data-i18n="footer.exploreCareers">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer.servicesTitle">Services</h4>
+                    <ul>
+                        <li><a href="academy.html" data-i18n="footer.servicesTrainingInstitute">Training Institute</a></li>
+                        <li><a href="services.html#protocol" data-i18n="footer.servicesProtocol">Protocol Services</a></li>
+                        <li><a href="services.html#events" data-i18n="footer.servicesEvents">Events Planning & Management</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer.scheduleTitle">Schedule / Programs</h4>
+                    <ul>
+                        <li><a href="academy.html#programs" data-i18n="footer.schedulePublic">Public Trainings</a></li>
+                        <li><a href="academy.html#formats" data-i18n="footer.schedulePrivate">Private Group Trainings</a></li>
+                        <li><a href="academy.html#programs" data-i18n="footer.scheduleUpcoming">Upcoming Programs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer.companyTitle">Diplomatic Protocol</h4>
+                    <p data-i18n="footer.companyDescription">Leading provider of diplomatic protocol services, training, and event management.</p>
+                    <p style="margin-top: 1rem;">
+                        <strong data-i18n="footer.emailLabel">Email:</strong> info@diplomaticprotocol.me<br>
+                        <strong data-i18n="footer.phoneLabel">Phone:</strong> +382 (555) 123-4567
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r="1"/></svg></a>
+                        <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+                        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                        <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer.rights">&copy; 2025 DiplomaticProtocol.me – All rights reserved.</p>
+                <div>
+                    <a href="#" data-i18n="footer.privacy">Privacy Policy</a> | 
+                    <a href="#" data-i18n="footer.refund">Refund Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+
+    <!-- i18n + Lang Menu + Call Widget JS -->
+    <script>
+        const translations = {
+            en: {
+                nav: {
+                    home: `Home`,
+                    about: `About Us`,
+                    services: `Services`,
+                    academy: `Diplomatic Protocol Academy`,
+                    academyApproach: `Our Approach`,
+                    academyPrograms: `Programs & Training Levels`,
+                    academyFormats: `Formats of Training`,
+                    academyBenefits: `Benefits of the Training`,
+                    academyCertificates: `Certificates & Recognition`,
+                    academyCalendar: `Calendar`,
+                    contact: `Contact Us`
+                },
+                buttons: {
+                    exploreServices: `Explore Our Services`,
+                    contact: `Contact Us`,
+                    learnMore: `Learn More`,
+                    joinNow: `Join Us Now`,
+                    exploreAcademy: `Explore the Academy`,
+                    startCall: `Start a call`
+                },
+                callWidget: {
+                    text: `We’re here to ensure<br>perfection`
+                },
+                footer: {
+                    exploreTitle: `Explore`,
+                    exploreHome: `Home`,
+                    exploreWhoWeAre: `Who We Are`,
+                    exploreTeam: `Team`,
+                    explorePastEvents: `Past Events`,
+                    exploreCareers: `Careers`,
+                    servicesTitle: `Services`,
+                    servicesTrainingInstitute: `Training Institute`,
+                    servicesProtocol: `Protocol Services`,
+                    servicesEvents: `Events Planning & Management`,
+                    scheduleTitle: `Schedule / Programs`,
+                    schedulePublic: `Public Trainings`,
+                    schedulePrivate: `Private Group Trainings`,
+                    scheduleUpcoming: `Upcoming Programs`,
+                    companyTitle: `Diplomatic Protocol`,
+                    companyDescription: `Leading provider of diplomatic protocol services, training, and event management.`,
+                    emailLabel: `Email:`,
+                    phoneLabel: `Phone:`,
+                    rights: `© 2025 DiplomaticProtocol.me – All rights reserved.`,
+                    privacy: `Privacy Policy`,
+                    refund: `Refund Policy`
+                },
+                academyPage: {
+                    heroSubtitle: `PROFESSIONAL DEVELOPMENT`,
+                    heroTitle: `Diplomatic Protocol <span>Academy</span>`,
+                    heroDescription: `Our academy combines academic knowledge with real diplomatic experience, offering comprehensive training programs led by seasoned protocol professionals. From simulation exercises to case studies, we prepare you for excellence in international settings.`,
+                    heroDescription2: `Through hands-on training, immersive simulations, and expert guidance, we help companies enhance their operational excellence, strengthen client relationships, and deliver experiences that reflect prestige, sophistication, and impeccable professionalism.`,
+                    heroDescription3: `Whether preparing teams for international events, VIP engagements, or high-profile corporate gatherings, the Diplomatic Protocol Institute ensures your organization operates with the precision, discretion, and elegance expected at the highest levels.`,
+                    heroCta: `Discover Our Programs`,
+                    approach: {
+                        label: `OUR APPROACH`,
+                        title: `How We Design and Deliver Training`,
+                        p1: `In today’s professional and international environment, mastery of protocol, etiquette, and high-level business communication is a defining factor for leaving a lasting impression. Our academy is designed to empower individuals and organizations, elevating their expertise, confidence, and cultural competence.`,
+                        p2: `Our methodology combines theoretical knowledge with practical examples from diplomatic and corporate protocol. Participants gain the ability to navigate formal, international, and high-profile settings with confidence.`,
+                        p3: `Our instructors are seasoned experts with extensive experience in governmental, diplomatic, and corporate sectors, ready to impart not only knowledge but the subtle nuances of behavior that define true professional and diplomatic excellence.`,
+                        li1: `Simulation exercises replicating real diplomatic scenarios`,
+                        li2: `Case studies from international summits and state visits`,
+                        li3: `Role-playing activities for practical skill development`,
+                        li4: `Personalized feedback and coaching`,
+                        button: `Learn More About Our Method`
+                    },
+                    programs: {
+                        label: `PROGRAMS & TRAINING LEVELS`,
+                        title: `Each level of training at the Diplomatic Protocol Academy is carefully crafted to provide practical skills and cultural awareness that participants can immediately apply.`,
+                        subtitle: `Our programs include:
+                            <ul style="margin-top: 1rem;">
+                            <li>Developing and deepening understanding of etiquette – mastering the rules of polite, cultured, and professional conduct applicable in all business and diplomatic contexts.</li>
+                            <li>Mastering principles of diplomatic and corporate protocol – aligned with contemporary international standards, enabling confident and elegant navigation of formal events and meetings.</li>
+                            <li>Acquiring practical skills – through simulations and real-life examples, participants learn how to act and respond effectively in national and international settings.</li>
+                            </ul>
+                            <p style="margin-top: 1rem; margin-bottom: 0;">
+                            Our courses are designed to enhance personal and organizational reputation, enabling participants to make a lasting impression on clients, partners, and VIP guests.
+                            </p>`,
+                        card1: {
+                            title: `Diplomatic Protocol`,
+                            text: `State visits, ceremonial procedures & international relations`
+                        },
+                        card2: {
+                            title: `Business Protocol`,
+                            text: `Corporate engagements & professional conduct`
+                        },
+                        card3: {
+                            title: `Operational & Corporate Protocol`,
+                            text: `Event logistics & organizational standards`
+                        },
+                        card4: {
+                            title: `Business Etiquette`,
+                            text: `Professional manners & social grace`
+                        },
+                        card5: {
+                            title: `Business Communication`,
+                            text: `Cross-cultural dialogue & presentation skills`
+                        }
+                    },
+                    formats: {
+                        label: `FORMATS OF TRAINING`,
+                        title: `Flexible Formats for Modern Organizations`,
+                        p1: `We understand that each organization and team has unique needs and schedules. That’s why we offer flexible training formats tailored to your requirements:`,
+                        li1: `In-House / Live Training – sessions at your company or a neutral venue, focusing on practical simulations and direct application of protocol.`,
+                        li2: `Online Interactive Sessions – live, interactive lectures and simulations, ideal for remote or globally distributed teams.`,
+                        li3: `VIP / Individual Sessions – exclusive one-on-one or small-group sessions, ranging from a single day to multi-day courses, with maximum attention to personalized goals and objectives.`,
+                        p2: `These flexible formats ensure that every organization and team can fully benefit, strengthen their capacities, and raise their standards of professionalism.`,
+                        button: `Explore Training Formats`
+                    },
+                    benefits: {
+                        label: `BENEFITS OF THE TRAINING`,
+                        title: `Tangible Impact on Your Organization`,
+                        p1: `Participants gain knowledge and skills that directly enhance professional success and reputation:`,
+                        li1: `Certificate of Completion (available in Serbian and/or English), validating expertise and alignment with international standards.`,
+                        li2: `Comprehensive learning materials – PDFs, presentations, and practical examples for continued reference.`,
+                        li3: `Practical skills that can be applied immediately in corporate and diplomatic environments.`,
+                        li4: `Enhanced confidence in presentation, communication, and representing your company or institution.`,
+                        li5: `Strengthened professional reputation and credibility, enabling your organization to stand out in high-level business and diplomatic circles.`,
+                        button: `See Key Benefits`
+                    },
+                    certificates: {
+                        label: `CERTIFICATES & RECOGNITION`,
+                        title: `Internationally Aligned Certification`,
+                        p1: `The Diplomatic Protocol Academy offers certified programs recognized in both international and corporate contexts. Certificates not only validate mastered knowledge but also enhance the reputation of both participants and their organizations. Our programs are designed to:`,
+                        card1: {
+                            title: `Expertise`,
+                            text: `Recognize participants as experts in protocol and professional etiquette.`
+                        },
+                        card2: {
+                            title: `Professionalism`,
+                            text: `Elevate organizational standards of professionalism.`
+                        },
+                        card3: {
+                            title: `Trust`,
+                            text: `Increase client and partner trust through flawless application of protocol and etiquette.`
+                        },
+                        button: `Learn About Certificates`
+                    },
+                    exclusive: {
+                        title: `Exclusive Training & Certification Programs`,
+                        subtitle: `Specialized programs designed for professionals seeking mastery in specific areas of protocol and international engagement`,
+                        tag1: `The Art of International Protocol & VIP Management`,
+                        tag2: `Change Management`,
+                        tag3: `Emotional Intelligence in the Digital Work Sphere`,
+                        tag4: `Business Etiquette & Professionalism`,
+                        tag5: `Cross-Cultural Communication`,
+                        tag6: `Protocol of Royals & Heads of State`,
+                        tag7: `Soft Diplomacy & Global Leadership`,
+                        tag8: `VIP & Event Management Essentials`,
+                        tag9: `Driving with Distinction: Skills for Professional Drivers`,
+                        tag10: `Beyond Traditional Media`,
+                        button: `Inquire About Programs`
+                    }
+                }
+            },
+            tr: {
+                nav: {
+                    home: `Ana Sayfa`,
+                    about: `Hakkımızda`,
+                    services: `Hizmetler`,
+                    academy: `Diplomatik Protokol Akademisi`,
+                    academyApproach: `Yaklaşımımız`,
+                    academyPrograms: `Programlar & Eğitim Seviyeleri`,
+                    academyFormats: `Eğitim Formatları`,
+                    academyBenefits: `Eğitimin Faydaları`,
+                    academyCertificates: `Sertifikalar & Tanınırlık`,
+                    academyCalendar: `Takvim`,
+                    contact: `İletişim`
+                },
+                buttons: {
+                    exploreServices: `Hizmetlerimizi Keşfedin`,
+                    contact: `Bize Ulaşın`,
+                    learnMore: `Detaylı Bilgi`,
+                    joinNow: `Hemen Katılın`,
+                    exploreAcademy: `Akademiyi Keşfedin`,
+                    startCall: `Görüşme Başlat`
+                },
+                callWidget: {
+                    text: `Sizin için buradayız<br>mükemmellik için`
+                },
+                footer: {
+                    exploreTitle: `Keşfet`,
+                    exploreHome: `Ana Sayfa`,
+                    exploreWhoWeAre: `Biz Kimiz`,
+                    exploreTeam: `Ekip`,
+                    explorePastEvents: `Geçmiş Etkinlikler`,
+                    exploreCareers: `Kariyer`,
+                    servicesTitle: `Hizmetler`,
+                    servicesTrainingInstitute: `Eğitim Enstitüsü`,
+                    servicesProtocol: `Protokol Hizmetleri`,
+                    servicesEvents: `Etkinlik Planlama & Yönetimi`,
+                    scheduleTitle: `Takvim / Programlar`,
+                    schedulePublic: `Açık Eğitimler`,
+                    schedulePrivate: `Kuruma Özel Eğitimler`,
+                    scheduleUpcoming: `Yaklaşan Programlar`,
+                    companyTitle: `Diplomatic Protocol`,
+                    companyDescription: `Diplomatik protokol hizmetleri, eğitim ve etkinlik yönetimi alanında lider bir sağlayıcıdır.`,
+                    emailLabel: `E-posta:`,
+                    phoneLabel: `Telefon:`,
+                    rights: `© 2025 DiplomaticProtocol.me – Tüm hakları saklıdır.`,
+                    privacy: `Gizlilik Politikası`,
+                    refund: `İade Politikası`
+                },
+                academyPage: {
+                    heroSubtitle: `PROFESYONEL GELİŞİM`,
+                    heroTitle: `Diplomatik Protokol <span>Akademisi</span>`,
+                    heroDescription: `Akademimiz, akademik bilgiyi gerçek diplomatik deneyimle birleştirerek, alanında deneyimli protokol uzmanları tarafından yürütülen kapsamlı eğitim programları sunar. Simülasyon çalışmaları ve vaka analizleriyle sizi uluslararası ortamlarda mükemmelliğe hazırlarız.`,
+                    heroDescription2: `Uygulamalı eğitim, etkileyici simülasyonlar ve uzman rehberliği ile şirketlerin operasyonel mükemmeliyetini artırmalarına, müşteri ilişkilerini güçlendirmelerine ve prestij, sofistike ve kusursuz profesyonellik yansıtan deneyimler sunmalarına yardımcı oluyoruz.`,
+                    heroDescription3: `Uluslararası etkinlikler, VIP katılımları veya yüksek profilli kurumsal toplantılar için ekipleri hazırlarken, Diplomatic Protocol Institute, kuruluşunuzun en yüksek seviyelerde beklenen hassasiyet, gizlilik ve zarafetle çalışmasını sağlar.`,
+                    heroCta: `Programlarımızı Keşfedin`,
+                    approach: {
+                        label: `YAKLAŞIMIMIZ`,
+                        title: `Eğitimleri Nasıl Tasarlıyor ve Sunuyoruz`,
+                        p1: `Günümüzün profesyonel ve uluslararası ortamında; protokol, görgü kuralları ve üst düzey iş iletişimi konularında yetkinlik, kalıcı bir izlenim bırakmanın belirleyici unsurlarından biridir. Akademimiz, bireyleri ve kurumları güçlendirmek; uzmanlıklarını, özgüvenlerini ve kültürel yetkinliklerini üst seviyeye taşımak amacıyla tasarlanmıştır.`,
+                        p2: `Metodolojimiz, teorik bilgiyi diplomatik ve kurumsal protokolden alınan pratik örneklerle birleştirir. Katılımcılar; resmî, uluslararası ve yüksek profilli ortamlarda kendinden emin bir şekilde hareket etme becerisi kazanır.`,
+                        p3: `Eğitmenlerimiz; kamu, diplomatik ve kurumsal sektörlerde geniş deneyime sahip, yalnızca bilgiyi değil, aynı zamanda gerçek profesyonel ve diplomatik mükemmelliği tanımlayan davranışın inceliklerini de aktarmaya hazır uzmanlardan oluşmaktadır.`,
+                        li1: `Gerçek diplomatik senaryoları canlandıran simülasyon çalışmaları`,
+                        li2: `Uluslararası zirveler ve resmi ziyaretlerden vaka analizleri`,
+                        li3: `Pratik beceri geliştirmeye yönelik rol yapma etkinlikleri`,
+                        li4: `Kişiselleştirilmiş geri bildirim ve koçluk`,
+                        button: `Yöntemimiz Hakkında Detaylı Bilgi`
+                    },
+                    programs: {
+                        label: `PROGRAMLAR & EĞİTİM SEVİYELERİ`,
+                        title: `Diplomatik Protokol Akademisi’ndeki her eğitim seviyesi, katılımcıların hemen uygulayabileceği pratik beceriler ve kültürel farkındalık kazandırmak üzere özenle tasarlanmıştır.`,
+                        subtitle: `Programlarımız şunları içerir:
+                            <ul style="margin-top: 1rem;">
+                            <li>Görgü kuralları anlayışını geliştirme ve derinleştirme – tüm iş ve diplomatik bağlamlarda geçerli nazik, kültürlü ve profesyonel davranış kurallarına hâkim olma.</li>
+                            <li>Diplomatik ve kurumsal protokol ilkelerine hâkim olma – çağdaş uluslararası standartlarla uyumlu; resmî etkinlik ve toplantılarda güvenle ve zarafetle hareket etme.</li>
+                            <li>Pratik beceriler edinme – simülasyonlar ve gerçek hayat örnekleriyle ulusal ve uluslararası ortamlarda etkili davranma ve doğru tepki verme.</li>
+                            </ul>
+                            <p style="margin-top: 1rem; margin-bottom: 0;">
+                            Kurslarımız; kişisel ve kurumsal itibarı güçlendirmek, katılımcıların müşteriler, iş ortakları ve VIP misafirler üzerinde kalıcı bir izlenim bırakmasını sağlamak için tasarlanmıştır.
+                            </p>`,
+                        card1: {
+                            title: `Diplomatik Protokol`,
+                            text: `Resmi ziyaretler, törensel prosedürler ve uluslararası ilişkiler`
+                        },
+                        card2: {
+                            title: `İş Protokolü`,
+                            text: `Kurumsal ilişkiler ve profesyonel davranış`
+                        },
+                        card3: {
+                            title: `Operasyonel & Kurumsal Protokol`,
+                            text: `Etkinlik lojistiği ve organizasyon standartları`
+                        },
+                        card4: {
+                            title: `İş Görgü Kuralları`,
+                            text: `Profesyonel nezaket ve sosyal zarafet`
+                        },
+                        card5: {
+                            title: `İş İletişimi`,
+                            text: `Kültürlerarası iletişim ve sunum becerileri`
+                        }
+                    },
+                    formats: {
+                        label: `EĞİTİM FORMATLARI`,
+                        title: `Modern Kurumlar İçin Esnek Eğitim Formatları`,
+                        p1: `Her kurumun ve ekibin kendine özgü ihtiyaçları ve zaman planlaması olduğunu biliyoruz. Bu nedenle gereksinimlerinize özel, esnek eğitim formatları sunuyoruz:`,
+                        li1: `Kurum İçi / Yüz Yüze Eğitim – şirketinizde veya tarafsız bir mekânda gerçekleştirilen, pratik simülasyonlara ve protokolün doğrudan uygulanmasına odaklanan eğitimler.`,
+                        li2: `Online Etkileşimli Oturumlar – uzaktan veya global ekipler için ideal, canlı ve interaktif dersler ile simülasyonlar.`,
+                        li3: `VIP / Bireysel Eğitimler – tek gün veya çok günlük programlar şeklinde, bire bir ya da küçük gruplara özel, tamamen kişisel hedeflere odaklanan ayrıcalıklı oturumlar.`,
+                        p2: `Bu esnek formatlar sayesinde her kurum ve ekip eğitimlerden en üst düzeyde fayda sağlar, yetkinliklerini güçlendirir ve profesyonellik standartlarını yükseltir.`,
+                        button: `Eğitim Formatlarını İnceleyin`
+                    },
+                    benefits: {
+                        label: `EĞİTİMİN FAYDALARI`,
+                        title: `Kurumunuza Ölçülebilir Katkılar`,
+                        p1: `Katılımcılar, profesyonel başarıyı ve itibarı doğrudan artıran bilgi ve beceriler kazanır:`,
+                        li1: `Katılım Sertifikası (Sırpça ve/veya İngilizce), uzmanlığı ve uluslararası standartlara uyumu belgeleyen resmi bir doküman.`,
+                        li2: `Kapsamlı eğitim materyalleri – sürekli başvuru için PDF’ler, sunumlar ve pratik örnekler.`,
+                        li3: `Kurumsal ve diplomatik ortamlarda anında uygulanabilir pratik beceriler.`,
+                        li4: `Sunum, iletişim ve kurumunuzu temsil etme konularında artan özgüven.`,
+                        li5: `Güçlenen profesyonel itibar ve güvenilirlik sayesinde, kurumunuzun üst düzey iş ve diplomatik çevrelerde öne çıkması.`,
+                        button: `Başlıca Faydaları Görün`
+                    },
+                    certificates: {
+                        label: `SERTİFİKALAR & TANINIRLIK`,
+                        title: `Uluslararası Standartlara Uygun Sertifikasyon`,
+                        p1: `Diplomatik Protokol Akademisi, uluslararası ve kurumsal alanlarda tanınan sertifikalı programlar sunar. Sertifikalar yalnızca kazanılan bilgiyi belgelemekle kalmaz, aynı zamanda katılımcıların ve kurumların itibarını güçlendirir. Programlarımız şu amaçlarla tasarlanmıştır:`,
+                        card1: {
+                            title: `Uzmanlık`,
+                            text: `Katılımcıların protokol ve profesyonel görgü alanında uzman olarak tanınmasını sağlar.`
+                        },
+                        card2: {
+                            title: `Profesyonellik`,
+                            text: `Kurumsal düzeyde profesyonellik standartlarını yükseltir.`
+                        },
+                        card3: {
+                            title: `Güven`,
+                            text: `Protokol ve görgü kurallarının kusursuz uygulanmasıyla müşteri ve iş ortaklarının güvenini artırır.`
+                        },
+                        button: `Sertifikalar Hakkında Bilgi Alın`
+                    },
+                    exclusive: {
+                        title: `Özel Eğitim ve Sertifikasyon Programları`,
+                        subtitle: `Protokol ve uluslararası etkileşim alanında uzmanlaşmak isteyen profesyonellere özel tasarlanmış programlar`,
+                        tag1: `Uluslararası Protokol & VIP Yönetimi Sanatı`,
+                        tag2: `Değişim Yönetimi`,
+                        tag3: `Dijital Çalışma Alanında Duygusal Zeka`,
+                        tag4: `İş Görgü Kuralları & Profesyonellik`,
+                        tag5: `Kültürlerarası İletişim`,
+                        tag6: `Kraliyet Ailesi ve Devlet Başkanları Protokolü`,
+                        tag7: `Yumuşak Diplomasi & Küresel Liderlik`,
+                        tag8: `VIP & Etkinlik Yönetiminin Temelleri`,
+                        tag9: `Ayrıcalıklı Sürüş: Profesyonel Şoförler İçin Beceriler`,
+                        tag10: `Geleneksel Medyanın Ötesinde`,
+                        button: `Programlar Hakkında Bilgi Alın`
+                    }
+                }
+            },
+            me: {
+                nav: {
+                    home: `Početna`,
+                    about: `O nama`,
+                    services: `Usluge`,
+                    academy: `Akademija diplomatskog protokola`,
+                    academyApproach: `Naš pristup`,
+                    academyPrograms: `Programi i nivoi obuke`,
+                    academyFormats: `Formati obuke`,
+                    academyBenefits: `Prednosti obuke`,
+                    academyCertificates: `Sertifikati i priznanja`,
+                    academyCalendar: `Kalendar`,
+                    contact: `Kontakt`
+                },
+                buttons: {
+                    exploreServices: `Pogledaj naše usluge`,
+                    contact: `Kontaktiraj nas`,
+                    learnMore: `Saznaj više`,
+                    joinNow: `Pridruži se sada`,
+                    exploreAcademy: `Istraži Akademiju`,
+                    startCall: `Započni poziv`
+                },
+                callWidget: {
+                    text: `Tu smo da obezbijedimo<br>savršenu izvedbu`
+                },
+                footer: {
+                    exploreTitle: `Istraži`,
+                    exploreHome: `Početna`,
+                    exploreWhoWeAre: `Ko smo`,
+                    exploreTeam: `Tim`,
+                    explorePastEvents: `Prethodni događaji`,
+                    exploreCareers: `Karijera`,
+                    servicesTitle: `Usluge`,
+                    servicesTrainingInstitute: `Trening institut`,
+                    servicesProtocol: `Protokolarne usluge`,
+                    servicesEvents: `Planiranje i organizacija događaja`,
+                    scheduleTitle: `Raspored / Programi`,
+                    schedulePublic: `Javne obuke`,
+                    schedulePrivate: `Privatne grupne obuke`,
+                    scheduleUpcoming: `Predstojeći programi`,
+                    companyTitle: `Diplomatic Protocol`,
+                    companyDescription: `Vodeći provajder protokolarnih usluga, obuka i menadžmenta događaja.`,
+                    emailLabel: `Email:`,
+                    phoneLabel: `Telefon:`,
+                    rights: `© 2025 DiplomaticProtocol.me – Sva prava zadržana.`,
+                    privacy: `Politika privatnosti`,
+                    refund: `Pravila povraćaja`
+                },
+                academyPage: {
+                    heroSubtitle: `PROFESIONALNI RAZVOJ`,
+                    heroTitle: `Akademija diplomatskog <span>protokola</span>`,
+                    heroDescription: `Naša akademija kombinuje akademsko znanje sa stvarnim diplomatskim iskustvom, nudeći sveobuhvatne programe obuke koje vode iskusni protokolarni stručnjaci. Kroz simulacione vježbe i studije slučaja pripremamo vas za izvrsnost u međunarodnom okruženju.`,
+                    heroDescription2: `Praktična obuka, impresivne simulacije i stručna podrška pomažu kompanijama da poboljšaju operativnu izvrsnost, ojačaju odnose s klijentima i pruže iskustva koja odražavaju prestiž, sofisticiranost i besprijekornu profesionalnost.`,
+                    heroDescription3: `Dok pripremamo timove za međunarodne događaje, VIP prisustva ili visoko profilisane korporativne sastanke, Diplomatic Protocol Institute osigurava da vaša organizacija funkcioniše s preciznošću, povjerljivošću i elegancijom koja se očekuje na najvišim nivoima.`,
+                    heroCta: `Otkrijte naše programe`,
+                    approach: {
+                        label: `NAŠ PRISTUP`,
+                        title: `Kako osmišljavamo i sprovodimo obuke`,
+                        p1: `U današnjem profesionalnom i međunarodnom okruženju, ovladavanje protokolom, bontonom i poslovnom komunikacijom na visokom nivou predstavlja ključni faktor za ostavljanje trajnog utiska. Naša akademija je osmišljena da osnaži pojedince i organizacije, unapređujući njihovu stručnost, samopouzdanje i kulturnu kompetenciju.`,
+                        p2: `Naša metodologija kombinuje teorijsko znanje sa praktičnim primjerima iz diplomatskog i korporativnog protokola. Učesnici stiču sposobnost da se s povjerenjem snalaze u formalnim, međunarodnim i visokoprofilnim okruženjima.`,
+                        p3: `Naši instruktori su iskusni stručnjaci sa bogatim iskustvom u državnim, diplomatskim i korporativnim sektorima, spremni da prenesu ne samo znanje već i suptilne nijanse ponašanja koje definišu istinsku profesionalnu i diplomatsku izvrsnost.`,
+                        li1: `Simulacije koje prikazuju realne diplomatske scenarije`,
+                        li2: `Studije slučaja sa međunarodnih samita i državnih posjeta`,
+                        li3: `Role-play aktivnosti za razvoj praktičnih vještina`,
+                        li4: `Personalizovan feedback i koučing`,
+                        button: `Saznaj više o našoj metodi`
+                    },
+                    programs: {
+                        label: `PROGRAMI I NIVOi OBUKE`,
+                        title: `Svaki nivo obuke u Akademiji diplomatskog protokola pažljivo je osmišljen kako bi pružio praktične vještine i kulturnu svijest koje učesnici mogu odmah primijeniti.`,
+                        subtitle: `Naši programi uključuju:
+                            <ul style="margin-top: 1rem;">
+                            <li>Razvijanje i produbljivanje razumijevanja bontona – ovladavanje pravilima uljudnog, kulturnog i profesionalnog ponašanja primjenjivog u svim poslovnim i diplomatskim kontekstima.</li>
+                            <li>Ovladavanje principima diplomatskog i korporativnog protokola – usklađeno sa savremenim međunarodnim standardima, omogućava sigurno i elegantno snalaženje na formalnim događajima i sastancima.</li>
+                            <li>Sticanje praktičnih vještina – kroz simulacije i primjere iz stvarnog života, učesnici uče kako da efikasno djeluju i reaguju u nacionalnom i međunarodnom okruženju.</li>
+                            </ul>
+                            <p style="margin-top: 1rem; margin-bottom: 0;">
+                            Naši kursevi su osmišljeni da unaprijede lični i organizacioni ugled, omogućavajući učesnicima da ostave trajan utisak na klijente, partnere i VIP goste.
+                            </p>`,
+                        card1: {
+                            title: `Diplomatski protokol`,
+                            text: `Državne posjete, ceremonijalne procedure i međunarodni odnosi`
+                        },
+                        card2: {
+                            title: `Poslovni protokol`,
+                            text: `Korporativni susreti i profesionalno ponašanje`
+                        },
+                        card3: {
+                            title: `Operativni i korporativni protokol`,
+                            text: `Logistika događaja i organizacioni standardi`
+                        },
+                        card4: {
+                            title: `Poslovni bonton`,
+                            text: `Profesionalno ophođenje i društveni maniri`
+                        },
+                        card5: {
+                            title: `Poslovna komunikacija`,
+                            text: `Međukulturni dijalog i prezentacione vještine`
+                        }
+                    },
+                    formats: {
+                        label: `FORMATI OBUKE`,
+                        title: `Fleksibilni formati za savremene organizacije`,
+                        p1: `Razumijemo da svaka organizacija i tim imaju jedinstvene potrebe i rasporede. Zato nudimo fleksibilne formate obuke prilagođene vašim zahtjevima:`,
+                        li1: `In-House / Obuka uživo – sesije u vašoj kompaniji ili na neutralnoj lokaciji, fokusirane na praktične simulacije i direktnu primjenu protokola.`,
+                        li2: `Online interaktivne sesije – živa, interaktivna predavanja i simulacije, idealne za udaljene ili globalno raspoređene timove.`,
+                        li3: `VIP / Individualne sesije – ekskluzivne jedan-na-jedan ili male grupne obuke, u trajanju od jednog ili više dana, uz maksimalnu pažnju posvećenu ličnim ciljevima.`,
+                        p2: `Ovi fleksibilni formati omogućavaju svakoj organizaciji i timu da u potpunosti iskoriste obuku, ojačaju svoje kapacitete i podignu nivo profesionalnosti.`,
+                        button: `Istraži formate obuke`
+                    },
+                    benefits: {
+                        label: `PREDNOSTI OBUKE`,
+                        title: `Opipljiv uticaj na vašu organizaciju`,
+                        p1: `Učesnici stiču znanje i vještine koje direktno unapređuju profesionalni uspjeh i reputaciju:`,
+                        li1: `Sertifikat o završenoj obuci (na srpskom i/ili engleskom jeziku), koji potvrđuje stručnost i usklađenost sa međunarodnim standardima.`,
+                        li2: `Sveobuhvatni edukativni materijali – PDF dokumenti, prezentacije i praktični primjeri za stalnu upotrebu.`,
+                        li3: `Praktične vještine koje se mogu odmah primijeniti u korporativnom i diplomatskom okruženju.`,
+                        li4: `Povećano samopouzdanje u prezentaciji, komunikaciji i predstavljanju kompanije ili institucije.`,
+                        li5: `Ojačana profesionalna reputacija i kredibilitet, omogućavajući organizaciji da se izdvoji u poslovnim i diplomatskim krugovima visokog nivoa.`,
+                        button: `Pogledaj ključne benefite`
+                    },
+                    certificates: {
+                        label: `SERTIFIKATI I PRIZNANJA`,
+                        title: `Sertifikacija usklađena sa međunarodnim standardima`,
+                        p1: `Akademija diplomatskog protokola nudi sertifikovane programe priznate u međunarodnom i korporativnom okruženju. Sertifikati ne samo da potvrđuju stečeno znanje, već i jačaju reputaciju učesnika i njihovih organizacija. Naši programi su osmišljeni da:`,
+                        card1: {
+                            title: `Stručnost`,
+                            text: `Prepoznaju učesnike kao stručnjake za protokol i profesionalni bonton.`
+                        },
+                        card2: {
+                            title: `Profesionalizam`,
+                            text: `Podignu organizacione standarde profesionalnosti.`
+                        },
+                        card3: {
+                            title: `Povjerenje`,
+                            text: `Povećaju povjerenje klijenata i partnera kroz besprijekornu primjenu protokola i bontona.`
+                        },
+                        button: `Saznaj više o sertifikatima`
+                    },
+                    exclusive: {
+                        title: `Ekskluzivni programi obuke i sertifikacije`,
+                        subtitle: `Specijalizovani programi za profesionalce koji žele usavršavanje u specifičnim oblastima protokola i međunarodnog djelovanja`,
+                        tag1: `Umijeće međunarodnog protokola i VIP menadžmenta`,
+                        tag2: `Upravljanje promjenama`,
+                        tag3: `Emocionalna inteligencija u digitalnom radnom okruženju`,
+                        tag4: `Poslovni bonton i profesionalizam`,
+                        tag5: `Međukulturna komunikacija`,
+                        tag6: `Protokol kraljevskih porodica i šefova država`,
+                        tag7: `Soft diplomacija i globalno liderstvo`,
+                        tag8: `Osnove VIP i event menadžmenta`,
+                        tag9: `Vožnja sa stilom: vještine za profesionalne vozače`,
+                        tag10: `Onkraj tradicionalnih medija`,
+                        button: `Informiši se o programima`
+                    }
+                }
+            }
+        };
+
+        const LANG_FLAGS = {
+            en: 'https://flagcdn.com/w40/gb.png',
+            tr: 'https://flagcdn.com/w40/tr.png',
+            me: 'https://flagcdn.com/w40/me.png'
+        };
+
+        const LANG_NAMES = {
+            en: 'English',
+            tr: 'Türkçe',
+            me: 'Montenegrin'
+        };
+
+        function setLanguage(lang) {
+            const supported = ['en', 'tr', 'me'];
+            if (!supported.includes(lang)) lang = 'en';
+
+            document.documentElement.lang = lang;
+
+            const dict = translations[lang] || translations.en;
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.dataset.i18n;
+                const parts = key.split('.');
+                let value = dict;
+                parts.forEach(p => {
+                    if (value && typeof value === 'object') value = value[p];
+                });
+                if (typeof value === 'string') {
+                    el.innerHTML = value;
+                }
+            });
+
+            // bayrak güncelle
+            const langSelector = document.querySelector('.lang-selector');
+            if (langSelector) {
+                const currentBtn = langSelector.querySelector('.lang-current');
+                const img = currentBtn ? currentBtn.querySelector('img') : null;
+                if (currentBtn) currentBtn.dataset.lang = lang;
+                if (img && LANG_FLAGS[lang]) {
+                    img.src = LANG_FLAGS[lang];
+                    img.alt = LANG_NAMES[lang] || '';
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Call widget görünür olsun
+            const callWidget = document.querySelector('.call-widget');
+            if (callWidget) {
+                callWidget.style.opacity = '1';
+                callWidget.style.pointerEvents = 'auto';
+            }
+
+            const langSelector = document.querySelector('.lang-selector');
+            if (langSelector) {
+                const dropdown = langSelector.querySelector('.lang-dropdown');
+                const savedLang = localStorage.getItem('dp_lang') || 'en';
+                setLanguage(savedLang);
+
+                let langCloseTimeout = null;
+
+                // hover ile aç / kapat
+                langSelector.addEventListener('mouseenter', () => {
+                    if (langCloseTimeout) clearTimeout(langCloseTimeout);
+                    langSelector.classList.add('open');
+                });
+
+                langSelector.addEventListener('mouseleave', () => {
+                    langCloseTimeout = setTimeout(() => {
+                        langSelector.classList.remove('open');
+                    }, 200);
+                });
+
+                if (dropdown) {
+                    dropdown.querySelectorAll('[data-lang]').forEach(btn => {
+                        btn.addEventListener('click', function (e) {
+                            e.preventDefault();
+                            const lang = this.dataset.lang;
+                            setLanguage(lang);
+                            localStorage.setItem('dp_lang', lang);
+                        });
+                    });
+                }
+            } else {
+                const savedLang = localStorage.getItem('dp_lang') || 'en';
+                setLanguage(savedLang);
+            }
+        });
+    </script>
+</body>
+</html>

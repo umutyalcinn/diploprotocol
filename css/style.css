@@ -1,0 +1,1262 @@
+/* ============================================
+   DIPLOMATIC PROTOCOL - MAIN STYLESHEET
+   Reference: vipprotocolevents.com
+   ============================================ */
+
+/* ---------- CSS Variables ---------- */
+:root {
+    --dark-green: #1a3c34;
+    --dark-green-light: #234a40;
+    --gold: #c9a227;
+    --gold-hover: #b8922a;
+    --beige: #f5f0e8;
+    --beige-light: #faf7f2;
+    --white: #ffffff;
+    --black: #111111;
+    --text-dark: #2a2a2a;
+    --text-muted: #666666;
+    
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+    --shadow-md: 0 4px 20px rgba(0,0,0,0.12);
+    --shadow-lg: 0 8px 30px rgba(0,0,0,0.15);
+    
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    
+    --transition: all 0.3s ease;
+    --transition-slow: all 0.5s ease;
+}
+
+/* ---------- Reset & Base ---------- */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--text-dark);
+    background: var(--white);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--black);
+}
+
+h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+h2 { font-size: clamp(2rem, 4vw, 3rem); }
+h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+h4 { font-size: 1.25rem; }
+
+p { margin-bottom: 1rem; }
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul { list-style: none; }
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 2rem;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-gold {
+    background: var(--gold);
+    color: var(--white);
+}
+
+.btn-gold:hover {
+    background: var(--gold-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-black {
+    background: var(--black);
+    color: var(--white);
+}
+
+.btn-black:hover {
+    background: #333;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: #b8922a;
+    border: 2px solid var(--gold);
+    color: #ffffff;
+}
+
+.btn-outline:hover {
+    background: var(--white);
+    color:var(--gold) ;
+}
+
+/* ---------- Navigation ---------- */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: var(--dark-green);
+    padding: 1rem 0;
+    transition: var(--transition);
+}
+
+.navbar.scrolled {
+    padding: 0.75rem 0;
+    box-shadow: var(--shadow-md);
+}
+
+.navbar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.navbar-brand img {
+    height: 50px;
+    width: auto;
+}
+
+.navbar-brand span {
+    color: var(--gold);
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.navbar-menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.navbar-menu a {
+  color: var(--gold);              /* Normal: GOLD */
+  transition: color 0.25s ease;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.navbar-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gold);
+    transition: var(--transition);
+}
+
+.navbar-menu a:hover::after,
+.navbar-menu a.active::after {
+    width: 100%;
+}
+
+.navbar-menu a:hover,
+.navbar-menu a.active {
+    color: #ffffff;
+}
+
+/* Language Selector */
+.lang-selector {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255,255,255,0.1);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+}
+
+.lang-selector img {
+    width: 24px;
+    height: 16px;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+/* Mobile Menu */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 2px;
+    background: var(--white);
+    transition: var(--transition);
+}
+
+/* ---------- Hero Section ---------- */
+.hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--dark-green) 0%, var(--dark-green-light) 100%);
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(201,162,39,0.1)" stroke-width="0.5"/></svg>') center/contain no-repeat;
+    opacity: 0.5;
+}
+
+.hero .container {
+    display: grid;
+    gap: 4rem;
+    align-items: center;
+}
+
+.hero-content {
+    color: var(--white);
+    animation: slideInLeft 0.8s ease-out;
+}
+
+.hero-title {
+    color: var(--white);
+    margin-bottom: 1.5rem;
+}
+
+.hero-description {
+    font-size: 1.125rem;
+    opacity: 1;
+    margin-bottom: 2rem;
+    max-width: 1900px;
+}
+
+/* ---------- Section Styles ---------- */
+.section {
+    padding: 6rem 0;
+}
+
+.section-dark {
+    background: var(--dark-green);
+    color: var(--white);
+}
+
+.section-beige {
+    background: var(--beige);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-header h2 {
+    margin-bottom: 1rem;
+}
+
+.section-header p {
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.section-dark .section-header p {
+    color: rgba(255,255,255,0.8);
+}
+
+/* ---------- Cards ---------- */
+.card {
+    background: var(--white);
+    border-radius: var(--radius-md);
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.card-beige {
+    background: var(--beige-light);
+}
+
+.card-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.card-icon svg {
+    width: 40px;
+    height: 40px;
+    stroke: var(--gold);
+    stroke-width: 1.5;
+    fill: none;
+}
+
+.card h3, .card h4 {
+    margin-bottom: 1rem;
+}
+
+.card p {
+    color: var(--text-muted);
+    margin-bottom: 0;
+}
+
+/* Service Cards Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+/* Image Cards */
+.image-card {
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    height: 400px;
+}
+
+.image-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-slow);
+}
+
+.image-card:hover img {
+    transform: scale(1.05);
+}
+
+.image-card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: var(--white);
+}
+
+.image-card-content h3 {
+    color: var(--white);
+    margin-bottom: 0.5rem;
+}
+
+.image-card-content p {
+    opacity: 0.9;
+    font-size: 0.95rem;
+}
+
+/* ---------- Membership Benefits ---------- */
+/* MEMBERSHIP STRIP – GÖRSEL & YERLEŞİM */
+.benefits-strip {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 3rem;
+    padding-block: 2rem;
+    /* İstersen buraya arka plan dalga görselini koy:
+       background: url("images/membership-waves.png") center/cover no-repeat; */
+}
+
+.benefit-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: left;
+    min-width: 0;
+
+    /* Flip animasyon başlangıç durumu */
+    transform-origin: left center;
+    transform: rotateY(90deg);
+    opacity: 0;
+    animation: benefit-flip 0.8s ease-out forwards;
+    animation-delay: 0s; /* JS ile dinamik güncellenecek */
+}
+
+/* Kart numarası görünümü */
+.benefit-number {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 4.5rem;
+    font-weight: 600;
+    color: #cfa845; /* görseldeki altın/bej tonu gibi */
+    line-height: 1;
+    margin-bottom: 0.25rem;
+}
+
+/* Metinler */
+.benefit-item p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #4b5563;
+    margin: 0;
+}
+
+/* Flip animasyon tanımı */
+@keyframes benefit-flip {
+    from {
+        transform: rotateY(90deg);
+        opacity: 0;
+    }
+    to {
+        transform: rotateY(0deg);
+        opacity: 1;
+    }
+}
+
+/* Sadece görünür olanlar animasyon oynasın */
+.benefit-item:not(.benefit-visible) {
+    animation: none;
+}
+
+/* MOBILE düzeni */
+@media (max-width: 768px) {
+    .benefits-strip {
+        flex-direction: column;
+        gap: 1.75rem;
+    }
+
+    .benefit-number {
+        font-size: 2.6rem;
+    }
+}
+
+
+/* CTA Banner */
+.cta-banner {
+    background: var(--gold);
+    padding: 2rem 3rem;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.cta-banner p {
+    color: var(--white);
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+/* ---------- Two Column Layout ---------- */
+.two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.two-col-reverse {
+    direction: rtl;
+}
+
+.two-col-reverse > * {
+    direction: ltr;
+}
+
+.two-col-content h3 {
+    margin-bottom: 1.5rem;
+}
+
+.two-col-content ul {
+    margin: 1.5rem 0;
+}
+
+.two-col-content li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.two-col-content li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    width: 8px;
+    height: 8px;
+    background: var(--gold);
+    border-radius: 50%;
+}
+
+.two-col-image img {
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+}
+
+/* ---------- Event Types Grid ---------- */
+.event-types-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.event-type-card {
+    background: var(--beige-light);
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    text-align: center;
+    transition: var(--transition);
+    border: 1px solid transparent;
+}
+
+.event-type-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-sm);
+}
+
+.event-type-card h4 {
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* ---------- Program Tags ---------- */
+.program-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.program-tag {
+    background: var(--beige-light);
+    padding: 1rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    border: 1px solid transparent;
+    color: var(--text-dark);
+}
+
+.program-tag:hover {
+    background: var(--gold);
+    color: var(--white);
+    transform: translateY(-3px);
+}
+
+/* ---------- Call Widget ---------- */
+        /* CALL WIDGET – HER ZAMAN GÖRÜNÜR & RESPONSIVE */
+        .call-widget {
+            position: fixed;
+            left: 24px;
+            bottom: 24px;
+            z-index: 9999;
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .call-widget-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            border-radius: 999px;
+            background: rgba(0, 0, 0, 0.82);
+            border: 1px solid rgba(201, 162, 39, 0.8);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(18px);
+        }
+
+        .call-agent-img {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .call-widget-texts {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            text-align: center; /* ← ORTALAR */
+             width: 100%;        /* ← Yazı alanı tamamen genişlesin */
+        }
+
+        .call-widget-text {
+            margin: 0;
+            font-size: 0.9rem;
+            line-height: 1.3;
+            color: #f9fafb;
+        }
+
+        .call-start-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            border: none;
+            background: linear-gradient(135deg, #c9a227, #e5c872);
+            color: #111827;
+            font-size: 0.8rem;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            white-space: nowrap;
+        }
+
+        .call-start-btn svg {
+            flex-shrink: 0;
+        }
+
+/* ---------- Footer ---------- */
+.footer {
+    background: var(--black);
+    color: var(--white);
+    padding: 5rem 0 2rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.footer-col h4 {
+    color: var(--gold);
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-col ul li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-col a {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.95rem;
+}
+
+.footer-col a:hover {
+    color: var(--gold);
+}
+
+.footer-col p {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.95rem;
+}
+
+.footer-social {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.footer-social a {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+}
+
+.footer-social a:hover {
+    background: var(--gold);
+}
+
+.footer-social svg {
+    width: 18px;
+    height: 18px;
+    fill: var(--white);
+}
+
+.footer-bottom {
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-bottom p {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.footer-bottom a {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.9rem;
+}
+
+.footer-bottom a:hover {
+    color: var(--gold);
+}
+
+/* ---------- Contact Form ---------- */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--gold);
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+/* ---------- Animations ---------- */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Scroll Animations */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: var(--transition-slow);
+}
+
+.animate-on-scroll.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger Children */
+/* Staggered card appearance */
+.stagger-children > * {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+
+.stagger-children.animated > *:nth-child(1) { transition-delay: 0.1s; }
+.stagger-children.animated > *:nth-child(2) { transition-delay: 0.3s; }
+.stagger-children.animated > *:nth-child(3) { transition-delay: 0.5s; }
+.stagger-children.animated > *:nth-child(4) { transition-delay: 0.7s; }
+.stagger-children.animated > *:nth-child(5) { transition-delay: 0.9s; }
+.stagger-children.animated > *:nth-child(6) { transition-delay: 0.11s; }
+
+.stagger-children.animated > * {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1200px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .event-types-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .navbar-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 300px;
+        height: 100vh;
+        background: var(--dark-green);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 6rem 2rem 2rem;
+        transition: var(--transition);
+    }
+      .navbar-menu a {
+    color: var(--gold);
+  }
+
+  .navbar-menu a:hover,
+  .navbar-menu a:active,
+  .navbar-menu a.active {
+    color: #ffffff;
+  }
+    .navbar-menu.active {
+        right: 0;
+    }
+    
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .hero .container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .hero-content {
+        order: 1;
+    }
+    
+    .hero-visual {
+        order: 2;
+    }
+    
+    .hero-description {
+        margin: 0 auto 2rem;
+    }
+    
+    .two-col {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .two-col-reverse {
+        direction: ltr;
+    }
+    
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .event-types-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 4rem 0;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .event-types-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .benefits-strip {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .benefit-item {
+        min-height: 180px;
+    }
+    
+    .cta-banner {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+
+            /* Call widget mobil yerleşim */
+            .call-widget {
+                left: 12px;
+                right: 12px;
+                bottom: 16px;
+            }
+
+            .call-widget-box {
+                width: 100%;
+                border-radius: 18px;
+                padding: 10px 12px;
+            }
+
+            .call-agent-img {
+                width: 64px;
+                height: 64px;
+            }
+
+            .call-widget-text {
+                font-size: 0.8rem;
+                text-align: center; /* ← ORTALAR */
+                 width: 240px;        /* ← Yazı alanı tamamen genişlesin */
+            }
+
+            .call-start-btn {
+                font-size: 0.75rem;
+                padding: 5px 10px;
+            }
+}
+
+/* Çok küçük ekranlar */
+@media (max-width: 420px) {
+
+    .call-widget-text {
+        font-size: 0.75rem;
+        text-align: center; /* ← ORTALAR */
+            width: 90%;   
+    }
+    .call-widget-box {
+        width: 240px;
+
+    }
+    .call-agent-img {
+        width: 64px;
+        height: 64px;
+    }
+
+    .benefit-item {
+        min-width: 180px;
+    }
+}
+
+/* ---------- HERO VIDEO OVERLAY (GENEL) ---------- */
+.hero {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;         /* Tam ekran yükseklik */
+    min-height: 100vh;     /* Boşluk kalmasını engeller */
+    display: flex;
+    align-items: center;   /* İçerik dikey ortalanacak */
+}
+
+.hero-bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    z-index: 2;  /* YENİ: Video üste çıktı */
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 45, 25, 0.65);
+    z-index: 1;  /* YENİ: Overlay altta kaldı */
+}
+
+.hero .container {
+    position: relative;
+    z-index: 3; /* YENİ: Yazılar en üstte */
+}
+
+
+/* ---------- Utility Classes ---------- */
+.text-gold { color: var(--gold); }
+.text-white { color: var(--white); }
+.text-center { text-align: center; }
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+
+/* Dropdown */
+.navbar-menu .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Menu Box */
+.navbar-menu .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    min-width: 240px;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    padding: 8px 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition:
+        opacity .25s ease,
+        transform .25s ease,
+        visibility .25s ease;
+    z-index: 9999;
+}
+
+/* Menu links */
+.navbar-menu .dropdown-menu a {
+    display: block;
+    padding: 10px 18px;
+    color: #222;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: background 0.2s;
+}
+
+.navbar-menu .dropdown-menu a:hover {
+    background: #f5f5f5;
+}
+
+/* Hover açılma */
+.navbar-menu .hover-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+/* MENU TOGGLE → X ANİMASYONU */
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+/* Team grid – desktop/tablet/mobil sütun sayıları */
+.team-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+@media (max-width: 600px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* LANG SELECTOR (SADECE BAYRAKLI DROPDOWN) */
+.navbar .lang-selector {
+    position: relative;
+    margin-left: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Üstte görünen bayrak */
+.lang-current {
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+}
+
+.lang-current img {
+    width: 32px;
+    height: 24px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.lang-current svg {
+    margin-left: 6px;
+}
+
+/* Dropdown içindeki bayraklar */
+.lang-option {
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+
+/* ALT ALTA VE TAM ALTA HİZALI DROPDOWN */
+/* Üst ve alt tüm bayrak kutuları aynı genişlikte olsun */
+.lang-current,
+.lang-option {
+    width: 42px;             /* her bayrak + boşluk için sabit */
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* tam ortaya hizalar */
+    padding: 0;
+}
+
+/* Bayrak resimleri tam ortaya gelsin */
+.lang-current img,
+.lang-option img {
+    width: 32px;
+    height: 24px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Dropdown sağa değil sola hizalansın — böylece ÜSTTEKİ BAYRAK ile aynı hizada açılır */
+/* Dropdown kutusu başlangıç hali */
+.lang-dropdown {
+    position: absolute;
+    top: 110%;
+    left: 0;
+
+    border-radius: 0.75rem;
+    padding: 0.4rem 0.3rem;
+    display: none;
+    flex-direction: column;
+    gap: 0.35rem;
+    z-index: 10000;
+
+    /* Animasyon için başlangıç */
+    transform: scale(0.92) translateY(4px);
+    opacity: 0;
+    transition: transform 0.18s ease-out, opacity 0.18s ease-out;
+}
+
+/* Hover veya .open olduğunda: Dropdown büyür ve biraz yukarı gelir */
+.lang-selector.open .lang-dropdown {
+    display: flex;
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+
+.lang-selector {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.5rem;
+    background: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+}
+
+.lang-option img {
+    transition: transform 0.15s ease-out;
+}
+
+.lang-option:hover img {
+    transform: scale(1.18);
+}

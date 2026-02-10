@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>References | Diplomatic Protocol</title>
+    <meta name="description" content="Our clients and references - trusted by governments, corporations, and distinguished organizations worldwide.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .reference-card {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            text-align: center;
+        }
+        .reference-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        .reference-logo {
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+        .reference-card:hover .reference-logo {
+            opacity: 1;
+        }
+        .reference-logo svg {
+            height: 50px;
+            width: auto;
+        }
+        .testimonial-card {
+            background: var(--beige-light);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            position: relative;
+        }
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 1rem;
+            left: 1.5rem;
+            font-size: 4rem;
+            color: var(--gold);
+            opacity: 0.3;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        .testimonial-text {
+            font-style: italic;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            padding-top: 1rem;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .testimonial-author-info h5 {
+            margin-bottom: 0.25rem;
+        }
+        .testimonial-author-info span {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                <img src="images/logo1yesil.png" alt="Diplomatic Protocol Logo" 
+                    style="width: 100px; 
+                            height: 100%; 
+                            max-height: 150px; 
+                            background-color: var(--dark-green); /* Koyu yeşil zemin */
+            
+                            ">
+                <span>DIPLOMATIC PROTOCOL</span>
+            </a>
+            
+            <div class="navbar-menu">
+                <a href="index.html" class="active">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="services.html">Services</a>
+
+                <div class="dropdown hover-dropdown">
+                    <a href="academy.html" class="dropdown-toggle">
+                        Diplomatic Protocol Academy
+                    </a>
+
+                    <div class="dropdown-menu">
+                        <a href="academy.html#approach">Our Approach</a>
+                        <a href="academy.html#programs">Programs & Training Levels</a>
+                        <a href="academy.html#formats">Formats of Training</a>
+                        <a href="academy.html#benefits">Benefits of the Training</a>
+                        <a href="academy.html#certificates">Certificates & Recognition</a>
+                    </div>
+                </div>
+
+
+                <!-- <a href="references.html">References</a> -->
+                <a href="contact.html">Contact Us</a>
+
+                <!-- LANG SELECTOR DROPDOWN: SADECE BAYRAKLAR -->
+                <div class="lang-selector">
+                    <button class="lang-current" type="button" data-lang="en" aria-label="Change language">
+                        <img src="https://flagcdn.com/w40/gb.png" alt="English">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+
+                    <div class="lang-dropdown" aria-label="Language options">
+                        <button class="lang-option" type="button" data-lang="en">
+                            <img src="https://flagcdn.com/w40/gb.png" alt="English">
+                        </button>
+                        <button class="lang-option" type="button" data-lang="tr">
+                            <img src="https://flagcdn.com/w40/tr.png" alt="Türkçe">
+                        </button>
+                        <button class="lang-option" type="button" data-lang="me">
+                            <img src="https://flagcdn.com/w40/me.png" alt="Montenegrin">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" style="min-height: 50vh;">
+        <div class="container">
+            <div class="hero-content" style="max-width: 100%; text-align: center;">
+                <p class="hero-subtitle">TRUSTED BY</p>
+                <h1 class="hero-title">Our <span>References</span></h1>
+                <p class="hero-description" style="max-width: 700px; margin: 0 auto;">
+                    We are honored to serve governments, international organizations, and leading corporations worldwide.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Logos -->
+    <section class="section section-beige">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2>Our Clients & Partners</h2>
+                <p>Trusted by distinguished organizations across the globe</p>
+            </div>
+            
+            <div class="services-grid stagger-children" style="grid-template-columns: repeat(4, 1fr);">
+                <div class="reference-card">
+                    <div class="reference-logo">
+                        <svg viewBox="0 0 120 60" fill="#1a3c34">
+                            <rect x="10" y="15" width="30" height="30" rx="5"/>
+                            <text x="70" y="38" font-size="16" font-family="Cormorant Garamond">Ministry</text>
+                        </svg>
+                    </div>
+                    <h4>Ministry of Foreign Affairs</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Protocol training & event management</p>
+                </div>
+                
+                <div class="reference-card">
+                    <div class="reference-logo">
+                        <svg viewBox="0 0 120 60" fill="#1a3c34">
+                            <circle cx="30" cy="30" r="20"/>
+                            <text x="60" y="38" font-size="14" font-family="Cormorant Garamond">Global Corp</text>
+                        </svg>
+                    </div>
+                    <h4>Global Finance Group</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Executive protocol training</p>
+                </div>
+                
+                <div class="reference-card">
+                    <div class="reference-logo">
+                        <svg viewBox="0 0 120 60" fill="#1a3c34">
+                            <polygon points="30,5 55,55 5,55"/>
+                            <text x="65" y="38" font-size="14" font-family="Cormorant Garamond">Embassy</text>
+                        </svg>
+                    </div>
+                    <h4>Embassy of Switzerland</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">State visit coordination</p>
+                </div>
+                
+                <div class="reference-card">
+                    <div class="reference-logo">
+                        <svg viewBox="0 0 120 60" fill="#1a3c34">
+                            <rect x="10" y="10" width="40" height="40" rx="20"/>
+                            <text x="60" y="38" font-size="14" font-family="Cormorant Garamond">Luxury</text>
+                        </svg>
+                    </div>
+                    <h4>Ritz-Carlton Hotels</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Staff protocol training</p>
+                </div>
+                
+                <div class="reference-card">
+                    <div class="reference-logo">
+                        <svg viewBox="0 0 120 60" fill="#1a3c34">
+                            <path d="M10 50 L30 10 L50 50 Z"/>
+                            <text x="60" y="38" font-size="14" font-family="Cormorant Garamond">Summit</text>
+                        </svg>
+                    </div>
+                    <h4>World Economic Forum</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">VIP hospitality services</p>
+                </div>
+                
+                <div class="reference-card">
+                    <div class="reference-logo">
+                        <svg viewBox="0 0 120 60" fill="#1a3c34">
+                            <circle cx="25" cy="30" r="15"/>
+                            <circle cx="45" cy="30" r="15"/>
+                            <text x="70" y="38" font-size="14" font-family="Cormorant Garamond">Royal</text>
+                        </svg>
+                    </div>
+                    <h4>Royal House of Jordan</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Protocol advisory</p>
+                </div>
+                
+                <div class="reference-card">
+                    <div class="reference-logo">
+                        <svg viewBox="0 0 120 60" fill="#1a3c34">
+                            <rect x="15" y="15" width="30" height="30"/>
+                            <text x="55" y="38" font-size="14" font-family="Cormorant Garamond">Bank</text>
+                        </svg>
+                    </div>
+                    <h4>Deutsche Bank</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Business etiquette programs</p>
+                </div>
+                
+                <div class="reference-card">
+                    <div class="reference-logo">
+                        <svg viewBox="0 0 120 60" fill="#1a3c34">
+                            <ellipse cx="30" cy="30" rx="20" ry="15"/>
+                            <text x="60" y="38" font-size="14" font-family="Cormorant Garamond">Airways</text>
+                        </svg>
+                    </div>
+                    <h4>Emirates Airlines</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">VIP services training</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2>What Our Clients Say</h2>
+            </div>
+            
+            <div class="services-grid stagger-children" style="grid-template-columns: repeat(2, 1fr);">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">The protocol training provided by Diplomatic Protocol transformed how our team handles high-level diplomatic engagements. The attention to detail and cultural sensitivity demonstrated was exceptional.</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" alt="Client">
+                        <div class="testimonial-author-info">
+                            <h5>Ambassador Richard Hayes</h5>
+                            <span>Former US Ambassador</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Our annual summit was flawlessly executed thanks to the Diplomatic Protocol team. Their expertise in VIP management and event coordination is unmatched in the industry.</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop" alt="Client">
+                        <div class="testimonial-author-info">
+                            <h5>Victoria Chen</h5>
+                            <span>CEO, Global Events International</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">The business etiquette training significantly improved our client relationships and team professionalism. A worthwhile investment for any organization seeking excellence.</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" alt="Client">
+                        <div class="testimonial-author-info">
+                            <h5>Michael Foster</h5>
+                            <span>Managing Director, Foster & Associates</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">From state dinners to international conferences, the team's meticulous approach ensures every detail is perfect. They understand the nuances of diplomatic protocol like no other.</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop" alt="Client">
+                        <div class="testimonial-author-info">
+                            <h5>Sophie Laurent</h5>
+                            <span>Protocol Director, Ministry of Foreign Affairs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Past Events -->
+    <section class="section section-beige">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2>Notable Events</h2>
+                <p>A selection of prestigious events we've managed</p>
+            </div>
+            
+            <div class="services-grid stagger-children" style="grid-template-columns: repeat(3, 1fr);">
+                <div class="image-card" style="height: 300px;">
+                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=500&h=300&fit=crop" alt="Event">
+                    <div class="image-card-content">
+                        <h4>G20 Summit Side Events</h4>
+                        <p>Riyadh, Saudi Arabia</p>
+                    </div>
+                </div>
+                
+                <div class="image-card" style="height: 300px;">
+                    <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=500&h=300&fit=crop" alt="Event">
+                    <div class="image-card-content">
+                        <h4>International Business Forum</h4>
+                        <p>Geneva, Switzerland</p>
+                    </div>
+                </div>
+                
+                <div class="image-card" style="height: 300px;">
+                    <img src="https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=500&h=300&fit=crop" alt="Event">
+                    <div class="image-card-content">
+                        <h4>Royal Gala Dinner</h4>
+                        <p>London, United Kingdom</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Call Widget -->
+<div class="call-widget">
+    <div class="call-widget-box">
+        <img src="images/help1.png" alt="Support Agent" class="call-agent-img">
+
+        <div class="call-widget-texts">
+            <p class="call-widget-text">We’re here to ensure<br>perfection</p>
+
+            <a href="contact.html" class="call-start-btn">
+                <svg width="18" height="18" fill="white" viewBox="0 0 24 24">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 3 5.18
+                    2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.72c.12 1.05.37 2.07.73 3.06a2
+                    2 0 0 1-.45 2.11l-1.27 1.27a16 16 0 0 0 7.07 7.07l1.27-1.27a2
+                    2 0 0 1 2.11-.45 12.84 12.84 0 0 0 3.06.73A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                Start a call
+            </a>
+        </div>
+    </div>
+</div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">Who We Are</a></li>
+                        <li><a href="about.html#team">Team</a></li>
+                        <li><a href="references.html">Past Events</a></li>
+                        <li><a href="contact.html">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="academy.html">Training Institute</a></li>
+                        <li><a href="services.html#protocol">Protocol Services</a></li>
+                        <li><a href="services.html#events">Events Planning & Management</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Schedule / Programs</h4>
+                    <ul>
+                        <li><a href="academy.html#programs">Public Trainings</a></li>
+                        <li><a href="academy.html#formats">Private Group Trainings</a></li>
+                        <li><a href="academy.html#programs">Upcoming Programs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Diplomatic Protocol</h4>
+                    <p>Leading provider of diplomatic protocol services, training, and event management.</p>
+                    <p style="margin-top: 1rem;">
+                        <strong>Email:</strong> info@diplomaticprotocol.me<br>
+                        <strong>Phone:</strong> +382 (555) 123-4567
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r="1"/></svg></a>
+                        <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+                        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                        <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 DiplomaticProtocol.me – All rights reserved.</p>
+                <div><a href="#">Privacy Policy</a> | <a href="#">Refund Policy</a></div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Call Widget Always Visible (JS) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const callWidget = document.querySelector('.call-widget');
+            if (callWidget) {
+                callWidget.style.opacity = '1';
+                callWidget.style.pointerEvents = 'auto';
+            }
+        });
+    </script>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

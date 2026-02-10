@@ -1,0 +1,1627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diplomatic Protocol | Excellence in Diplomatic Protocol</title>
+    <meta name="description" content="Excellence in diplomatic protocol services, training, and event management for distinguished organizations and individuals.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Mobile & Call Widget Overrides -->
+    <style>
+        /* Genel container güvenliği */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-inline: 1.5rem;
+        }
+
+        /* HERO video alanı tam ekran ve responsive */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            color: #fff;
+            overflow: hidden;
+        }
+        .hero-bg-video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top; /* ← üst kısmı öne çıkarır */
+filter: brightness(0.45) contrast(1.05);
+        }
+        /* Mobilde daha fazla yukarısı görünsün */
+        @media (max-width: 768px) {
+            .hero-bg-video {
+                object-position: center 15%;
+                transform: scale(0.93);
+                filter: brightness(0.65);
+            }
+        }
+        .hero-content {
+            max-width: 1400px;
+            padding-block: 5rem;
+        }
+
+        .hero-title {
+            font-size: clamp(2.2rem, 4vw, 3.5rem);
+            line-height: 1.1;
+            margin: 0;
+        }
+
+        /* Yeni ikinci H1 */
+        .hero-title-secondary {
+            font-size: clamp(1.6rem, 3.2vw, 2.6rem);
+            line-height: 1.15;
+            margin-top: 0.85rem;
+            margin-bottom: 1.8rem;
+            opacity: 0.95;
+        }
+
+        /* Sections */
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-beige {
+            padding: 4rem 0;
+        }
+
+        /* GRID’LERİN TEMEL HALİ (DESKTOP) */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 2rem;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .two-col-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 12px;
+        }
+
+        .benefit-item {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* içerik her kartta eşit dağılsın */
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 2rem;
+        }
+
+        /* CALL WIDGET – HER ZAMAN GÖRÜNÜR & RESPONSIVE */
+        .call-widget {
+            position: fixed;
+            left: 24px;
+            bottom: 24px;
+            z-index: 9999;
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .call-widget-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            border-radius: 999px;
+            background: rgba(0, 0, 0, 0.82);
+            border: 1px solid rgba(201, 162, 39, 0.8);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(18px);
+        }
+
+        .call-agent-img {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .call-widget-texts {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            text-align: center; /* ← ORTALAR */
+            width: 100%;        /* ← Yazı alanı tamamen genişlesin */
+        }
+
+        .call-widget-text {
+            margin: 0;
+            font-size: 0.9rem;
+            line-height: 1.3;
+            color: #f9fafb;
+        }
+
+        .call-start-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            border: none;
+            background: linear-gradient(135deg, #c9a227, #e5c872);
+            color: #111827;
+            font-size: 0.8rem;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            white-space: nowrap;
+        }
+
+        .call-start-btn svg {
+            flex-shrink: 0;
+        }
+
+        /* LANG SELECTOR (SADECE BAYRAKLI DROPDOWN) */
+        .navbar .lang-selector {
+            position: relative;
+            margin-left: 1.5rem;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        /* Üstte görünen bayrak */
+        .lang-current {
+            background: transparent;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .lang-current img {
+            width: 32px;
+            height: 24px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .lang-current svg {
+            margin-left: 6px;
+        }
+
+        /* Dropdown içindeki bayraklar */
+        .lang-option {
+            background: transparent;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        /* ALT ALTA VE TAM ALTA HİZALI DROPDOWN */
+        /* Üst ve alt tüm bayrak kutuları aynı genişlikte olsun */
+        .lang-current,
+        .lang-option {
+            width: 42px;             /* her bayrak + boşluk için sabit */
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center; /* tam ortaya hizalar */
+            padding: 0;
+        }
+
+        /* Bayrak resimleri tam ortaya gelsin */
+        .lang-current img,
+        .lang-option img {
+            width: 32px;
+            height: 24px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Dropdown sağa değil sola hizalansın — böylece ÜSTTEKİ BAYRAK ile aynı hizada açılır */
+        /* Dropdown kutusu başlangıç hali */
+        .lang-dropdown {
+            position: absolute;
+            top: 110%;
+            left: 0;
+
+            border-radius: 0.75rem;
+            padding: 0.4rem 0.3rem;
+            display: none;
+            flex-direction: column;
+            gap: 0.35rem;
+            z-index: 10000;
+
+            /* Animasyon için başlangıç */
+            transform: scale(0.92) translateY(4px);
+            opacity: 0;
+            transition: transform 0.18s ease-out, opacity 0.18s ease-out;
+        }
+
+        /* Hover veya .open olduğunda: Dropdown büyür ve biraz yukarı gelir */
+        .lang-selector.open .lang-dropdown {
+            display: flex;
+            transform: scale(1) translateY(0);
+            opacity: 1;
+        }
+
+        .lang-selector {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0.5rem;
+            background: none;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+        }
+
+        .lang-option img {
+            transition: transform 0.15s ease-out;
+        }
+
+        .lang-option:hover img {
+            transform: scale(1.18);
+        }
+
+        /* --- BENEFITS FLIP ANİMASYONU --- */
+        .benefits-strip.animated .benefit-item {
+            opacity: 0;
+            transform: perspective(800px) rotateY(90deg);
+            transform-origin: left center;
+            transition: none !important; /* başka animasyon/transition'ları iptal et */
+        }
+
+        .benefits-strip.animated .benefit-item.flip-in {
+            animation: benefitFlipIn 0.5s ease-out forwards;
+        }
+
+        @keyframes benefitFlipIn {
+            0% {
+                opacity: 0;
+                transform: perspective(800px) rotateY(90deg);
+            }
+            100% {
+                opacity: 1;
+                transform: perspective(800px) rotateY(0deg);
+            }
+        }
+
+        /* Tablet ve küçük ekranlar */
+        @media (max-width: 992px) {
+            .services-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+
+            .two-col-image {
+                order: -1; /* Görseli üstte göstermek istersen bunu kullan */
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .navbar .lang-selector {
+                margin-left: 0.75rem;
+            }
+        }
+
+        /* Telefon (mobil) */
+        @media (max-width: 768px) {
+            .hero {
+                text-align: left;
+                align-items: flex-end;
+            }
+
+            .hero-content {
+                padding-block: 5rem 6.5rem; /* Call widget için alttan boşluk */
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section,
+            .section-beige {
+                padding: 3rem 0;
+            }
+
+            /* VIP kartları 2 kolon yerine 1 kolon */
+            .section .services-grid[style*="repeat(4"] {
+                grid-template-columns: 1fr !important;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* Call widget mobil yerleşim */
+            .call-widget {
+                left: 12px;
+                right: 12px;
+                bottom: 16px;
+            }
+
+            .call-widget-box {
+                width: 100%;
+                border-radius: 18px;
+                padding: 10px 12px;
+            }
+
+            .call-agent-img {
+                width: 64px;
+                height: 64px;
+            }
+
+            .call-widget-text {
+                font-size: 0.8rem;
+                text-align: center; /* ← ORTALAR */
+                width: 240px;        /* ← Yazı alanı tamamen genişlesin */
+            }
+
+            .call-start-btn {
+                font-size: 0.75rem;
+                padding: 5px 10px;
+            }
+        }
+
+        /* Çok küçük ekranlar */
+        @media (max-width: 420px) {
+            .call-widget-text {
+                font-size: 0.75rem;
+                text-align: center; /* ← ORTALAR */
+                width: 90%;
+            }
+            .call-widget-box {
+                width: 240px;
+            }
+            .call-agent-img {
+                width: 64px;
+                height: 64px;
+            }
+
+            /* Scroll ile sağa kayma efekti */
+            .hero-content {
+                transition: transform 0.08s linear, opacity 0.12s linear;
+                will-change: transform, opacity;
+            }
+        }
+        /* --- SERVICES 9 CARD: 3+3+3 SLIDE-IN ANIMATION --- */
+/* --- SERVICES 9 CARD: DEEP SLIDE-UP --- */
+.services-grid.slide-group .image-card {
+    opacity: 0;
+    transform: translateY(90px) scale(0.30); /* 👈 DAHA ALTTAN + HAFİF UZAK */
+    transition:
+        opacity 0.65s ease-out,
+        transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform, opacity;
+}
+
+.services-grid.slide-group .image-card.slide-in {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.montenegro-statement {
+  background: var(--dark-green); /* 👈 SAYFA YEŞİLİ */
+  border-top: 1px solid rgba(201,162,39,0.35);
+  border-bottom: 1px solid rgba(201,162,39,0.35);
+
+  padding: 2.8rem 0;   /* 👈 yaklaşık 2 kat yükseklik */
+  overflow: hidden;
+}
+
+.montenegro-statement-text {
+  position: relative;
+
+  /* 👇 SAYFANIN EN SAĞI */
+  margin-left: auto;
+  margin-right: 0;
+
+  max-width: 1480px;
+  text-align: right;
+
+  color: rgba(255,255,255,0.9);
+  font-size: 1.2rem;
+  line-height: 1.55;
+
+  transform: translateX(0); /* başlangıç: en sağ */
+  will-change: transform;
+}
+
+/* Mobil */
+@media (max-width: 768px) {
+  .montenegro-statement {
+    background: var(--dark-green);
+    padding: 1.8rem 0;
+    overflow: hidden; /* taşmaları gizle */
+  }
+
+  .montenegro-statement-text {
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    padding-inline: 1rem;
+
+    font-size: 0.78rem;
+    line-height: 1.5;
+
+    text-align: center;      /* ortada okunaklı */
+    will-change: transform;  /* animasyon performansı */
+    transform: translateX(110%); /* 👈 başlangıç: EN SAĞ (ekran dışı) */
+  }
+}
+
+
+
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                <img src="images/logo1yesil.png" alt="Diplomatic Protocol Logo" 
+                    style="width: 100px; 
+                           height: 100%; 
+                           max-height: 150px; 
+                           background-color: var(--dark-green);">
+                <span>DIPLOMATIC PROTOCOL</span>
+            </a>
+            
+            <div class="navbar-menu">
+                <a href="index.html" class="active" data-i18n="nav.home">Home</a>
+                <a href="about.html" data-i18n="nav.about">About Us</a>
+                <a href="services.html" data-i18n="nav.services">Services</a>
+
+                <div class="dropdown hover-dropdown">
+                    <a href="academy.html" class="dropdown-toggle" data-i18n="nav.academy">
+                        Diplomatic Protocol Academy
+                    </a>
+
+                    <div class="dropdown-menu">
+                        <a href="academy.html#approach" data-i18n="nav.academyApproach">Our Approach</a>
+                        <a href="academy.html#programs" data-i18n="nav.academyPrograms">Programs & Training Levels</a>
+                        <a href="academy.html#formats" data-i18n="nav.academyFormats">Formats of Training</a>
+                        <a href="academy.html#benefits" data-i18n="nav.academyBenefits">Benefits of the Training</a>
+                        <a href="academy.html#certificates" data-i18n="nav.academyCertificates">Certificates & Recognition</a>
+                    </div>
+                </div>
+
+                <a href="contact.html" data-i18n="nav.contact">Contact Us</a>
+
+                <!-- LANG SELECTOR DROPDOWN: SADECE BAYRAKLAR -->
+                <div class="lang-selector">
+                    <button class="lang-current" type="button" data-lang="en" aria-label="Change language">
+                        <img src="https://flagcdn.com/w40/gb.png" alt="English">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+
+                    <div class="lang-dropdown" aria-label="Language options">
+                        <button class="lang-option" type="button" data-lang="en">
+                            <img src="https://flagcdn.com/w40/gb.png" alt="English">
+                        </button>
+                        <button class="lang-option" type="button" data-lang="tr">
+                            <img src="https://flagcdn.com/w40/tr.png" alt="Türkçe">
+                        </button>
+                        <button class="lang-option" type="button" data-lang="me">
+                            <img src="https://flagcdn.com/w40/me.png" alt="Montenegrin">
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <video class="hero-bg-video" autoplay muted loop playsinline>
+            <source src="images/karsilama3.mp4" type="video/mp4">
+        </video>
+
+        <div class="container">
+            <div class="hero-content">
+                <!-- Hero Bottom Right Text -->
+
+                <!-- Eski "EXCELLENCE..." ve açıklama kaldırıldı -->
+                <h1 class="hero-title" style="color: var(--gold);" data-i18n="hero.title">High-Level Events & VIP Diplomatic Protocol</h1>
+                <h1 class="hero-title-secondary" style="color: var(--gold);"data-i18n="hero.subtitle">Where Prestige Meets Perfection</h1>
+
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a href="services.html" class="btn btn-outline" data-i18n="buttons.exploreServices">Explore Our Services</a>
+
+                </div>
+                
+            </div>
+            
+        </div>
+
+    </section>
+<section class="montenegro-statement">
+
+    <p class="montenegro-statement-text" style="color: var(--gold);" data-i18n="montenegro.statement">
+      We are a Montenegrin company founded on Montenegro’s diplomatic tradition and Adriatic hospitality,<br>
+      reflecting the country’s values, culture, and business etiquette.
+    </p>
+
+</section>
+
+<!-- Our Services - 9 Cards -->
+<section class="section section-beige">
+    <div class="container">
+        <div class="section-header animate-on-scroll">
+            <h2 data-i18n="sections.services.title">Our Services</h2>
+            <p data-i18n="sections.services.subtitle">Comprehensive protocol solutions tailored to your needs</p>
+        </div>
+        
+        <div class="services-grid stagger-children">
+            <!-- 1 -->
+            <div class="image-card">
+                <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=500&h=400&fit=crop" alt="Protocol Advisory">
+                <div class="image-card-content">
+                    <h3 data-i18n="services.protocolAdvisory.title">Protocol Advisory</h3>
+                    <p data-i18n="services.protocolAdvisory.text">Expert guidance on official ceremonies, state visits, seating arrangements, formal correspondence, and international etiquette to ensure every detail aligns with diplomatic standards.</p>
+                    <a href="services.html#protocol-advisory" class="btn btn-outline mt-2" style="padding: 0.5rem 1rem; font-size: 0.9rem;" data-i18n="buttons.learnMore">
+                        Learn More
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 2 -->
+            <div class="image-card">
+                <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=500&h=400&fit=crop" alt="Meeting & Summit Organization">
+                <div class="image-card-content">
+                    <h3 data-i18n="services.meetingSummit.title">Meeting &amp; Summit Organization</h3>
+                    <p data-i18n="services.meetingSummit.text">Comprehensive planning and execution of high-level meetings involving political leaders, diplomats, and business executives, ensuring seamless coordination and impactful outcomes.</p>
+                    <a href="services.html#meetings-summits" class="btn btn-outline mt-2" style="padding: 0.5rem 1rem; font-size: 0.9rem;" data-i18n="buttons.learnMore">
+                        Learn More
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 3 -->
+            <div class="image-card">
+                <img src="https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=500&h=400&fit=crop" alt="Events Planning & Management">
+                <div class="image-card-content">
+                    <h3 data-i18n="services.eventsPlanning.title">Events Planning &amp; Management</h3>
+                    <p data-i18n="services.eventsPlanning.text">Designing and managing conferences, forums, galas, award ceremonies, and high-profile receptions, delivering events that reflect prestige and sophistication.</p>
+                    <a href="services.html#events" class="btn btn-outline mt-2" style="padding: 0.5rem 1rem; font-size: 0.9rem;" data-i18n="buttons.learnMore">
+                        Learn More
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 4 -->
+            <div class="image-card">
+                <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=500&h=400&fit=crop" alt="Engage Our Professional Protocol Team">
+                <div class="image-card-content">
+                    <h3 data-i18n="services.protocolTeam.title">Engage Our Professional Protocol Team</h3>
+                    <p data-i18n="services.protocolTeam.text">Clients have the exclusive option to hire our experienced protocol specialists to directly manage, coordinate, and implement all aspects of protocol for their events. Our team ensures flawless execution, adherence to international standards, and impeccable attention to every detail, acting as your dedicated on-site protocol professionals.</p>
+                    <a href="services.html#protocol-team" class="btn btn-outline mt-2" style="padding: 0.5rem 1rem; font-size: 0.9rem;" data-i18n="buttons.learnMore">
+                        Learn More
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 5 -->
+            <div class="image-card">
+                <img src="https://images.unsplash.com/photo-1551836022-aadb801c60ae?w=500&h=400&fit=crop" alt="Networking & Strategic Connections">
+                <div class="image-card-content">
+                    <h3 data-i18n="services.networking.title">Networking &amp; Strategic Connections</h3>
+                    <p data-i18n="services.networking.text">Facilitating trusted connections between political, diplomatic, and business communities, fostering collaboration and strengthening relationships.</p>
+                    <a href="services.html#networking" class="btn btn-outline mt-2" style="padding: 0.5rem 1rem; font-size: 0.9rem;" data-i18n="buttons.learnMore">
+                        Learn More
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 6 -->
+            <div class="image-card">
+                <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=500&h=400&fit=crop" alt="Exclusive Guest Hospitality">
+                <div class="image-card-content">
+                    <h3 data-i18n="services.guestHospitality.title">Exclusive Guest Hospitality</h3>
+                    <p data-i18n="services.guestHospitality.text">Arranging accommodation, cultural programs, and VIP guest experiences with meticulous attention to protocol, ensuring a memorable and respectful stay.</p>
+                    <a href="services.html#guest-hospitality" class="btn btn-outline mt-2" style="padding: 0.5rem 1rem; font-size: 0.9rem;" data-i18n="buttons.learnMore">
+                        Learn More
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 7 -->
+            <div class="image-card">
+                <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=500&h=400&fit=crop" alt="Corporate Image & Reputation">
+                <div class="image-card-content">
+                    <h3 data-i18n="services.corporateImage.title">Corporate Image &amp; Reputation</h3>
+                    <p data-i18n="services.corporateImage.text">Offering elegant representation and flawless execution of public and private protocol to enhance and maintain a distinguished corporate image.</p>
+                    <a href="services.html#corporate-image" class="btn btn-outline mt-2" style="padding: 0.5rem 1rem; font-size: 0.9rem;" data-i18n="buttons.learnMore">
+                        Learn More
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 8 -->
+            <div class="image-card">
+                <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=500&h=400&fit=crop" alt="Ethics & Cultural Consultancy">
+                <div class="image-card-content">
+                    <h3 data-i18n="services.ethicsCultural.title">Ethics &amp; Cultural Consultancy</h3>
+                    <p data-i18n="services.ethicsCultural.text">Providing guidance on cultural sensitivity and international diplomatic behavior, helping clients navigate diverse cultural landscapes with respect and understanding.</p>
+                    <a href="services.html#ethics-cultural" class="btn btn-outline mt-2" style="padding: 0.5rem 1rem; font-size: 0.9rem;" data-i18n="buttons.learnMore">
+                        Learn More
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 9 -->
+            <div class="image-card">
+                <img src="https://images.unsplash.com/photo-1496307653780-42ee777d4833?w=500&h=400&fit=crop" alt="VIP Transfer & Reception">
+                <div class="image-card-content">
+                    <h3 data-i18n="services.vipTransfer.title">VIP Transfer &amp; Reception</h3>
+                    <p data-i18n="services.vipTransfer.text">We provide luxury airport transfers, allocation of luxury vehicles with professional drivers who ensure safety and punctuality, as well as personalized transportation services, delivering a comfortable and secure experience for distinguished guests.</p>
+                    <a href="services.html#vip-transfer" class="btn btn-outline mt-2" style="padding: 0.5rem 1rem; font-size: 0.9rem;" data-i18n="buttons.learnMore">
+                        Learn More
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Exclusive Personal VIP Services -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 data-i18n="vip.title">Exclusive Personal VIP Services</h2>
+                <p data-i18n="vip.subtitle">Tailored services for distinguished individuals and organizations</p>
+            </div>
+            
+            <div class="services-grid stagger-children" style="grid-template-columns: repeat(4, 1fr);">
+                <div class="card card-beige">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/></svg>
+                    </div>
+                    <h4 data-i18n="vip.vipAssistants.title">VIP Personal Assistants</h4>
+                    <p data-i18n="vip.vipAssistants.text">Dedicated professionals providing discreet, personalized assistance for all your needs.</p>
+                </div>
+                
+                <div class="card card-beige">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <h4 data-i18n="vip.lifestyle.title">Lifestyle Concierge</h4>
+                    <p data-i18n="vip.lifestyle.text">Curated experiences and seamless arrangements for travel, dining, and exclusive access.</p>
+                </div>
+                
+                <div class="card card-beige">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/></svg>
+                    </div>
+                    <h4 data-i18n="vip.imageConsulting.title">Image Consulting</h4>
+                    <p data-i18n="vip.imageConsulting.text">Professional guidance on presentation, dress code, and personal branding for high-profile settings.</p>
+                </div>
+                
+                <div class="card card-beige">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A 2 2 0 0 0 21 16z"/></svg>
+                    </div>
+                    <h4 data-i18n="vip.luxuryReservations.title">Luxury Reservations</h4>
+                    <p data-i18n="vip.luxuryReservations.text">Priority access to the world's finest hotels, restaurants, and exclusive venues.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Protocol Services -->
+<section class="section section-beige">
+    <div class="container">
+        <div class="section-header animate-on-scroll">
+            <h2 data-i18n="highlights.title">Services Highlights</h2>
+        </div>
+        
+        <div class="benefits-strip stagger-children animated">
+            <div class="benefit-item">
+                <div class="benefit-number">1</div>
+                <p data-i18n="highlights.card1">Official Protocol Planning<br>End to end protocol design for official engagements, briefings, seating, flags, introductions, and ceremony flow.</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-number">2</div>
+                <p data-i18n="highlights.card2">State Visits and Delegations<br>High level visit coordination, stakeholder alignment, schedules, and on site protocol execution.</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-number">3</div>
+                <p data-i18n="highlights.card3">Corporate Summits and VIP Events<br>Executive events managed with diplomatic precision from agenda to stage management and host scripts.</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-number">4</div>
+                <p data-i18n="highlights.card4">VIP Hospitality and Concierge Support<br>Discreet guest handling, airport meets, secure transfers, hosting, and premium guest experience.</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-number">5</div>
+                <p data-i18n="highlights.card5">Training and Advisory<br>Practical protocol training for teams plus tailored advisory for institutions and leadership offices.</p>
+            </div>
+        </div>
+        
+        <div class="cta-banner animate-on-scroll">
+            <p data-i18n="highlights.ctaText">Deliver every visit, meeting, and event with diplomatic excellence and flawless coordination.</p>
+            <a href="contact.html" class="btn btn-black" data-i18n="buttons.requestConsultation">Request a Consultation</a>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Diplomatic Protocol Academy Teaser -->
+    <section class="section">
+        <div class="container">
+            <div class="two-col">
+                <div class="two-col-content animate-on-scroll">
+                    <h2 data-i18n="academy.teaserTitle">Diplomatic Protocol Academy</h2>
+                    <p data-i18n="academy.teaserP1">Our academy offers comprehensive training programs in diplomatic protocol, business etiquette, and international communication. Led by experienced protocol professionals with real-world diplomatic experience.</p>
+                    <p data-i18n="academy.teaserP2">From individual coaching to corporate training, we prepare professionals to excel in high-stakes international environments.</p>
+                    <a href="academy.html" class="btn btn-outline mt-3" data-i18n="buttons.exploreAcademy">Explore the Academy</a>
+                </div>
+                <div class="two-col-image animate-on-scroll">
+                    <img src="images/dipproacedemy.jpg" alt="Diplomatic Protocol Academy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call Widget -->
+    <div class="call-widget">
+        <div class="call-widget-box">
+            <img src="images/help1.png" alt="Support Agent" class="call-agent-img">
+
+            <div class="call-widget-texts">
+                <p class="call-widget-text" data-i18n="callWidget.text">We’re here to ensure<br>perfection</p>
+
+                <a href="contact.html" class="call-start-btn" data-i18n="buttons.startCall">
+                    <svg width="18" height="18" fill="white" viewBox="0 0 24 24">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 3 5.18
+                        2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.72c.12 1.05.37 2.07.73 3.06a2
+                        2 0 0 1-.45 2.11l-1.27 1.27a16 16 0 0 0 7.07 7.07l1.27-1.27a2
+                        2 0 0 1 2.11-.45 12.84 12.84 0 0 0 3.06.73A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                    Start a call
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Explore -->
+                <div class="footer-col">
+                    <h4 data-i18n="footer.exploreTitle">Explore</h4>
+                    <ul>
+                        <li><a href="index.html" data-i18n="footer.exploreHome">Home</a></li>
+                        <li><a href="about.html" data-i18n="footer.exploreWhoWeAre">Who We Are</a></li>
+                        <li><a href="about.html#team" data-i18n="footer.exploreTeam">Team</a></li>
+                        <li><a href="references.html" data-i18n="footer.explorePastEvents">Past Events</a></li>
+                        <li><a href="contact.html" data-i18n="footer.exploreCareers">Careers</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services -->
+                <div class="footer-col">
+                    <h4 data-i18n="footer.servicesTitle">Services</h4>
+                    <ul>
+                        <li><a href="academy.html" data-i18n="footer.servicesTrainingInstitute">Training Institute</a></li>
+                        <li><a href="services.html#protocol" data-i18n="footer.servicesProtocol">Protocol Services</a></li>
+                        <li><a href="services.html#events" data-i18n="footer.servicesEvents">Events Planning & Management</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Programs -->
+                <div class="footer-col">
+                    <h4 data-i18n="footer.scheduleTitle">Schedule / Programs</h4>
+                    <ul>
+                        <li><a href="academy.html#programs" data-i18n="footer.schedulePublic">Public Trainings</a></li>
+                        <li><a href="academy.html#formats" data-i18n="footer.schedulePrivate">Private Group Trainings</a></li>
+                        <li><a href="academy.html#programs" data-i18n="footer.scheduleUpcoming">Upcoming Programs</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Company -->
+                <div class="footer-col">
+                    <h4 data-i18n="footer.companyTitle">Diplomatic Protocol</h4>
+                    <p data-i18n="footer.companyDescription">Leading provider of diplomatic protocol services, training, and event management.</p>
+                    <p style="margin-top: 1rem;">
+                        <strong data-i18n="footer.emailLabel">Email:</strong> info@diplomaticprotocol.me<br>
+                        <strong data-i18n="footer.phoneLabel">Phone:</strong> +382 (555) 123-4567
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r="1"/></svg>
+                        </a>
+                        <a href="#" aria-label="Twitter">
+                            <svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+                        </a>
+                        <a href="#" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                        <a href="#" aria-label="TikTok">
+                            <svg viewBox="0 0 24 24"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p data-i18n="footer.rights">&copy; 2025 DiplomaticProtocol.me – All rights reserved.</p>
+                <div>
+                    <a href="#" data-i18n="footer.privacy">Privacy Policy</a> | <a href="#" data-i18n="footer.refund">Refund Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="js/main.js"></script>
+
+    <!-- i18n + Call Widget + Hero Scroll + Benefits Flip -->
+    <script>
+        // --- I18N SÖZLÜKLERİ ---
+        const translations = {
+            en: {
+                nav: {
+                    home: `Home`,
+                    about: `About Us`,
+                    services: `Services`,
+                    academy: `Diplomatic Protocol Academy`,
+                    academyApproach: `Our Approach`,
+                    academyPrograms: `Programs & Training Levels`,
+                    academyFormats: `Formats of Training`,
+                    academyBenefits: `Benefits of the Training`,
+                    academyCertificates: `Certificates & Recognition`,
+                    academyCalendar: `Calendar`,
+                    contact: `Contact Us`
+                },
+                hero: {
+                    title: `High-Level Events & VIP Diplomatic Protocol`,
+                    subtitle: `Where Prestige Meets Perfection`
+                },
+                montenegro: {
+                    statement: `We are a Montenegrin company founded on Montenegro’s diplomatic tradition and Adriatic hospitality,<br>
+                    reflecting the country’s values, culture, and business etiquette.`
+                    },
+
+                buttons: {
+                exploreServices: "Explore Our Services",
+                contact: "Contact Us",
+                learnMore: "Learn More",
+                joinNow: "Join Us Now",
+                exploreAcademy: "Explore the Academy",
+                startCall: "Start a call",
+                requestConsultation: "Request a Consultation"
+                },
+
+
+                sections: {
+                    services: {
+                        title: `Our Services`,
+                        subtitle: `Comprehensive protocol solutions tailored to your needs`
+                    }
+                },
+                services: {
+                protocolAdvisory: {
+                    title: "Protocol Advisory",
+                    text: "Expert guidance on official ceremonies, state visits, seating arrangements, formal correspondence, and international etiquette to ensure every detail aligns with diplomatic standards."
+                },
+                meetingSummit: {
+                    title: "Meeting & Summit Organization",
+                    text: "Comprehensive planning and execution of high-level meetings involving political leaders, diplomats, and business executives, ensuring seamless coordination and impactful outcomes."
+                },
+                eventsPlanning: {
+                    title: "Events Planning & Management",
+                    text: "Designing and managing conferences, forums, galas, award ceremonies, and high-profile receptions, delivering events that reflect prestige and sophistication."
+                },
+                protocolTeam: {
+                    title: "Engage Our Professional Protocol Team",
+                    text: "Clients have the exclusive option to hire our experienced protocol specialists to directly manage, coordinate, and implement all aspects of protocol for their events. Our team ensures flawless execution, adherence to international standards, and impeccable attention to every detail, acting as your dedicated on-site protocol professionals."
+                },
+                networking: {
+                    title: "Networking & Strategic Connections",
+                    text: "Facilitating trusted connections between political, diplomatic, and business communities, fostering collaboration and strengthening relationships."
+                },
+                guestHospitality: {
+                    title: "Exclusive Guest Hospitality",
+                    text: "Arranging accommodation, cultural programs, and VIP guest experiences with meticulous attention to protocol, ensuring a memorable and respectful stay."
+                },
+                corporateImage: {
+                    title: "Corporate Image & Reputation",
+                    text: "Offering elegant representation and flawless execution of public and private protocol to enhance and maintain a distinguished corporate image."
+                },
+                ethicsCultural: {
+                    title: "Ethics & Cultural Consultancy",
+                    text: "Providing guidance on cultural sensitivity and international diplomatic behavior, helping clients navigate diverse cultural landscapes with respect and understanding."
+                },
+                vipTransfer: {
+                    title: "VIP Transfer & Reception",
+                    text: "We provide luxury airport transfers, allocation of luxury vehicles with professional drivers who ensure safety and punctuality, as well as personalized transportation services, delivering a comfortable and secure experience for distinguished guests."
+                }
+                },
+
+                vip: {
+                    title: `Exclusive Personal VIP Services`,
+                    subtitle: `Tailored services for distinguished individuals and organizations`,
+                    vipAssistants: {
+                        title: `VIP Personal Assistants`,
+                        text: `Dedicated professionals providing discreet, personalized assistance for all your needs.`
+                    },
+                    lifestyle: {
+                        title: `Lifestyle Concierge`,
+                        text: `Curated experiences and seamless arrangements for travel, dining, and exclusive access.`
+                    },
+                    imageConsulting: {
+                        title: `Image Consulting`,
+                        text: `Professional guidance on presentation, dress code, and personal branding for high-profile settings.`
+                    },
+                    luxuryReservations: {
+                        title: `Luxury Reservations`,
+                        text: `Priority access to the world's finest hotels, restaurants, and exclusive venues.`
+                    }
+                },
+
+                highlights: {
+                    title: "Services Highlights",
+                    card1: "Official Protocol Planning<br>End to end protocol design for official engagements, briefings, seating, flags, introductions, and ceremony flow.",
+                    card2: "State Visits and Delegations<br>High level visit coordination, stakeholder alignment, schedules, and on site protocol execution.",
+                    card3: "Corporate Summits and VIP Events<br>Executive events managed with diplomatic precision from agenda to stage management and host scripts.",
+                    card4: "VIP Hospitality and Concierge Support<br>Discreet guest handling, airport meets, secure transfers, hosting, and premium guest experience.",
+                    card5: "Training and Advisory<br>Practical protocol training for teams plus tailored advisory for institutions and leadership offices.",
+                    ctaText: "Deliver every visit, meeting, and event with diplomatic excellence and flawless coordination."
+                },
+
+                academy: {
+                    teaserTitle: `Diplomatic Protocol Academy`,
+                    teaserP1: `Our academy offers comprehensive training programs in diplomatic protocol, business etiquette, and international communication. Led by experienced protocol professionals with real-world diplomatic experience.`,
+                    teaserP2: `From individual coaching to corporate training, we prepare professionals to excel in high-stakes international environments.`
+                },
+                callWidget: {
+                    text: `We’re here to ensure<br>perfection`
+                },
+                footer: {
+                    exploreTitle: `Explore`,
+                    exploreHome: `Home`,
+                    exploreWhoWeAre: `Who We Are`,
+                    exploreTeam: `Team`,
+                    explorePastEvents: `Past Events`,
+                    exploreCareers: `Careers`,
+                    servicesTitle: `Services`,
+                    servicesTrainingInstitute: `Training Institute`,
+                    servicesProtocol: `Protocol Services`,
+                    servicesEvents: `Events Planning & Management`,
+                    scheduleTitle: `Schedule / Programs`,
+                    schedulePublic: `Public Trainings`,
+                    schedulePrivate: `Private Group Trainings`,
+                    scheduleUpcoming: `Upcoming Programs`,
+                    companyTitle: `Diplomatic Protocol`,
+                    companyDescription: `Leading provider of diplomatic protocol services, training, and event management.`,
+                    emailLabel: `Email:`,
+                    phoneLabel: `Phone:`,
+                    rights: `© 2025 DiplomaticProtocol.me – All rights reserved.`,
+                    privacy: `Privacy Policy`,
+                    refund: `Refund Policy`
+                }
+            },
+            tr: {
+                nav: {
+                    home: `Ana Sayfa`,
+                    about: `Hakkımızda`,
+                    services: `Hizmetler`,
+                    academy: `Diplomatik Protokol Akademisi`,
+                    academyApproach: `Yaklaşımımız`,
+                    academyPrograms: `Programlar & Eğitim Seviyeleri`,
+                    academyFormats: `Eğitim Formatları`,
+                    academyBenefits: `Eğitimin Faydaları`,
+                    academyCertificates: `Sertifikalar & Tanınırlık`,
+                    academyCalendar: `Takvim`,
+                    contact: `İletişim`
+                },
+                hero: {
+                    title: `Üst Düzey Etkinlikler & VIP Diplomatik Protokol`,
+                    subtitle: `Prestijin Mükemmellikle Buluştuğu Yer`
+                },
+                montenegro: {
+                    statement: `Karadağ’ın diplomatik geleneği ve Adriyatik misafirperverliği üzerine kurulmuş Karadağlı bir şirketiz;<br>
+                    ülkenin değerlerini, kültürünü ve iş görgü kurallarını yansıtırız.`
+                    },
+
+                buttons: {
+                exploreServices: "Hizmetlerimizi Keşfedin",
+                contact: "Bize Ulaşın",
+                learnMore: "Detaylı Bilgi",
+                joinNow: "Hemen Katılın",
+                exploreAcademy: "Akademiyi Keşfedin",
+                startCall: "Görüşme Başlat",
+                requestConsultation: "Danışmanlık Talep Et"
+                },
+
+                sections: {
+                    services: {
+                        title: `Hizmetlerimiz`,
+                        subtitle: `İhtiyaçlarınıza özel tasarlanmış kapsamlı protokol çözümleri`
+                    }
+                },
+                services: {
+                protocolAdvisory: {
+                    title: "Protokol Danışmanlığı",
+                    text: "Resmî törenler, devlet ziyaretleri, oturma düzeni, resmî yazışmalar ve uluslararası görgü kuralları konularında uzman rehberlik; her detayın diplomatik standartlarla uyumlu olmasını sağlar."
+                },
+                meetingSummit: {
+                    title: "Toplantı & Zirve Organizasyonu",
+                    text: "Siyasi liderler, diplomatlar ve iş dünyası yöneticilerinin katıldığı üst düzey toplantıların kapsamlı planlanması ve yürütülmesi; kusursuz koordinasyon ve güçlü sonuçlar sağlar."
+                },
+                eventsPlanning: {
+                    title: "Etkinlik Planlama & Yönetimi",
+                    text: "Konferanslar, forumlar, galalar, ödül törenleri ve yüksek profilli resepsiyonların tasarlanması ve yönetimi; prestij ve zarafeti yansıtan etkinlikler sunar."
+                },
+                protocolTeam: {
+                    title: "Profesyonel Protokol Ekibimizi Görevlendirin",
+                    text: "Müşterilerimiz, etkinliklerinin protokolünün tüm yönlerini doğrudan yönetmesi, koordine etmesi ve uygulaması için deneyimli protokol uzmanlarımızı görevlendirme ayrıcalığına sahiptir. Ekibimiz; kusursuz icra, uluslararası standartlara tam uyum ve her detaya titiz dikkat ile sahada sizin adınıza özel protokol profesyonelleri olarak görev yapar."
+                },
+                networking: {
+                    title: "Networking & Stratejik Bağlantılar",
+                    text: "Siyasi, diplomatik ve iş dünyası toplulukları arasında güvenilir bağlantılar kurarak iş birliğini kolaylaştırır ve ilişkileri güçlendirir."
+                },
+                guestHospitality: {
+                    title: "Özel Misafir Ağırlama",
+                    text: "Konaklama, kültürel programlar ve VIP misafir deneyimlerinin protokole titizlikle uygun şekilde planlanması; unutulmaz ve saygılı bir konaklama sağlar."
+                },
+                corporateImage: {
+                    title: "Kurumsal İmaj & İtibar",
+                    text: "Seçkin kurumsal imajı güçlendirmek ve sürdürmek için kamuya açık ve özel protokol uygulamalarında zarif temsil ve kusursuz yürütme sağlar."
+                },
+                ethicsCultural: {
+                    title: "Etik & Kültürel Danışmanlık",
+                    text: "Kültürel hassasiyet ve uluslararası diplomatik davranış konusunda rehberlik; farklı kültürel ortamlarda saygı ve anlayışla hareket etmeyi destekler."
+                },
+                vipTransfer: {
+                    title: "VIP Transfer & Karşılama",
+                    text: "Lüks havalimanı transferleri, güvenlik ve dakikliği sağlayan profesyonel şoförlerle lüks araç tahsisi ve kişiselleştirilmiş ulaşım hizmetleri sunarak seçkin misafirler için konforlu ve güvenli bir deneyim sağlar."
+                }
+                },
+
+                vip: {
+                    title: `Özel VIP Kişisel Hizmetler`,
+                    subtitle: `Seçkin kişi ve kurumlara özel tasarlanmış hizmetler`,
+                    vipAssistants: {
+                        title: `VIP Kişisel Asistanlar`,
+                        text: `Tüm ihtiyaçlarınız için gizlilik esaslı, kişiselleştirilmiş profesyonel destek.`
+                    },
+                    lifestyle: {
+                        title: `Lifestyle Concierge`,
+                        text: `Seyahat, gastronomi ve ayrıcalıklı erişim için özenle tasarlanmış deneyimler.`
+                    },
+                    imageConsulting: {
+                        title: `İmaj Danışmanlığı`,
+                        text: `Üst düzey ortamlarda kişisel imaj, kıyafet kodu ve duruş konusunda profesyonel rehberlik.`
+                    },
+                    luxuryReservations: {
+                        title: `Lüks Rezervasyonlar`,
+                        text: `Dünyanın önde gelen otel, restoran ve seçkin mekânlarına öncelikli erişim.`
+                    }
+                },
+                highlights: {
+                    title: "Öne Çıkan Hizmetler",
+                    card1: "Resmî Protokol Planlaması<br>Resmî temaslar için brifing, oturma düzeni, bayraklar, takdimler ve tören akışını kapsayan uçtan uca protokol tasarımı.",
+                    card2: "Devlet Ziyaretleri ve Heyetler<br>Üst düzey ziyaret koordinasyonu, paydaş uyumu, programlama ve sahada protokol uygulaması.",
+                    card3: "Kurumsal Zirveler ve VIP Etkinlikler<br>Gündemden sahne yönetimine ve sunucu metinlerine kadar diplomatik hassasiyetle yönetilen üst düzey etkinlikler.",
+                    card4: "VIP Ağırlama ve Concierge Desteği<br>Gizli misafir yönetimi, havaalanı karşılama, güvenli transferler ve premium misafir deneyimi.",
+                    card5: "Eğitim ve Danışmanlık<br>Ekipler için uygulamalı protokol eğitimi ve kurumlar ile liderlik ofislerine özel danışmanlık.",
+                    ctaText: "Her ziyareti, toplantıyı ve etkinliği diplomatik mükemmeliyet ve kusursuz koordinasyonla gerçekleştirin."
+                },
+                academy: {
+                    teaserTitle: `Diplomatik Protokol Akademisi`,
+                    teaserP1: `Akademimiz, diplomatik protokol, iş görgü kuralları ve uluslararası iletişim konularında kapsamlı eğitim programları sunar. Programlar, sahada deneyimli protokol profesyonelleri tarafından verilir.`,
+                    teaserP2: `Bireysel koçluktan kurumsal eğitimlere kadar, profesyonelleri yüksek riskli uluslararası ortamlarda başarıya hazırlıyoruz.`
+                },
+                callWidget: {
+                    text: `Sizin için buradayız<br>mükemmellik için`
+                },
+                footer: {
+                    exploreTitle: `Keşfet`,
+                    exploreHome: `Ana Sayfa`,
+                    exploreWhoWeAre: `Biz Kimiz`,
+                    exploreTeam: `Ekip`,
+                    explorePastEvents: `Geçmiş Etkinlikler`,
+                    exploreCareers: `Kariyer`,
+                    servicesTitle: `Hizmetler`,
+                    servicesTrainingInstitute: `Eğitim Enstitüsü`,
+                    servicesProtocol: `Protokol Hizmetleri`,
+                    servicesEvents: `Etkinlik Planlama & Yönetimi`,
+                    scheduleTitle: `Takvim / Programlar`,
+                    schedulePublic: `Açık Eğitimler`,
+                    schedulePrivate: `Kuruma Özel Eğitimler`,
+                    scheduleUpcoming: `Yaklaşan Programlar`,
+                    companyTitle: `Diplomatic Protocol`,
+                    companyDescription: `Diplomatik protokol hizmetleri, eğitim ve etkinlik yönetimi alanında lider bir sağlayıcıdır.`,
+                    emailLabel: `E-posta:`,
+                    phoneLabel: `Telefon:`,
+                    rights: `© 2025 DiplomaticProtocol.me – Tüm hakları saklıdır.`,
+                    privacy: `Gizlilik Politikası`,
+                    refund: `İade Politikası`
+                }
+            },
+            me: {
+                nav: {
+                    home: `Početna`,
+                    about: `O nama`,
+                    services: `Usluge`,
+                    academy: `Akademija diplomatskog protokola`,
+                    academyApproach: `Naš pristup`,
+                    academyPrograms: `Programi i nivoi obuke`,
+                    academyFormats: `Formati obuke`,
+                    academyBenefits: `Prednosti obuke`,
+                    academyCertificates: `Sertifikati i priznanja`,
+                    academyCalendar: `Kalendar`,
+                    contact: `Kontakt`
+                },
+                hero: {
+                    title: `Visokoprofilni događaji i VIP diplomatski protokol`,
+                    subtitle: `Gdje se prestiž susreće sa savršenstvom`
+                },
+                montenegro: {
+                    statement: `Crnogorska smo kompanija zasnovana na diplomatskoj tradiciji Crne Gore i jadranskom gostoprimstvu,<br>
+                    odražavajući vrijednosti, kulturu i poslovni bonton zemlje.`
+                    },
+
+                buttons: {
+                exploreServices: "Pogledaj naše usluge",
+                contact: "Kontaktiraj nas",
+                learnMore: "Saznaj više",
+                joinNow: "Pridruži se sada",
+                exploreAcademy: "Istraži Akademiju",
+                startCall: "Započni poziv",
+                requestConsultation: "Zatraži konsultacije"
+                },
+
+                sections: {
+                    services: {
+                        title: `Naše usluge`,
+                        subtitle: `Sveobuhvatna protokolarna rješenja prilagođena vašim potrebama`
+                    }
+                },
+                services: {
+                protocolAdvisory: {
+                    title: "Savjetovanje iz protokola",
+                    text: "Stručno vođenje za zvanične ceremonije, državne posjete, raspored sjedenja, formalnu korespondenciju i međunarodni bonton, kako bi svaki detalj bio usklađen sa diplomatskim standardima."
+                },
+                meetingSummit: {
+                    title: "Organizacija sastanaka i samita",
+                    text: "Sveobuhvatno planiranje i realizacija sastanaka na visokom nivou sa političkim liderima, diplomatama i poslovnim rukovodiocima, uz besprijekornu koordinaciju i snažne rezultate."
+                },
+                eventsPlanning: {
+                    title: "Planiranje i upravljanje događajima",
+                    text: "Dizajn i organizacija konferencija, foruma, gala večeri, ceremonija dodjele nagrada i prijema visokog profila, uz događaje koji odražavaju prestiž i sofisticiranost."
+                },
+                protocolTeam: {
+                    title: "Angažujte naš profesionalni protokolarni tim",
+                    text: "Klijenti imaju ekskluzivnu opciju da angažuju naše iskusne protokolarne stručnjake koji direktno upravljaju, koordiniraju i sprovode sve aspekte protokola na događajima. Naš tim obezbjeđuje besprijekornu izvedbu, poštovanje međunarodnih standarda i izuzetnu pažnju prema svakom detalju, djelujući kao vaši posvećeni protokolarni profesionalci na licu mjesta."
+                },
+                networking: {
+                    title: "Umrežavanje i strateške veze",
+                    text: "Povezujemo političke, diplomatske i poslovne zajednice kroz pouzdane kontakte, podstičući saradnju i jačanje odnosa."
+                },
+                guestHospitality: {
+                    title: "Ekskluzivno gostoprimstvo",
+                    text: "Organizacija smještaja, kulturnih programa i VIP iskustava uz pedantnu protokolarnu pažnju, za nezaboravan i dostojanstven boravak."
+                },
+                corporateImage: {
+                    title: "Korporativni imidž i reputacija",
+                    text: "Elegantno predstavljanje i besprijekorna realizacija javnog i privatnog protokola radi unapređenja i očuvanja uglednog korporativnog imidža."
+                },
+                ethicsCultural: {
+                    title: "Etika i kulturno savjetovanje",
+                    text: "Smjernice o kulturnoj osjetljivosti i međunarodnom diplomatskom ponašanju, kako bi klijenti s poštovanjem i razumijevanjem navigirali kroz različite kulturne okvire."
+                },
+                vipTransfer: {
+                    title: "VIP transfer i doček",
+                    text: "Obezbjeđujemo luksuzne aerodromske transfere, dodjelu luksuznih vozila sa profesionalnim vozačima koji garantuju sigurnost i tačnost, kao i personalizovane usluge prevoza, pružajući udobno i sigurno iskustvo za ugledne goste."
+                }
+                },
+                    vip: {
+                    title: `Ekskluzivne VIP lične usluge`,
+                    subtitle: `Prilagođene usluge za ugledne pojedince i organizacije`,
+                    vipAssistants: {
+                        title: `VIP lični asistenti`,
+                        text: `Posvećeni profesionalci koji diskretno i lično brinu o svim vašim potrebama.`
+                    },
+                    lifestyle: {
+                        title: `Lifestyle concierge`,
+                        text: `Pažljivo kreirana iskustva i bešavne organizacije putovanja, gastronomije i ekskluzivnih pristupa.`
+                    },
+                    imageConsulting: {
+                        title: `Konsalting za imidž`,
+                        text: `Stručno vođenje o prezentaciji, dress code-u i ličnom brendiranju u visokoprofilnim okruženjima.`
+                    },
+                    luxuryReservations: {
+                        title: `Luksuzne rezervacije`,
+                        text: `Prioritetan pristup najboljim hotelima, restoranima i ekskluzivnim mjestima na svijetu.`
+                    }
+                },
+                highlights: {
+                    title: "Istaknute usluge",
+                    card1: "Planiranje zvaničnog protokola<br>Kompletan dizajn protokola za zvanične angažmane, brifinge, raspored sjedenja, zastave, predstavljanja i tok ceremonije.",
+                    card2: "Državne posjete i delegacije<br>Koordinacija posjeta na visokom nivou, usklađivanje aktera, rasporedi i protokolarna izvedba na licu mjesta.",
+                    card3: "Korporativni samiti i VIP događaji<br>Događaji vođeni diplomatskom preciznošću od agende do upravljanja scenom i skripti domaćina.",
+                    card4: "VIP gostoprimstvo i concierge podrška<br>Diskretno zbrinjavanje gostiju, aerodromski dočeci, sigurni transferi i premium iskustvo.",
+                    card5: "Obuka i savjetovanje<br>Praktična protokolarna obuka za timove i prilagođeno savjetovanje za institucije i rukovodstvo.",
+                    ctaText: "Svaku posjetu, sastanak i događaj realizujte uz diplomatsku izvrsnost i besprijekornu koordinaciju."
+                },
+                    academy: {
+                    teaserTitle: `Akademija diplomatskog protokola`,
+                    teaserP1: `Naša akademija nudi sveobuhvatne programe obuke iz diplomatskog protokola, poslovnog bontona i međunarodne komunikacije, koje vode iskusni protokolarni stručnjaci iz prakse.`,
+                    teaserP2: `Od individualnog koučinga do korporativnih treninga, pripremamo profesionalce za uspjeh u visokorizičnim međunarodnim okruženjima.`
+                },
+                callWidget: {
+                    text: `Tu smo da obezbijedimo<br>savršenu izvedbu`
+                },
+                footer: {
+                    exploreTitle: `Istraži`,
+                    exploreHome: `Početna`,
+                    exploreWhoWeAre: `Ko smo`,
+                    exploreTeam: `Tim`,
+                    explorePastEvents: `Prethodni događaji`,
+                    exploreCareers: `Karijera`,
+                    servicesTitle: `Usluge`,
+                    servicesTrainingInstitute: `Trening institut`,
+                    servicesProtocol: `Protokolarne usluge`,
+                    servicesEvents: `Planiranje i organizacija događaja`,
+                    scheduleTitle: `Raspored / Programi`,
+                    schedulePublic: `Javne obuke`,
+                    schedulePrivate: `Privatne grupne obuke`,
+                    scheduleUpcoming: `Predstojeći programi`,
+                    companyTitle: `Diplomatic Protocol`,
+                    companyDescription: `Vodeći provajder protokolarnih usluga, obuka i menadžmenta događaja.`,
+                    emailLabel: `Email:`,
+                    phoneLabel: `Telefon:`,
+                    rights: `© 2025 DiplomaticProtocol.me – Sva prava zadržana.`,
+                    privacy: `Politika privatnosti`,
+                    refund: `Pravila povraćaja`
+                }
+            }
+        };
+
+        const LANG_FLAGS = {
+            en: 'https://flagcdn.com/w40/gb.png',
+            tr: 'https://flagcdn.com/w40/tr.png',
+            me: 'https://flagcdn.com/w40/me.png'
+        };
+
+        const LANG_NAMES = {
+            en: 'English',
+            tr: 'Türkçe',
+            me: 'Montenegrin'
+        };
+
+        function setLanguage(lang) {
+            const supported = ['en', 'tr', 'me'];
+            if (!supported.includes(lang)) lang = 'en';
+
+            // html lang
+            document.documentElement.lang = lang;
+
+            const dict = translations[lang] || translations.en;
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.dataset.i18n;
+                const parts = key.split('.');
+                let value = dict;
+                parts.forEach(p => {
+                    if (value && typeof value === 'object') value = value[p];
+                });
+                if (typeof value === 'string') {
+                    el.innerHTML = value;
+                }
+            });
+
+            // bayrak güncelle
+            const langSelector = document.querySelector('.lang-selector');
+            if (langSelector) {
+                const currentBtn = langSelector.querySelector('.lang-current');
+                const img = currentBtn ? currentBtn.querySelector('img') : null;
+                if (currentBtn) currentBtn.dataset.lang = lang;
+                if (img && LANG_FLAGS[lang]) {
+                    img.src = LANG_FLAGS[lang];
+                    img.alt = LANG_NAMES[lang] || '';
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Call widget visible
+            const callWidget = document.querySelector('.call-widget');
+            if (callWidget) {
+                callWidget.style.opacity = '1';
+                callWidget.style.pointerEvents = 'auto';
+            }
+
+            // Dil seçimi
+            const langSelector = document.querySelector('.lang-selector');
+            if (langSelector) {
+                const savedLang = localStorage.getItem('dp_lang') || 'en';
+                setLanguage(savedLang);
+
+                const dropdown = langSelector.querySelector('.lang-dropdown');
+
+                // HOVER İLE AÇ / KAPAT (GEÇ KAPANSIN)
+                let langCloseTimeout = null;
+
+                langSelector.addEventListener('mouseenter', () => {
+                    if (langCloseTimeout) clearTimeout(langCloseTimeout);
+                    langSelector.classList.add('open');
+                });
+
+                langSelector.addEventListener('mouseleave', () => {
+                    langCloseTimeout = setTimeout(() => {
+                        langSelector.classList.remove('open');
+                    }, 200); // 200ms tolerans
+                });
+
+                if (dropdown) {
+                    dropdown.querySelectorAll('[data-lang]').forEach(btn => {
+                        btn.addEventListener('click', function (e) {
+                            e.preventDefault();
+                            const lang = this.dataset.lang;
+                            setLanguage(lang);
+                            localStorage.setItem('dp_lang', lang);
+                        });
+                    });
+                }
+            } else {
+                const savedLang = localStorage.getItem('dp_lang') || 'en';
+                setLanguage(savedLang);
+            }
+
+            // --- BENEFITS FLIP ANİMASYONU (sadece benefits-strip.animated için) ---
+            const benefitStrips = document.querySelectorAll('.benefits-strip.animated');
+            if ('IntersectionObserver' in window && benefitStrips.length > 0) {
+                const observer = new IntersectionObserver((entries, obs) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const items = entry.target.querySelectorAll('.benefit-item');
+                            items.forEach((item, index) => {
+                                setTimeout(() => {
+                                    item.classList.add('flip-in');
+                                }, index * 500); // sırayla gelsin
+                            });
+                            obs.unobserve(entry.target); // bir kere çalışsın
+                        }
+                    });
+                }, {
+                    threshold: 0.2
+                });
+
+                benefitStrips.forEach(strip => observer.observe(strip));
+            } else {
+                // Fallback: observer yoksa direkt hepsini göster
+                benefitStrips.forEach(strip => {
+                    strip.querySelectorAll('.benefit-item').forEach(item => {
+                        item.classList.add('flip-in');
+                    });
+                });
+            }
+        });
+document.addEventListener('DOMContentLoaded', function () {
+  // --- SERVICES GRID (9 cards) 3+3+3 (ROW BY ROW, TRIGGER @ 30% VISIBLE) ---
+  const grids = document.querySelectorAll('.services-grid.stagger-children');
+
+  grids.forEach((grid) => {
+    const cards = Array.from(grid.querySelectorAll('.image-card'));
+    if (cards.length !== 9) return;
+
+    grid.classList.add('slide-group');
+
+    const getCols = () => {
+      const cols = getComputedStyle(grid).gridTemplateColumns
+        .split(' ')
+        .filter(Boolean).length;
+      return Math.max(1, cols);
+    };
+
+    const buildRows = () => {
+      const cols = getCols();
+      const rows = [];
+      for (let i = 0; i < cards.length; i += cols) {
+        rows.push(cards.slice(i, i + cols));
+      }
+      return rows;
+    };
+
+    const rows = buildRows();
+
+    // Aynı satırdaki kartları aynı anda göster
+    const revealRow = (rowCards) => {
+      rowCards.forEach(card => card.classList.add('slide-in'));
+    };
+
+    if ('IntersectionObserver' in window) {
+      const rowObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+
+          // hangi satırın tetiklendiğini bul
+          const rowIndex = Number(entry.target.dataset.rowIndex);
+          if (!Number.isNaN(rowIndex) && rows[rowIndex]) {
+            revealRow(rows[rowIndex]);
+          }
+
+          obs.unobserve(entry.target); // 1 kere çalışsın
+        });
+      }, {
+        threshold: 0.6 // ✅ %60 görünür olunca tetikle
+      });
+
+      // Her satır için bir "tetikleyici" kart seçip izletiyoruz (satırın ilk kartı)
+      rows.forEach((rowCards, rowIndex) => {
+        const triggerEl = rowCards[0];
+        if (!triggerEl) return;
+
+        triggerEl.dataset.rowIndex = String(rowIndex);
+        rowObserver.observe(triggerEl);
+      });
+
+    } else {
+      // Fallback: observer yoksa hepsini sırayla değil, satır satır göster
+      rows.forEach(revealRow);
+    }
+  });
+});
+
+
+        // --- HERO SCROLL KAYMA EFEKTİ ---
+        document.addEventListener("scroll", () => {
+            const heroContent = document.querySelector(".hero-content");
+
+            if (!heroContent) return;
+
+            const scrollY = window.scrollY;
+
+            // Maksimum sağa kayma (px)
+            const maxShift = 800;
+            const shift = Math.min(scrollY * 1.2, maxShift); // her scroll'la sağa gider
+
+            // Kaybolma için fade aralığı
+            const fadeStart = 300;      // 300px scroll'dan sonra solmaya başlasın
+            const fadeEnd   = 700;      // 700px scroll'da tamamen yok olsun
+
+            let opacity = 1;
+            if (scrollY >= fadeStart) {
+                const t = (scrollY - fadeStart) / (fadeEnd - fadeStart);
+                opacity = Math.max(0, 1 - t); // 1 → 0 arası azalır
+            }
+
+            heroContent.style.transform = `translateX(${shift}px)`;
+            heroContent.style.opacity = opacity;
+            if (heroBottomText) {
+
+}
+
+        });
+document.addEventListener("scroll", () => {
+  const el = document.querySelector(".montenegro-statement-text");
+  if (!el) return;
+
+  const scrollY = window.scrollY;
+
+  /* Ne kadar scroll'da ortaya gelsin */
+  const stopAt = 450;   // px
+  /* Sağdan ortaya kaç px gelsin */
+  const maxMove = 480;  // px (bunu ince ayarlayabilirsin)
+
+  // 0 → 1 arası ilerleme
+  const t = Math.min(1, Math.max(0, scrollY / stopAt));
+
+  // EN SAĞ (0) → ORTA (-maxMove)
+  const x = -maxMove * t;
+
+  el.style.transform = `translateX(${x}px)`;
+});
+
+function clamp(v, min, max) {
+  return Math.max(min, Math.min(max, v));
+}
+
+function updateMobileStatement() {
+  const el = document.querySelector(".montenegro-statement-text");
+  const section = document.querySelector(".montenegro-statement");
+  if (!el || !section) return;
+
+  // sadece mobil
+  if (window.matchMedia("(min-width: 769px)").matches) return;
+
+  const rect = section.getBoundingClientRect();
+  const vh = window.innerHeight || document.documentElement.clientHeight;
+
+  /**
+   * Animasyon aralığı:
+   * section üstü ekranın altına yaklaşınca başlasın,
+   * section ortası ekrana gelince "ortada dursun".
+   */
+  const startY = vh * 0.92;   // başlama noktası (section daha aşağıdayken)
+  const stopY  = vh * 0.50;   // durma noktası (yaklaşık dikey orta)
+
+  // rect.top: section'ın viewport'taki üst konumu
+  // progress: 0 → 1
+  const progress = clamp((startY - rect.top) / (startY - stopY), 0, 1);
+
+  // Sağ dışarıdan (110%) → Ortaya (0)
+  const fromX = 110;  // %
+  const toX   = 0;    // %
+  const x = fromX + (toX - fromX) * progress;
+
+  el.style.transform = `translateX(${x}%)`;
+}
+
+// scroll + resize ile güncelle
+window.addEventListener("scroll", updateMobileStatement, { passive: true });
+window.addEventListener("resize", updateMobileStatement);
+
+// ilk yüklemede de çalıştır
+document.addEventListener("DOMContentLoaded", updateMobileStatement);
+
+    </script>
+    
+</body>
+</html>

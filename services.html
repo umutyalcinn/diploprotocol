@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | Diplomatic Protocol</title>
+    <meta name="description" content="Comprehensive protocol services including advisory, event planning, VIP hospitality, and professional protocol team engagement.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* LANG SELECTOR (SADECE BAYRAKLI DROPDOWN) */
+        .navbar .lang-selector {
+            position: relative;
+            margin-left: 1.5rem;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .lang-selector {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0.5rem;
+            background: none;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+        }
+
+        .lang-current,
+        .lang-option {
+            width: 42px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .lang-current img,
+        .lang-option img {
+            width: 32px;
+            height: 24px;
+            object-fit: cover;
+            display: block;
+            border-radius: 4px;
+        }
+
+        .lang-current svg {
+            margin-left: 6px;
+        }
+
+        .lang-dropdown {
+            position: absolute;
+            top: 110%;
+            left: 0;
+
+            border-radius: 0.75rem;
+            padding: 0.4rem 0.3rem;
+            display: none;
+            flex-direction: column;
+            gap: 0.35rem;
+            z-index: 10000;
+
+            transform: scale(0.92) translateY(4px);
+            opacity: 0;
+            transition: transform 0.18s ease-out, opacity 0.18s ease-out, box-shadow 0.18s ease-out;
+
+        }
+
+        .lang-selector.open .lang-dropdown {
+            display: flex;
+            transform: scale(1) translateY(0);
+            opacity: 1;
+
+        }
+
+        .lang-option img {
+            transition: transform 0.15s ease-out;
+        }
+
+        .lang-option:hover img {
+            transform: scale(1.18);
+        }
+
+        @media (max-width: 992px) {
+            .navbar .lang-selector {
+                margin-left: 0.75rem;
+            }
+        }
+        /* 3 sütunda: son kartı (4. kart) ortala */
+/* SADECE center-last-single olan gridlerde son kartı ortala */
+.services-grid.center-last-single {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.services-grid.center-last-single > .card:last-child {
+  grid-column: 2 / 3;
+}
+
+/* Tablet: 2 kolon */
+@media (max-width: 992px) {
+  .services-grid.center-last-single {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .services-grid.center-last-single > .card:last-child {
+    grid-column: auto; /* 2 kolonda normal aksın */
+  }
+}
+
+/* Mobil: 1 kolon */
+@media (max-width: 576px) {
+  .services-grid.center-last-single {
+    grid-template-columns: 1fr;
+  }
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                <img src="images/logo1yesil.png" alt="Diplomatic Protocol Logo" 
+                    style="width: 100px; 
+                            height: 100%; 
+                            max-height: 150px; 
+                            background-color: var(--dark-green);">
+                <span>DIPLOMATIC PROTOCOL</span>
+            </a>
+            
+            <div class="navbar-menu">
+                <a href="index.html" class="active" data-i18n="nav.home">Home</a>
+                <a href="about.html" data-i18n="nav.about">About Us</a>
+                <a href="services.html" data-i18n="nav.services">Services</a>
+
+                <div class="dropdown hover-dropdown">
+                    <a href="academy.html" class="dropdown-toggle" data-i18n="nav.academy">
+                        Diplomatic Protocol Academy
+                    </a>
+
+                    <div class="dropdown-menu">
+                        <a href="academy.html#approach" data-i18n="nav.academyApproach">Our Approach</a>
+                        <a href="academy.html#programs" data-i18n="nav.academyPrograms">Programs & Training Levels</a>
+                        <a href="academy.html#formats" data-i18n="nav.academyFormats">Formats of Training</a>
+                        <a href="academy.html#benefits" data-i18n="nav.academyBenefits">Benefits of the Training</a>
+                        <a href="academy.html#certificates" data-i18n="nav.academyCertificates">Certificates & Recognition</a>
+                    </div>
+                </div>
+
+                <!-- <a href="references.html">References</a> -->
+                <a href="contact.html" data-i18n="nav.contact">Contact Us</a>
+
+                <!-- LANG SELECTOR DROPDOWN: SADECE BAYRAKLAR -->
+                <div class="lang-selector">
+                    <button class="lang-current" type="button" data-lang="en" aria-label="Change language">
+                        <img src="https://flagcdn.com/w40/gb.png" alt="English">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+
+                    <div class="lang-dropdown" aria-label="Language options">
+                        <button class="lang-option" type="button" data-lang="en">
+                            <img src="https://flagcdn.com/w40/gb.png" alt="English">
+                        </button>
+                        <button class="lang-option" type="button" data-lang="tr">
+                            <img src="https://flagcdn.com/w40/tr.png" alt="Türkçe">
+                        </button>
+                        <button class="lang-option" type="button" data-lang="me">
+                            <img src="https://flagcdn.com/w40/me.png" alt="Montenegrin">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="hero" style="min-height: 50vh;">
+        <div class="container">
+            <div class="hero-content" style="max-width: 100%; text-align: center;">
+                <p class="hero-subtitle" data-i18n="servicesPage.heroSubtitle">WHAT WE OFFER</p>
+                <h1 class="hero-title" data-i18n="servicesPage.heroTitle">Our <span>Services</span></h1>
+                <p class="hero-description" style="max-width: 700px; margin: 0 auto;" data-i18n="servicesPage.heroDescription">
+                    We transform every engagement into a seamless blend of prestige, precision, and sophistication. From high-level corporate and diplomatic events to bespoke VIP experiences, our services are designed to elevate your presence, strengthen your relationships, and leave an enduring impression. Explore our offerings and discover how our expertise can turn every detail into a statement of excellence.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6 Service Cards Grid -->
+    <section class="section section-beige" id="protocol">
+        <div class="container">
+            <div class="services-grid stagger-children">
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <h4 data-i18n="servicesPage.cards.advisoryTitle">Protocol Advisory</h4>
+                    <p data-i18n="servicesPage.cards.advisoryText">Expert guidance on diplomatic protocol, precedence, and ceremonial procedures for governments and organizations.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    </div>
+                    <h4 data-i18n="servicesPage.cards.meetingsTitle">Meeting & Summit Organization</h4>
+                    <p data-i18n="servicesPage.cards.meetingsText">End-to-end coordination for high-level meetings, bilateral summits, and multilateral conferences.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/><path d="M10 16l2 2 4-4"/></svg>
+                    </div>
+                    <h4 data-i18n="servicesPage.cards.eventsTitle">Events Planning & Management</h4>
+                    <p data-i18n="servicesPage.cards.eventsText">Comprehensive event services from concept to execution for galas, ceremonies, and diplomatic functions.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h4 data-i18n="servicesPage.cards.teamTitle">Engage Our Professional Protocol Team</h4>
+                    <p data-i18n="servicesPage.cards.teamText">Access our trained protocol officers for your events, ensuring impeccable service and attention to detail.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M6.34 17.66l-1.41 1.41"/><path d="M19.07 4.93l-1.41 1.41"/></svg>
+                    </div>
+                    <h4 data-i18n="servicesPage.cards.networkingTitle">Networking & Strategic Connections</h4>
+                    <p data-i18n="servicesPage.cards.networkingText">Facilitate meaningful connections between diplomats, business leaders, and key stakeholders.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <h4 data-i18n="servicesPage.cards.hospitalityTitle">Exclusive Guest Hospitality</h4>
+                    <p data-i18n="servicesPage.cards.hospitalityText">White-glove hospitality services for VIP guests, including accommodations, transportation, and personal assistance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Planning Detail -->
+    <section class="section" id="events">
+        <div class="container">
+            <div class="two-col">
+                <div class="two-col-image animate-on-scroll2">
+                    <img src="images/eventplanning.jpg" alt="Diplomatic Event" style="max-width: 105%; height: 470px;">
+
+                </div>
+                <div class="two-col-content animate-on-scroll">
+                    <h2 data-i18n="servicesPage.eventsSection.title">Events Planning & Management</h2>
+                    <p data-i18n="servicesPage.eventsSection.intro">From intimate diplomatic dinners to large-scale international summits, our team delivers flawless execution with meticulous attention to protocol and detail.</p>
+                    
+                    <h4 class="text-gold mt-4 mb-2" data-i18n="servicesPage.eventsSection.coreTitle">Core Services:</h4>
+                    <ul>
+                        <li data-i18n="servicesPage.eventsSection.list1">Hospitality & Guest Logistics</li>
+                        <li data-i18n="servicesPage.eventsSection.list2">Airport transfers and chauffeured transportation</li>
+                        <li data-i18n="servicesPage.eventsSection.list3">Luxury accommodations (5-star & boutique stays)</li>
+                        <li data-i18n="servicesPage.eventsSection.list4">Guest registration, seating, and protocol coordination</li>
+                    </ul>
+                    
+                    <a href="contact.html" class="btn btn-outline mt-3" data-i18n="servicesPage.eventsSection.button">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Types -->
+    <section class="section section-beige">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 data-i18n="servicesPage.eventTypes.title">Event Types</h2>
+                <p data-i18n="servicesPage.eventTypes.subtitle">We specialize in organizing and managing a wide range of prestigious events</p>
+            </div>
+            
+            <div class="event-types-grid stagger-children">
+                <div class="event-type-card">
+                    <h4 data-i18n="servicesPage.eventTypes.t1">Corporate Events</h4>
+                </div>
+                <div class="event-type-card">
+                    <h4 data-i18n="servicesPage.eventTypes.t2">Networking Events & Award Ceremonies</h4>
+                </div>
+                <div class="event-type-card">
+                    <h4 data-i18n="servicesPage.eventTypes.t3">Gala Dinners & Entertainment Shows</h4>
+                </div>
+                <div class="event-type-card">
+                    <h4 data-i18n="servicesPage.eventTypes.t4">Private & VIP Celebrations</h4>
+                </div>
+                <div class="event-type-card">
+                    <h4 data-i18n="servicesPage.eventTypes.t5">Royal Weddings & High-Security Events</h4>
+                </div>
+                <div class="event-type-card">
+                    <h4 data-i18n="servicesPage.eventTypes.t6">International Exhibitions & Trade Shows</h4>
+                </div>
+                <div class="event-type-card">
+                    <h4 data-i18n="servicesPage.eventTypes.t7">Governmental, Diplomatic & Cultural Functions</h4>
+                </div>
+                <div class="event-type-card">
+                    <h4 data-i18n="servicesPage.eventTypes.t8">Concerts & Heritage Festivals</h4>
+                </div>
+            </div>
+            
+            <div style="background: var(--black); padding: 1.5rem 2rem; border-radius: var(--radius-md); text-align: center; margin-top: 3rem;" class="animate-on-scroll">
+                <a href="contact.html" style="color: var(--gold); font-size: 1.125rem; font-weight: 500;" data-i18n="servicesPage.eventTypes.cta">
+                    Plan Your Event With Us →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIP Transfer & Logistics -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 data-i18n="servicesPage.logistics.title">Logistics & VIP Guest Services</h2>
+            </div>
+            
+            <div class="services-grid stagger-children center-last-single">
+                <div class="card card-beige">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 4v5h-3"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                    </div>
+                    <h4 data-i18n="servicesPage.logistics.card1Title">VIP Transfer & Reception</h4>
+                    <p data-i18n="servicesPage.logistics.card1Text">Luxury airport transfers, licensed chauffeurs, and high-end vehicle arrangements providing comfort, reliability, and safety for distinguished guests.</p>
+                </div>
+                
+                <div class="card card-beige">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                    </div>
+                    <h4 data-i18n="servicesPage.logistics.card2Title">Airport Meet & Greet</h4>
+                    <p data-i18n="servicesPage.logistics.card2Text">Professional welcome services at arrivals, fast-track immigration assistance, and seamless coordination through departure.</p>
+                </div>
+                
+                <div class="card card-beige">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h4 data-i18n="servicesPage.logistics.card3Title">Security & Escort Coordination</h4>
+                    <p data-i18n="servicesPage.logistics.card3Text">Discreet security arrangements and professional escort services for high-profile guests and sensitive events.</p>
+                </div>
+                
+                <div class="card card-beige">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                    </div>
+                    <h4 data-i18n="servicesPage.logistics.card4Title">VIP Lounge & Check-in Assistance</h4>
+                    <p data-i18n="servicesPage.logistics.card4Text">Access to exclusive airport lounges, priority check-in services, and personalized travel assistance throughout the journey.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical & Production Support -->
+    <section class="section section-beige">
+        <div class="container">
+            <div class="two-col two-col-reverse">
+                <div class="two-col-content animate-on-scroll">
+                    <h2 data-i18n="servicesPage.technical.title">Technical & Production Support</h2>
+                    <p data-i18n="servicesPage.technical.intro">State-of-the-art technical services to ensure your events run smoothly and leave a lasting impression.</p>
+                    
+                    <ul class="mt-3">
+                        <li data-i18n="servicesPage.technical.list1">Stage, Sound & Lighting Design</li>
+                        <li data-i18n="servicesPage.technical.list2">Projection Systems & AV Solutions</li>
+                        <li data-i18n="servicesPage.technical.list3">Security Coordination & Crowd Control</li>
+                        <li data-i18n="servicesPage.technical.list4">Live Streaming & Broadcasting</li>
+                    </ul>
+                    
+                    <a href="contact.html" class="btn btn-outline mt-3" data-i18n="servicesPage.technical.button">Contact us for more info</a>
+                </div>
+                <div class="two-col-image animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&h=400&fit=crop" alt="Event Production">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call Widget -->
+    <div class="call-widget">
+        <div class="call-widget-box">
+            <img src="images/help1.png" alt="Support Agent" class="call-agent-img">
+
+            <div class="call-widget-texts">
+                <p class="call-widget-text" data-i18n="callWidget.text">We’re here to ensure<br>perfection</p>
+
+                <a href="contact.html" class="call-start-btn" data-i18n="buttons.startCall">
+                    <svg width="18" height="18" fill="white" viewBox="0 0 24 24">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 3 5.18
+                        2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.72c.12 1.05.37 2.07.73 3.06a2
+                        2 0 0 1-.45 2.11l-1.27 1.27a16 16 0 0 0 7.07 7.07l1.27-1.27a2
+                        2 0 0 1 2.11-.45 12.84 12.84 0 0 0 3.06.73A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                    Start a call
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4 data-i18n="footer.exploreTitle">Explore</h4>
+                    <ul>
+                        <li><a href="index.html" data-i18n="footer.exploreHome">Home</a></li>
+                        <li><a href="about.html" data-i18n="footer.exploreWhoWeAre">Who We Are</a></li>
+                        <li><a href="about.html#team" data-i18n="footer.exploreTeam">Team</a></li>
+                        <li><a href="references.html" data-i18n="footer.explorePastEvents">Past Events</a></li>
+                        <li><a href="contact.html" data-i18n="footer.exploreCareers">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer.servicesTitle">Services</h4>
+                    <ul>
+                        <li><a href="academy.html" data-i18n="footer.servicesTrainingInstitute">Training Institute</a></li>
+                        <li><a href="services.html#protocol" data-i18n="footer.servicesProtocol">Protocol Services</a></li>
+                        <li><a href="services.html#events" data-i18n="footer.servicesEvents">Events Planning & Management</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer.scheduleTitle">Schedule / Programs</h4>
+                    <ul>
+                        <li><a href="academy.html#programs" data-i18n="footer.schedulePublic">Public Trainings</a></li>
+                        <li><a href="academy.html#formats" data-i18n="footer.schedulePrivate">Private Group Trainings</a></li>
+                        <li><a href="academy.html#programs" data-i18n="footer.scheduleUpcoming">Upcoming Programs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer.companyTitle">Diplomatic Protocol</h4>
+                    <p data-i18n="footer.companyDescription">Leading provider of diplomatic protocol services, training, and event management.</p>
+                    <p style="margin-top: 1rem;">
+                        <strong data-i18n="footer.emailLabel">Email:</strong> info@diplomaticprotocol.me<br>
+                        <strong data-i18n="footer.phoneLabel">Phone:</strong> +382 (555) 123-4567
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r="1"/></svg></a>
+                        <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+                        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                        <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer.rights">&copy; 2025 DiplomaticProtocol.me – All rights reserved.</p>
+                <div>
+                    <a href="#" data-i18n="footer.privacy">Privacy Policy</a> | 
+                    <a href="#" data-i18n="footer.refund">Refund Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="js/main.js"></script>
+
+    <!-- i18n + Lang menu -->
+    <script>
+        const translations = {
+            en: {
+                nav: {
+                    home: `Home`,
+                    about: `About Us`,
+                    services: `Services`,
+                    academy: `Diplomatic Protocol Academy`,
+                    academyApproach: `Our Approach`,
+                    academyPrograms: `Programs & Training Levels`,
+                    academyFormats: `Formats of Training`,
+                    academyBenefits: `Benefits of the Training`,
+                    academyCertificates: `Certificates & Recognition`,
+                    academyCalendar: `Calendar`,
+                    contact: `Contact Us`
+                },
+                buttons: {
+                    exploreServices: `Explore Our Services`,
+                    contact: `Contact Us`,
+                    learnMore: `Learn More`,
+                    joinNow: `Join Us Now`,
+                    exploreAcademy: `Explore the Academy`,
+                    startCall: `Start a call`
+                },
+                callWidget: {
+                    text: `We’re here to ensure<br>perfection`
+                },
+                footer: {
+                    exploreTitle: `Explore`,
+                    exploreHome: `Home`,
+                    exploreWhoWeAre: `Who We Are`,
+                    exploreTeam: `Team`,
+                    explorePastEvents: `Past Events`,
+                    exploreCareers: `Careers`,
+                    servicesTitle: `Services`,
+                    servicesTrainingInstitute: `Training Institute`,
+                    servicesProtocol: `Protocol Services`,
+                    servicesEvents: `Events Planning & Management`,
+                    scheduleTitle: `Schedule / Programs`,
+                    schedulePublic: `Public Trainings`,
+                    schedulePrivate: `Private Group Trainings`,
+                    scheduleUpcoming: `Upcoming Programs`,
+                    companyTitle: `Diplomatic Protocol`,
+                    companyDescription: `Leading provider of diplomatic protocol services, training, and event management.`,
+                    emailLabel: `Email:`,
+                    phoneLabel: `Phone:`,
+                    rights: `© 2025 DiplomaticProtocol.me – All rights reserved.`,
+                    privacy: `Privacy Policy`,
+                    refund: `Refund Policy`
+                },
+                servicesPage: {
+                    heroSubtitle: `WHAT WE OFFER`,
+                    heroTitle: `Our <span>Services</span>`,
+                    heroDescription: `We transform every engagement into a seamless blend of prestige, precision, and sophistication. From high-level corporate and diplomatic events to bespoke VIP experiences, our services are designed to elevate your presence, strengthen your relationships, and leave an enduring impression. Explore our offerings and discover how our expertise can turn every detail into a statement of excellence.`,
+                    cards: {
+                        advisoryTitle: `Protocol Advisory`,
+                        advisoryText: `Expert guidance on diplomatic protocol, precedence, and ceremonial procedures for governments and organizations.`,
+                        meetingsTitle: `Meeting & Summit Organization`,
+                        meetingsText: `End-to-end coordination for high-level meetings, bilateral summits, and multilateral conferences.`,
+                        eventsTitle: `Events Planning & Management`,
+                        eventsText: `Comprehensive event services from concept to execution for galas, ceremonies, and diplomatic functions.`,
+                        teamTitle: `Engage Our Professional Protocol Team`,
+                        teamText: `Access our trained protocol officers for your events, ensuring impeccable service and attention to detail.`,
+                        networkingTitle: `Networking & Strategic Connections`,
+                        networkingText: `Facilitate meaningful connections between diplomats, business leaders, and key stakeholders.`,
+                        hospitalityTitle: `Exclusive Guest Hospitality`,
+                        hospitalityText: `White-glove hospitality services for VIP guests, including accommodations, transportation, and personal assistance.`
+                    },
+                    eventsSection: {
+                        title: `Events Planning & Management`,
+                        intro: `From intimate diplomatic dinners to large-scale international summits, our team delivers flawless execution with meticulous attention to protocol and detail.`,
+                        coreTitle: `Core Services:`,
+                        list1: `Hospitality & Guest Logistics`,
+                        list2: `Airport transfers and chauffeured transportation`,
+                        list3: `Luxury accommodations (5-star & boutique stays)`,
+                        list4: `Guest registration, seating, and protocol coordination`,
+                        button: `Contact Us`
+                    },
+                    eventTypes: {
+                        title: `Event Types`,
+                        subtitle: `We specialize in organizing and managing a wide range of prestigious events`,
+                        t1: `Corporate Events`,
+                        t2: `Networking Events & Award Ceremonies`,
+                        t3: `Gala Dinners & Entertainment Shows`,
+                        t4: `Private & VIP Celebrations`,
+                        t5: `Royal Weddings & High-Security Events`,
+                        t6: `International Exhibitions & Trade Shows`,
+                        t7: `Governmental, Diplomatic & Cultural Functions`,
+                        t8: `Concerts & Heritage Festivals`,
+                        cta: `Plan Your Event With Us →`
+                    },
+                    logistics: {
+                        title: `Logistics & VIP Guest Services`,
+                        card1Title: `VIP Transfer & Reception`,
+                        card1Text: `Luxury airport transfers, licensed chauffeurs, and high-end vehicle arrangements providing comfort, reliability, and safety for distinguished guests.`,
+                        card2Title: `Airport Meet & Greet`,
+                        card2Text: `Professional welcome services at arrivals, fast-track immigration assistance, and seamless coordination through departure.`,
+                        card3Title: `Security & Escort Coordination`,
+                        card3Text: `Discreet security arrangements and professional escort services for high-profile guests and sensitive events.`,
+                        card4Title: `VIP Lounge & Check-in Assistance`,
+                        card4Text: `Access to exclusive airport lounges, priority check-in services, and personalized travel assistance throughout the journey.`
+                    },
+                    technical: {
+                        title: `Technical & Production Support`,
+                        intro: `State-of-the-art technical services to ensure your events run smoothly and leave a lasting impression.`,
+                        list1: `Stage, Sound & Lighting Design`,
+                        list2: `Projection Systems & AV Solutions`,
+                        list3: `Security Coordination & Crowd Control`,
+                        list4: `Live Streaming & Broadcasting`,
+                        button: `Contact us for more info`
+                    }
+                }
+            },
+            tr: {
+                nav: {
+                    home: `Ana Sayfa`,
+                    about: `Hakkımızda`,
+                    services: `Hizmetler`,
+                    academy: `Diplomatik Protokol Akademisi`,
+                    academyApproach: `Yaklaşımımız`,
+                    academyPrograms: `Programlar & Eğitim Seviyeleri`,
+                    academyFormats: `Eğitim Formatları`,
+                    academyBenefits: `Eğitimin Faydaları`,
+                    academyCertificates: `Sertifikalar & Tanınırlık`,
+                    academyCalendar: `Takvim`,
+                    contact: `İletişim`
+                },
+                buttons: {
+                    exploreServices: `Hizmetlerimizi Keşfedin`,
+                    contact: `Bize Ulaşın`,
+                    learnMore: `Detaylı Bilgi`,
+                    joinNow: `Hemen Katılın`,
+                    exploreAcademy: `Akademiyi Keşfedin`,
+                    startCall: `Görüşme Başlat`
+                },
+                callWidget: {
+                    text: `Sizin için buradayız<br>mükemmellik için`
+                },
+                footer: {
+                    exploreTitle: `Keşfet`,
+                    exploreHome: `Ana Sayfa`,
+                    exploreWhoWeAre: `Biz Kimiz`,
+                    exploreTeam: `Ekip`,
+                    explorePastEvents: `Geçmiş Etkinlikler`,
+                    exploreCareers: `Kariyer`,
+                    servicesTitle: `Hizmetler`,
+                    servicesTrainingInstitute: `Eğitim Enstitüsü`,
+                    servicesProtocol: `Protokol Hizmetleri`,
+                    servicesEvents: `Etkinlik Planlama & Yönetimi`,
+                    scheduleTitle: `Takvim / Programlar`,
+                    schedulePublic: `Açık Eğitimler`,
+                    schedulePrivate: `Kuruma Özel Eğitimler`,
+                    scheduleUpcoming: `Yaklaşan Programlar`,
+                    companyTitle: `Diplomatic Protocol`,
+                    companyDescription: `Diplomatik protokol hizmetleri, eğitim ve etkinlik yönetimi alanında lider bir sağlayıcıdır.`,
+                    emailLabel: `E-posta:`,
+                    phoneLabel: `Telefon:`,
+                    rights: `© 2025 DiplomaticProtocol.me – Tüm hakları saklıdır.`,
+                    privacy: `Gizlilik Politikası`,
+                    refund: `İade Politikası`
+                },
+                servicesPage: {
+                    heroSubtitle: `NE SUNUYORUZ`,
+                    heroTitle: `Hizmetlerimiz`,
+                    heroDescription: `Her bir etkinliği, prestij, hassasiyet ve inceliğin kusursuz bir karışımına dönüştürüyoruz. Üst düzey kurumsal ve diplomatik etkinliklerden özel VIP deneyimlerine kadar, hizmetlerimiz varlığınızı yükseltmek, ilişkilerinizi güçlendirmek ve kalıcı bir izlenim bırakmak için tasarlanmıştır. Sunduğumuz hizmetleri keşfedin ve uzmanlığımızın her detayı nasıl mükemmelliğin bir ifadesine dönüştürebileceğini öğrenin.`,
+                    cards: {
+                        advisoryTitle: `Protokol Danışmanlığı`,
+                        advisoryText: `Hükümetler ve kurumlar için diplomatik protokol, protokol sırası ve tören uygulamaları konusunda uzman rehberlik.`,
+                        meetingsTitle: `Toplantı & Zirve Organizasyonu`,
+                        meetingsText: `Üst düzey toplantılar, ikili zirveler ve çok taraflı konferanslar için uçtan uca koordinasyon.`,
+                        eventsTitle: `Etkinlik Planlama & Yönetimi`,
+                        eventsText: `Galalar, törenler ve diplomatik davetler için fikirden uygulamaya kapsamlı etkinlik hizmetleri.`,
+                        teamTitle: `Profesyonel Protokol Ekibi`,
+                        teamText: `Etkinliklerinizde kusursuz hizmet ve detaylara azami özen için eğitimli protokol ekibimize erişim.`,
+                        networkingTitle: `Ağ Kurma & Stratejik Bağlantılar`,
+                        networkingText: `Diplomatlar, iş dünyası liderleri ve kilit paydaşlar arasında anlamlı bağlantılar kurulmasını sağlarız.`,
+                        hospitalityTitle: `Özel Konuk Ağırlama`,
+                        hospitalityText: `VIP konuklar için konaklama, ulaşım ve kişisel asistanlık dahil eldivenli misafirperverlik hizmetleri.`
+                    },
+                    eventsSection: {
+                        title: `Etkinlik Planlama & Yönetimi`,
+                        intro: `Samimi diplomatik yemeklerden geniş kapsamlı uluslararası zirvelere kadar, ekibimiz protokol ve detaylara azami özenle kusursuz bir organizasyon sağlar.`,
+                        coreTitle: `Temel Hizmetler:`,
+                        list1: `Ağırlama & Misafir Lojistiği`,
+                        list2: `Havalimanı transferleri ve şoförlü ulaşım`,
+                        list3: `Lüks konaklama (5 yıldızlı & butik oteller)`,
+                        list4: `Misafir kayıt, oturma planı ve protokol koordinasyonu`,
+                        button: `Bize Ulaşın`
+                    },
+                    eventTypes: {
+                        title: `Etkinlik Türleri`,
+                        subtitle: `Saygın ve prestijli birçok etkinlik türünün organizasyon ve yönetiminde uzmanız`,
+                        t1: `Kurumsal Etkinlikler`,
+                        t2: `Networking Etkinlikleri & Ödül Törenleri`,
+                        t3: `Gala Yemekleri & Gösteriler`,
+                        t4: `Özel & VIP Kutlamalar`,
+                        t5: `Kraliyet Düğünleri & Yüksek Güvenlikli Etkinlikler`,
+                        t6: `Uluslararası Fuarlar & Ticaret Şovları`,
+                        t7: `Hükümet, Diplomatik & Kültürel Organizasyonlar`,
+                        t8: `Konserler & Kültürel Miras Festivalleri`,
+                        cta: `Etkinliğinizi Bizimle Planlayın →`
+                    },
+                    logistics: {
+                        title: `Lojistik & VIP Misafir Hizmetleri`,
+                        card1Title: `VIP Transfer & Karşılama`,
+                        card1Text: `Lüks araçlar, lisanslı şoförler ve üst düzey misafirler için konfor, güvenlik ve güvenilirlik sağlayan transfer organizasyonları.`,
+                        card2Title: `Havalimanı Meet & Greet`,
+                        card2Text: `Varışta profesyonel karşılama, hızlı pasaport işlemleri desteği ve ayrılışa kadar kesintisiz koordinasyon.`,
+                        card3Title: `Güvenlik & Refakat Koordinasyonu`,
+                        card3Text: `Yüksek profilli misafirler ve hassas etkinlikler için gizli güvenlik önlemleri ve profesyonel refakat hizmetleri.`,
+                        card4Title: `VIP Lounge & Check-in Desteği`,
+                        card4Text: `Özel salonlara erişim, öncelikli check-in ve yolculuk boyunca kişiselleştirilmiş seyahat desteği.`
+                    },
+                    technical: {
+                        title: `Teknik & Prodüksiyon Desteği`,
+                        intro: `Etkinliklerinizin sorunsuz ilerlemesi ve unutulmaz bir izlenim bırakması için ileri seviye teknik çözümler sunuyoruz.`,
+                        list1: `Sahne, Ses & Işık Tasarımı`,
+                        list2: `Projeksiyon Sistemleri & Görsel-İşitsel Çözümler`,
+                        list3: `Güvenlik Koordinasyonu & Kalabalık Yönetimi`,
+                        list4: `Canlı Yayın & Broadcast Hizmetleri`,
+                        button: `Detaylı bilgi için bize ulaşın`
+                    }
+                }
+            },
+            me: {
+                nav: {
+                    home: `Početna`,
+                    about: `O nama`,
+                    services: `Usluge`,
+                    academy: `Akademija diplomatskog protokola`,
+                    academyApproach: `Naš pristup`,
+                    academyPrograms: `Programi i nivoi obuke`,
+                    academyFormats: `Formati obuke`,
+                    academyBenefits: `Prednosti obuke`,
+                    academyCertificates: `Sertifikati i priznanja`,
+                    academyCalendar: `Kalendar`,
+                    contact: `Kontakt`
+                },
+                buttons: {
+                    exploreServices: `Pogledaj naše usluge`,
+                    contact: `Kontaktiraj nas`,
+                    learnMore: `Saznaj više`,
+                    joinNow: `Pridruži se sada`,
+                    exploreAcademy: `Istraži Akademiju`,
+                    startCall: `Započni poziv`
+                },
+                callWidget: {
+                    text: `Tu smo da obezbijedimo<br>savršenu izvedbu`
+                },
+                footer: {
+                    exploreTitle: `Istraži`,
+                    exploreHome: `Početna`,
+                    exploreWhoWeAre: `Ko smo`,
+                    exploreTeam: `Tim`,
+                    explorePastEvents: `Prethodni događaji`,
+                    exploreCareers: `Karijera`,
+                    servicesTitle: `Usluge`,
+                    servicesTrainingInstitute: `Trening institut`,
+                    servicesProtocol: `Protokolarne usluge`,
+                    servicesEvents: `Planiranje i organizacija događaja`,
+                    scheduleTitle: `Raspored / Programi`,
+                    schedulePublic: `Javne obuke`,
+                    schedulePrivate: `Privatne grupne obuke`,
+                    scheduleUpcoming: `Predstojeći programi`,
+                    companyTitle: `Diplomatic Protocol`,
+                    companyDescription: `Vodeći provajder protokolarnih usluga, obuka i menadžmenta događaja.`,
+                    emailLabel: `Email:`,
+                    phoneLabel: `Telefon:`,
+                    rights: `© 2025 DiplomaticProtocol.me – Sva prava zadržana.`,
+                    privacy: `Politika privatnosti`,
+                    refund: `Pravila povraćaja`
+                },
+                servicesPage: {
+                    heroSubtitle: `ŠTA NUDIMO`,
+                    heroTitle: `Naše <span>usluge</span>`,
+                    heroDescription: `Svaki događaj pretvaramo u savršenu kombinaciju prestiža, preciznosti i profinjenosti.
+                                        Od vrhunskih korporativnih i diplomatskih događaja do ekskluzivnih VIP iskustava, naše usluge su osmišljene da unaprijede vaše prisustvo, ojačaju odnose i ostave trajan utisak.
+                                        Istražite usluge koje nudimo i otkrijte kako naša stručnost može svaki detalj pretvoriti u izraz savršenstva.`,
+                    cards: {
+                        advisoryTitle: `Protokolarno savjetovanje`,
+                        advisoryText: `Stručno vođenje u oblasti diplomatskog protokola, precedense i ceremonijalnih procedura za vlade i organizacije.`,
+                        meetingsTitle: `Organizacija sastanaka i samita`,
+                        meetingsText: `Potpuna koordinacija visoko-nivoa sastanaka, bilateralnih samita i multilateralnih konferencija.`,
+                        eventsTitle: `Planiranje i menadžment događaja`,
+                        eventsText: `Sveobuhvatne usluge – od koncepta do realizacije – za gale, ceremonije i diplomatske prijeme.`,
+                        teamTitle: `Angažovanje našeg protokol tima`,
+                        teamText: `Pristup obučenim protokol oficirima koji obezbjeđuju besprijekornu uslugu i pažnju prema detaljima.`,
+                        networkingTitle: `Umrežavanje i stratečne veze`,
+                        networkingText: `Pomažemo u uspostavljanju značajnih veza između diplomata, poslovnih lidera i ključnih aktera.`,
+                        hospitalityTitle: `Ekskluzivni smještaj za goste`,
+                        hospitalityText: `Usluge vrhunskog gostoprimstva za VIP goste, uključujući smještaj, prevoz i ličnu asistenciju.`
+                    },
+                    eventsSection: {
+                        title: `Planiranje i menadžment događaja`,
+                        intro: `Od intimnih diplomatskih večera do velikih međunarodnih samita, naš tim pruža besprijekornu realizaciju uz strogo poštovanje protokola.`,
+                        coreTitle: `Osnovne usluge:`,
+                        list1: `Gostoprimstvo i logistika`,
+                        list2: `Aerodromski transferi i vozači`,
+                        list3: `Luksuzni smještaj (5★ i boutique hoteli)`,
+                        list4: `Registracija gostiju, seating plan i protokolarna koordinacija`,
+                        button: `Kontaktiraj nas`
+                    },
+                    eventTypes: {
+                        title: `Tipovi događaja`,
+                        subtitle: `Specijalizovani smo za organizaciju i vođenje širokog spektra prestižnih događaja`,
+                        t1: `Korporativni događaji`,
+                        t2: `Networking događaji i dodjele nagrada`,
+                        t3: `Gala večere i zabavni programi`,
+                        t4: `Privatne i VIP proslave`,
+                        t5: `Kraljevska vjenčanja i visokobezbjednosni događaji`,
+                        t6: `Međunarodni sajmovi i izložbe`,
+                        t7: `Državne, diplomatske i kulturne funkcije`,
+                        t8: `Koncerti i festivali baštine`,
+                        cta: `Isplanirajte događaj sa nama →`
+                    },
+                    logistics: {
+                        title: `Logistika i VIP usluge`,
+                        card1Title: `VIP transfer i prijem`,
+                        card1Text: `Luksuzni prevoz, licencirani vozači i vozila visokog standarda za udobnost, bezbjednost i pouzdanost VIP gostiju.`,
+                        card2Title: `Meet & Greet na aerodromu`,
+                        card2Text: `Profesionalan doček, pomoć pri pasoškoj kontroli i koordinacija cijelog putovanja.`,
+                        card3Title: `Obezbjeđenje i pratnja`,
+                        card3Text: `Diskretne sigurnosne mjere i profesionalna pratnja za visoko-profilne goste i osjetljive događaje.`,
+                        card4Title: `VIP lounge i check-in podrška`,
+                        card4Text: `Pristup ekskluzivnim salonima, prioritetni check-in i personalizovana podrška tokom putovanja.`
+                    },
+                    technical: {
+                        title: `Tehnička i produkciona podrška`,
+                        intro: `Savremena tehnička rješenja koja obezbjeđuju da vaši događaji teku glatko i ostave snažan utisak.`,
+                        list1: `Scena, ozvučenje i rasvjeta`,
+                        list2: `Projektori i AV sistemi`,
+                        list3: `Koordinacija bezbjednosti i kontrola publike`,
+                        list4: `Live streaming i broadcast`,
+                        button: `Kontaktiraj nas za više informacija`
+                    }
+                }
+            }
+        };
+
+        const LANG_FLAGS = {
+            en: 'https://flagcdn.com/w40/gb.png',
+            tr: 'https://flagcdn.com/w40/tr.png',
+            me: 'https://flagcdn.com/w40/me.png'
+        };
+
+        const LANG_NAMES = {
+            en: 'English',
+            tr: 'Türkçe',
+            me: 'Montenegrin'
+        };
+
+        function setLanguage(lang) {
+            const supported = ['en', 'tr', 'me'];
+            if (!supported.includes(lang)) lang = 'en';
+
+            document.documentElement.lang = lang;
+
+            const dict = translations[lang] || translations.en;
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.dataset.i18n;
+                const parts = key.split('.');
+                let value = dict;
+                parts.forEach(p => {
+                    if (value && typeof value === 'object') value = value[p];
+                });
+                if (typeof value === 'string') {
+                    el.innerHTML = value;
+                }
+            });
+
+            const langSelector = document.querySelector('.lang-selector');
+            if (langSelector) {
+                const currentBtn = langSelector.querySelector('.lang-current');
+                const img = currentBtn ? currentBtn.querySelector('img') : null;
+                if (currentBtn) currentBtn.dataset.lang = lang;
+                if (img && LANG_FLAGS[lang]) {
+                    img.src = LANG_FLAGS[lang];
+                    img.alt = LANG_NAMES[lang] || '';
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Call widget aktif
+            const callWidget = document.querySelector('.call-widget');
+            if (callWidget) {
+                callWidget.style.opacity = '1';
+                callWidget.style.pointerEvents = 'auto';
+            }
+
+            const langSelector = document.querySelector('.lang-selector');
+            if (langSelector) {
+                const dropdown = langSelector.querySelector('.lang-dropdown');
+                const savedLang = localStorage.getItem('dp_lang') || 'en';
+                setLanguage(savedLang);
+
+                let langCloseTimeout = null;
+
+                langSelector.addEventListener('mouseenter', () => {
+                    if (langCloseTimeout) clearTimeout(langCloseTimeout);
+                    langSelector.classList.add('open');
+                });
+
+                langSelector.addEventListener('mouseleave', () => {
+                    langCloseTimeout = setTimeout(() => {
+                        langSelector.classList.remove('open');
+                    }, 200);
+                });
+
+                if (dropdown) {
+                    dropdown.querySelectorAll('[data-lang]').forEach(btn => {
+                        btn.addEventListener('click', function (e) {
+                            e.preventDefault();
+                            const lang = this.dataset.lang;
+                            setLanguage(lang);
+                            localStorage.setItem('dp_lang', lang);
+                        });
+                    });
+                }
+            } else {
+                const savedLang = localStorage.getItem('dp_lang') || 'en';
+                setLanguage(savedLang);
+            }
+        });
+    </script>
+</body>
+</html>
