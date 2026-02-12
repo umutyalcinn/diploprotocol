@@ -58,6 +58,7 @@ filter: brightness(0.45) contrast(1.05);
             font-size: clamp(2.2rem, 4vw, 3.5rem);
             line-height: 1.1;
             margin: 0;
+            color: var(--gold);
         }
 
         /* Yeni ikinci H1 */
@@ -67,6 +68,181 @@ filter: brightness(0.45) contrast(1.05);
             margin-top: 0.85rem;
             margin-bottom: 1.8rem;
             opacity: 0.95;
+            color: var(--gold);
+        }
+
+        .gold-heading {
+            color: var(--gold);
+        }
+
+        .academy-cta-btn {
+            background: var(--gold);
+            border: 1px solid rgba(155, 120, 28, 0.6);
+            color: #1a3c34;
+            padding: 0.9rem 2.2rem;
+            border-radius: 999px;
+            box-shadow: 0 10px 22px rgba(26, 60, 52, 0.22);
+            letter-spacing: 0.02em;
+            font-size: 1.05rem;
+        }
+
+        .academy-cta-btn:hover {
+            background: #b8922a;
+            color: #1a3c34;
+            transform: translateY(-1px);
+            box-shadow: 0 14px 28px rgba(26, 60, 52, 0.26);
+        }
+
+        .services-learn-more {
+            background: var(--gold);
+            border: 1px solid rgba(155, 120, 28, 0.6);
+            color: #1a3c34;
+            padding: 0.55rem 1.35rem;
+            border-radius: 999px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            box-shadow: 0 8px 18px rgba(26, 60, 52, 0.18);
+        }
+
+        .services-learn-more:hover {
+            background: #b8922a;
+            color: #1a3c34;
+            transform: translateY(-1px);
+            box-shadow: 0 12px 22px rgba(26, 60, 52, 0.24);
+        }
+
+        .home-services .image-card {
+            height: 320px;
+        }
+
+        @media (max-width: 768px) {
+            .home-services .image-card {
+                height: 280px;
+            }
+        }
+
+        .services-highlights .benefits-strip {
+            gap: 1.5rem;
+            align-items: stretch;
+        }
+
+        .services-highlights .benefit-item {
+            background: #fffcf6;
+            border: 1px solid rgba(201, 162, 39, 0.22);
+            border-radius: 14px;
+            padding: 1.25rem 1.4rem;
+            box-shadow: 0 10px 22px rgba(26, 60, 52, 0.08);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 220px;
+            flex: 1;
+        }
+
+        .services-highlights .benefit-number {
+            color: var(--gold);
+            font-size: 3.4rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .services-highlights .benefit-item p {
+            color: rgba(0, 0, 0, 0.7);
+            margin-bottom: 0;
+        }
+
+        .services-highlights .cta-banner {
+            background: #fffdf6;
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            box-shadow: 0 12px 26px rgba(26, 60, 52, 0.1);
+        }
+
+        .services-highlights .cta-banner p {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .services-highlights .cta-banner .btn {
+            background: var(--dark-green);
+            color: var(--white);
+            border: 1px solid rgba(26, 60, 52, 0.6);
+        }
+
+        .services-highlights .cta-banner .btn:hover {
+            background: var(--dark-green-light);
+            color: var(--white);
+        }
+
+        @media (max-width: 768px) {
+            .services-highlights .benefit-item {
+                min-height: auto;
+            }
+        }
+
+        .vip-services .card {
+            background: #fffcf6;
+            border: 1px solid rgba(201, 162, 39, 0.2);
+            border-radius: 14px;
+            padding: 1.2rem;
+            box-shadow: 0 10px 22px rgba(26, 60, 52, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .vip-services .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 26px rgba(26, 60, 52, 0.14);
+        }
+
+        .vip-services .card-icon {
+            width: 52px;
+            height: 52px;
+            margin-bottom: 1rem;
+            border-radius: 50%;
+            background: rgba(201, 162, 39, 0.08);
+            border: 1px solid rgba(201, 162, 39, 0.25);
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.55);
+        }
+
+        .vip-services .card-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke-width: 1.4;
+        }
+
+        .vip-services .card h4 {
+            margin-bottom: 0.6rem;
+            font-size: 1.15rem;
+            color: #1a3c34;
+        }
+
+        .vip-services .card p {
+            color: rgba(0, 0, 0, 0.65);
+            font-size: 0.98rem;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-cta .btn.btn-outline {
+            background: var(--gold);
+            border: 1px solid rgba(155, 120, 28, 0.6);
+            color: #1a3c34;
+            padding: 0.95rem 2.4rem;
+            border-radius: 999px;
+            box-shadow: 0 12px 26px rgba(26, 60, 52, 0.28);
+            letter-spacing: 0.02em;
+            font-size: 1.05rem;
+        }
+
+        .hero-cta .btn.btn-outline:hover {
+            background: #b8922a;
+            color: #1a3c34;
+            transform: translateY(-1px);
+            box-shadow: 0 16px 30px rgba(26, 60, 52, 0.34);
         }
 
         /* Sections */
@@ -231,10 +407,12 @@ filter: brightness(0.45) contrast(1.05);
         /* Bayrak resimleri tam ortaya gelsin */
         .lang-current img,
         .lang-option img {
-            width: 32px;
-            height: 24px;
+            width: 26px;
+            height: 20px;
             object-fit: cover;
             display: block;
+            border-radius: 6px;
+            border: 1px solid rgba(255,255,255,0.35);
         }
 
         /* Dropdown sağa değil sola hizalansın — böylece ÜSTTEKİ BAYRAK ile aynı hizada açılır */
@@ -244,12 +422,16 @@ filter: brightness(0.45) contrast(1.05);
             top: 110%;
             left: 0;
 
+            background: rgba(26, 60, 52, 0.95);
+            border: 1px solid rgba(201,162,39,0.5);
             border-radius: 0.75rem;
-            padding: 0.4rem 0.3rem;
+            padding: 0.3rem 0.25rem;
             display: none;
             flex-direction: column;
-            gap: 0.35rem;
+            gap: 0.25rem;
             z-index: 10000;
+            box-shadow: 0 16px 30px rgba(0,0,0,0.4);
+            backdrop-filter: blur(10px);
 
             /* Animasyon için başlangıç */
             transform: scale(0.92) translateY(4px);
@@ -267,10 +449,12 @@ filter: brightness(0.45) contrast(1.05);
         .lang-selector {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 0.5rem;
-            background: none;
-            border-radius: var(--radius-sm);
+            gap: 0.3rem;
+            padding: 0.35rem 0.45rem;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(201,162,39,0.55);
+            border-radius: 999px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.35);
             cursor: pointer;
         }
 
@@ -325,6 +509,32 @@ filter: brightness(0.45) contrast(1.05);
 
             .navbar .lang-selector {
                 margin-left: 0.75rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar .lang-selector {
+                margin-left: 0;
+            }
+
+            .lang-selector {
+                padding: 0.25rem 0.4rem;
+            }
+
+            .lang-current svg {
+                display: none;
+            }
+
+            .lang-current,
+            .lang-option {
+                width: 36px;
+                height: 26px;
+            }
+
+            .lang-current img,
+            .lang-option img {
+                width: 26px;
+                height: 20px;
             }
         }
 
@@ -484,11 +694,10 @@ filter: brightness(0.45) contrast(1.05);
     <nav class="navbar">
         <div class="container">
             <a href="index.html" class="navbar-brand">
-                <img src="images/logo1yesil.png" alt="Diplomatic Protocol Logo" 
+                <img src="images/logo.png" alt="Diplomatic Protocol Logo" 
                     style="width: 100px; 
-                           height: 100%; 
-                           max-height: 150px; 
-                           background-color: var(--dark-green);">
+                           height: auto; 
+                           max-height: 150px;">
                 <span>DIPLOMATIC PROTOCOL</span>
             </a>
             
@@ -512,31 +721,32 @@ filter: brightness(0.45) contrast(1.05);
                 </div>
 
                 <a href="contact.html" data-i18n="nav.contact">Contact Us</a>
-
-                <!-- LANG SELECTOR DROPDOWN: SADECE BAYRAKLAR -->
-                <div class="lang-selector">
-                    <button class="lang-current" type="button" data-lang="en" aria-label="Change language">
+            </div>
+ 
+            <!-- LANG SELECTOR DROPDOWN: SADECE BAYRAKLAR -->
+            <div class="lang-selector">
+                <button class="lang-current" type="button" data-lang="en" aria-label="Change language">
+                    <img src="https://flagcdn.com/w40/gb.png" alt="English">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                </button>
+ 
+                <div class="lang-dropdown" aria-label="Language options">
+                    <button class="lang-option" type="button" data-lang="en">
                         <img src="https://flagcdn.com/w40/gb.png" alt="English">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M6 9l6 6 6-6"/>
-                        </svg>
                     </button>
-
-                    <div class="lang-dropdown" aria-label="Language options">
-                        <button class="lang-option" type="button" data-lang="en">
-                            <img src="https://flagcdn.com/w40/gb.png" alt="English">
-                        </button>
-                        <button class="lang-option" type="button" data-lang="tr">
-                            <img src="https://flagcdn.com/w40/tr.png" alt="Türkçe">
-                        </button>
-                        <button class="lang-option" type="button" data-lang="me">
-                            <img src="https://flagcdn.com/w40/me.png" alt="Montenegrin">
-                        </button>
-                    </div>
+                    <button class="lang-option" type="button" data-lang="tr">
+                        <img src="https://flagcdn.com/w40/tr.png" alt="Türkçe">
+                    </button>
+                    <button class="lang-option" type="button" data-lang="me">
+                        <img src="https://flagcdn.com/w40/me.png" alt="Montenegrin">
+                    </button>
                 </div>
             </div>
-
+ 
             <div class="menu-toggle">
+
                 <span></span>
                 <span></span>
                 <span></span>
@@ -555,30 +765,23 @@ filter: brightness(0.45) contrast(1.05);
                 <!-- Hero Bottom Right Text -->
 
                 <!-- Eski "EXCELLENCE..." ve açıklama kaldırıldı -->
-                <h1 class="hero-title" style="color: var(--gold);" data-i18n="hero.title">High-Level Events & VIP Diplomatic Protocol</h1>
-                <h1 class="hero-title-secondary" style="color: var(--gold);"data-i18n="hero.subtitle">Where Prestige Meets Perfection</h1>
+                <h1 class="hero-title" style="color: var(--gold);" data-i18n="hero.title">High-Level Events & VIP Protocol</h1>
+                <h1 class="hero-title-secondary" style="color: var(--gold);" data-i18n="hero.subtitle">Where Prestige Meets Perfection</h1>
 
-                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <div class="hero-cta">
                     <a href="services.html" class="btn btn-outline" data-i18n="buttons.exploreServices">Explore Our Services</a>
 
                 </div>
+
                 
             </div>
             
         </div>
 
     </section>
-<section class="montenegro-statement">
+ <!-- Our Services - 9 Cards -->
 
-    <p class="montenegro-statement-text" style="color: var(--gold);" data-i18n="montenegro.statement">
-      We are a Montenegrin company founded on Montenegro’s diplomatic tradition and Adriatic hospitality,<br>
-      reflecting the country’s values, culture, and business etiquette.
-    </p>
-
-</section>
-
-<!-- Our Services - 9 Cards -->
-<section class="section section-beige">
+<section class="section section-beige home-services">
     <div class="container">
         <div class="section-header animate-on-scroll">
             <h2 data-i18n="sections.services.title">Our Services</h2>
@@ -592,7 +795,7 @@ filter: brightness(0.45) contrast(1.05);
                 <div class="image-card-content">
                     <h3 data-i18n="services.protocolAdvisory.title">Protocol Advisory</h3>
                     <p data-i18n="services.protocolAdvisory.text">Expert guidance on official ceremonies, state visits, seating arrangements, formal correspondence, and international etiquette to ensure every detail aligns with diplomatic standards.</p>
-                    <a href="services.html#protocol-advisory" class="btn btn-outline mt-2" style="padding: 0.5rem 1rem; font-size: 0.9rem;" data-i18n="buttons.learnMore">
+                    <a href="services.html#protocol-advisory" class="btn btn-outline mt-2 services-learn-more" style="padding: 0.5rem 1rem; font-size: 0.9rem;" data-i18n="buttons.learnMore">
                         Learn More
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -603,11 +806,11 @@ filter: brightness(0.45) contrast(1.05);
 
             <!-- 2 -->
             <div class="image-card">
-                <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=500&h=400&fit=crop" alt="Meeting & Summit Organization">
+                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&h=600" alt="Meeting & Summit Organization">
                 <div class="image-card-content">
                     <h3 data-i18n="services.meetingSummit.title">Meeting &amp; Summit Organization</h3>
                     <p data-i18n="services.meetingSummit.text">Comprehensive planning and execution of high-level meetings involving political leaders, diplomats, and business executives, ensuring seamless coordination and impactful outcomes.</p>
-                    <a href="services.html#meetings-summits" class="btn btn-outline mt-2" style="padding: 0.5rem 1rem; font-size: 0.9rem;" data-i18n="buttons.learnMore">
+                    <a href="services.html#meetings-summits" class="btn btn-outline mt-2 services-learn-more" style="padding: 0.5rem 1rem; font-size: 0.9rem;" data-i18n="buttons.learnMore">
                         Learn More
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -622,7 +825,7 @@ filter: brightness(0.45) contrast(1.05);
                 <div class="image-card-content">
                     <h3 data-i18n="services.eventsPlanning.title">Events Planning &amp; Management</h3>
                     <p data-i18n="services.eventsPlanning.text">Designing and managing conferences, forums, galas, award ceremonies, and high-profile receptions, delivering events that reflect prestige and sophistication.</p>
-                    <a href="services.html#events" class="btn btn-outline mt-2" style="padding: 0.5rem 1rem; font-size: 0.9rem;" data-i18n="buttons.learnMore">
+                    <a href="services.html#events" class="btn btn-outline mt-2 services-learn-more" style="padding: 0.5rem 1rem; font-size: 0.9rem;" data-i18n="buttons.learnMore">
                         Learn More
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -633,11 +836,11 @@ filter: brightness(0.45) contrast(1.05);
 
             <!-- 4 -->
             <div class="image-card">
-                <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=500&h=400&fit=crop" alt="Engage Our Professional Protocol Team">
+                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&h=600" alt="Engage Our Professional Protocol Team">
                 <div class="image-card-content">
                     <h3 data-i18n="services.protocolTeam.title">Engage Our Professional Protocol Team</h3>
                     <p data-i18n="services.protocolTeam.text">Clients have the exclusive option to hire our experienced protocol specialists to directly manage, coordinate, and implement all aspects of protocol for their events. Our team ensures flawless execution, adherence to international standards, and impeccable attention to every detail, acting as your dedicated on-site protocol professionals.</p>
-                    <a href="services.html#protocol-team" class="btn btn-outline mt-2" style="padding: 0.5rem 1rem; font-size: 0.9rem;" data-i18n="buttons.learnMore">
+                    <a href="services.html#protocol-team" class="btn btn-outline mt-2 services-learn-more" style="padding: 0.5rem 1rem; font-size: 0.9rem;" data-i18n="buttons.learnMore">
                         Learn More
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -648,11 +851,11 @@ filter: brightness(0.45) contrast(1.05);
 
             <!-- 5 -->
             <div class="image-card">
-                <img src="https://images.unsplash.com/photo-1551836022-aadb801c60ae?w=500&h=400&fit=crop" alt="Networking & Strategic Connections">
+                <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&h=600" alt="Networking & Strategic Connections">
                 <div class="image-card-content">
                     <h3 data-i18n="services.networking.title">Networking &amp; Strategic Connections</h3>
                     <p data-i18n="services.networking.text">Facilitating trusted connections between political, diplomatic, and business communities, fostering collaboration and strengthening relationships.</p>
-                    <a href="services.html#networking" class="btn btn-outline mt-2" style="padding: 0.5rem 1rem; font-size: 0.9rem;" data-i18n="buttons.learnMore">
+                    <a href="services.html#networking" class="btn btn-outline mt-2 services-learn-more" style="padding: 0.5rem 1rem; font-size: 0.9rem;" data-i18n="buttons.learnMore">
                         Learn More
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -663,11 +866,11 @@ filter: brightness(0.45) contrast(1.05);
 
             <!-- 6 -->
             <div class="image-card">
-                <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=500&h=400&fit=crop" alt="Exclusive Guest Hospitality">
+                <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&w=800&h=600" alt="Exclusive Guest Hospitality">
                 <div class="image-card-content">
                     <h3 data-i18n="services.guestHospitality.title">Exclusive Guest Hospitality</h3>
                     <p data-i18n="services.guestHospitality.text">Arranging accommodation, cultural programs, and VIP guest experiences with meticulous attention to protocol, ensuring a memorable and respectful stay.</p>
-                    <a href="services.html#guest-hospitality" class="btn btn-outline mt-2" style="padding: 0.5rem 1rem; font-size: 0.9rem;" data-i18n="buttons.learnMore">
+                    <a href="services.html#guest-hospitality" class="btn btn-outline mt-2 services-learn-more" style="padding: 0.5rem 1rem; font-size: 0.9rem;" data-i18n="buttons.learnMore">
                         Learn More
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -678,11 +881,11 @@ filter: brightness(0.45) contrast(1.05);
 
             <!-- 7 -->
             <div class="image-card">
-                <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=500&h=400&fit=crop" alt="Corporate Image & Reputation">
+                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&h=600" alt="Corporate Image & Reputation">
                 <div class="image-card-content">
                     <h3 data-i18n="services.corporateImage.title">Corporate Image &amp; Reputation</h3>
                     <p data-i18n="services.corporateImage.text">Offering elegant representation and flawless execution of public and private protocol to enhance and maintain a distinguished corporate image.</p>
-                    <a href="services.html#corporate-image" class="btn btn-outline mt-2" style="padding: 0.5rem 1rem; font-size: 0.9rem;" data-i18n="buttons.learnMore">
+                    <a href="services.html#corporate-image" class="btn btn-outline mt-2 services-learn-more" style="padding: 0.5rem 1rem; font-size: 0.9rem;" data-i18n="buttons.learnMore">
                         Learn More
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -693,11 +896,11 @@ filter: brightness(0.45) contrast(1.05);
 
             <!-- 8 -->
             <div class="image-card">
-                <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=500&h=400&fit=crop" alt="Ethics & Cultural Consultancy">
+                <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&h=600" alt="Ethics & Cultural Consultancy">
                 <div class="image-card-content">
                     <h3 data-i18n="services.ethicsCultural.title">Ethics &amp; Cultural Consultancy</h3>
                     <p data-i18n="services.ethicsCultural.text">Providing guidance on cultural sensitivity and international diplomatic behavior, helping clients navigate diverse cultural landscapes with respect and understanding.</p>
-                    <a href="services.html#ethics-cultural" class="btn btn-outline mt-2" style="padding: 0.5rem 1rem; font-size: 0.9rem;" data-i18n="buttons.learnMore">
+                    <a href="services.html#ethics-cultural" class="btn btn-outline mt-2 services-learn-more" style="padding: 0.5rem 1rem; font-size: 0.9rem;" data-i18n="buttons.learnMore">
                         Learn More
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -708,11 +911,11 @@ filter: brightness(0.45) contrast(1.05);
 
             <!-- 9 -->
             <div class="image-card">
-                <img src="https://images.unsplash.com/photo-1496307653780-42ee777d4833?w=500&h=400&fit=crop" alt="VIP Transfer & Reception">
+                <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=800&h=600" alt="VIP Transfer & Reception">
                 <div class="image-card-content">
                     <h3 data-i18n="services.vipTransfer.title">VIP Transfer &amp; Reception</h3>
                     <p data-i18n="services.vipTransfer.text">We provide luxury airport transfers, allocation of luxury vehicles with professional drivers who ensure safety and punctuality, as well as personalized transportation services, delivering a comfortable and secure experience for distinguished guests.</p>
-                    <a href="services.html#vip-transfer" class="btn btn-outline mt-2" style="padding: 0.5rem 1rem; font-size: 0.9rem;" data-i18n="buttons.learnMore">
+                    <a href="services.html#vip-transfer" class="btn btn-outline mt-2 services-learn-more" style="padding: 0.5rem 1rem; font-size: 0.9rem;" data-i18n="buttons.learnMore">
                         Learn More
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -724,15 +927,14 @@ filter: brightness(0.45) contrast(1.05);
     </div>
 </section>
 
-
     <!-- Exclusive Personal VIP Services -->
     <section class="section">
         <div class="container">
             <div class="section-header animate-on-scroll">
-                <h2 data-i18n="vip.title">Exclusive Personal VIP Services</h2>
+                <h2 class="gold-heading" data-i18n="vip.title">Exclusive Personal VIP Services</h2>
                 <p data-i18n="vip.subtitle">Tailored services for distinguished individuals and organizations</p>
             </div>
-            
+
             <div class="services-grid stagger-children" style="grid-template-columns: repeat(4, 1fr);">
                 <div class="card card-beige">
                     <div class="card-icon">
@@ -741,7 +943,7 @@ filter: brightness(0.45) contrast(1.05);
                     <h4 data-i18n="vip.vipAssistants.title">VIP Personal Assistants</h4>
                     <p data-i18n="vip.vipAssistants.text">Dedicated professionals providing discreet, personalized assistance for all your needs.</p>
                 </div>
-                
+
                 <div class="card card-beige">
                     <div class="card-icon">
                         <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -749,7 +951,7 @@ filter: brightness(0.45) contrast(1.05);
                     <h4 data-i18n="vip.lifestyle.title">Lifestyle Concierge</h4>
                     <p data-i18n="vip.lifestyle.text">Curated experiences and seamless arrangements for travel, dining, and exclusive access.</p>
                 </div>
-                
+
                 <div class="card card-beige">
                     <div class="card-icon">
                         <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/></svg>
@@ -757,7 +959,7 @@ filter: brightness(0.45) contrast(1.05);
                     <h4 data-i18n="vip.imageConsulting.title">Image Consulting</h4>
                     <p data-i18n="vip.imageConsulting.text">Professional guidance on presentation, dress code, and personal branding for high-profile settings.</p>
                 </div>
-                
+
                 <div class="card card-beige">
                     <div class="card-icon">
                         <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A 2 2 0 0 0 21 16z"/></svg>
@@ -770,52 +972,51 @@ filter: brightness(0.45) contrast(1.05);
     </section>
 
     <!-- Protocol Services -->
-<section class="section section-beige">
-    <div class="container">
-        <div class="section-header animate-on-scroll">
-            <h2 data-i18n="highlights.title">Services Highlights</h2>
-        </div>
-        
-        <div class="benefits-strip stagger-children animated">
-            <div class="benefit-item">
-                <div class="benefit-number">1</div>
-                <p data-i18n="highlights.card1">Official Protocol Planning<br>End to end protocol design for official engagements, briefings, seating, flags, introductions, and ceremony flow.</p>
+    <section class="section section-beige services-highlights">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="gold-heading" data-i18n="highlights.title">Services Highlights</h2>
             </div>
-            <div class="benefit-item">
-                <div class="benefit-number">2</div>
-                <p data-i18n="highlights.card2">State Visits and Delegations<br>High level visit coordination, stakeholder alignment, schedules, and on site protocol execution.</p>
-            </div>
-            <div class="benefit-item">
-                <div class="benefit-number">3</div>
-                <p data-i18n="highlights.card3">Corporate Summits and VIP Events<br>Executive events managed with diplomatic precision from agenda to stage management and host scripts.</p>
-            </div>
-            <div class="benefit-item">
-                <div class="benefit-number">4</div>
-                <p data-i18n="highlights.card4">VIP Hospitality and Concierge Support<br>Discreet guest handling, airport meets, secure transfers, hosting, and premium guest experience.</p>
-            </div>
-            <div class="benefit-item">
-                <div class="benefit-number">5</div>
-                <p data-i18n="highlights.card5">Training and Advisory<br>Practical protocol training for teams plus tailored advisory for institutions and leadership offices.</p>
-            </div>
-        </div>
-        
-        <div class="cta-banner animate-on-scroll">
-            <p data-i18n="highlights.ctaText">Deliver every visit, meeting, and event with diplomatic excellence and flawless coordination.</p>
-            <a href="contact.html" class="btn btn-black" data-i18n="buttons.requestConsultation">Request a Consultation</a>
-        </div>
-    </div>
-</section>
 
+            <div class="benefits-strip stagger-children animated">
+                <div class="benefit-item">
+                    <div class="benefit-number">1</div>
+                    <p data-i18n="highlights.card1">Official Protocol Planning<br>End to end protocol design for official engagements, briefings, seating, flags, introductions, and ceremony flow.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-number">2</div>
+                    <p data-i18n="highlights.card2">State Visits and Delegations<br>High level visit coordination, stakeholder alignment, schedules, and on site protocol execution.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-number">3</div>
+                    <p data-i18n="highlights.card3">Corporate Summits and VIP Events<br>Executive events managed with diplomatic precision from agenda to stage management and host scripts.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-number">4</div>
+                    <p data-i18n="highlights.card4">VIP Hospitality and Concierge Support<br>Discreet guest handling, airport meets, secure transfers, hosting, and premium guest experience.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-number">5</div>
+                    <p data-i18n="highlights.card5">Training and Advisory<br>Practical protocol training for teams plus tailored advisory for institutions and leadership offices.</p>
+                </div>
+            </div>
+
+            <div class="cta-banner animate-on-scroll">
+                <p data-i18n="highlights.ctaText">Deliver every visit, meeting, and event with diplomatic excellence and flawless coordination.</p>
+                <a href="contact.html" class="btn btn-black" data-i18n="buttons.requestConsultation">Request a Consultation</a>
+            </div>
+        </div>
+    </section>
 
     <!-- Diplomatic Protocol Academy Teaser -->
     <section class="section">
         <div class="container">
             <div class="two-col">
                 <div class="two-col-content animate-on-scroll">
-                    <h2 data-i18n="academy.teaserTitle">Diplomatic Protocol Academy</h2>
+                    <h2 class="gold-heading" data-i18n="academy.teaserTitle">Diplomatic Protocol Academy</h2>
                     <p data-i18n="academy.teaserP1">Our academy offers comprehensive training programs in diplomatic protocol, business etiquette, and international communication. Led by experienced protocol professionals with real-world diplomatic experience.</p>
                     <p data-i18n="academy.teaserP2">From individual coaching to corporate training, we prepare professionals to excel in high-stakes international environments.</p>
-                    <a href="academy.html" class="btn btn-outline mt-3" data-i18n="buttons.exploreAcademy">Explore the Academy</a>
+                    <a href="academy.html" class="btn btn-outline mt-3 academy-cta-btn" data-i18n="buttons.exploreAcademy">Explore the Academy</a>
                 </div>
                 <div class="two-col-image animate-on-scroll">
                     <img src="images/dipproacedemy.jpg" alt="Diplomatic Protocol Academy">
@@ -825,6 +1026,7 @@ filter: brightness(0.45) contrast(1.05);
     </section>
 
     <!-- Call Widget -->
+
     <div class="call-widget">
         <div class="call-widget-box">
             <img src="images/help1.png" alt="Support Agent" class="call-agent-img">
@@ -937,7 +1139,7 @@ filter: brightness(0.45) contrast(1.05);
                     contact: `Contact Us`
                 },
                 hero: {
-                    title: `High-Level Events & VIP Diplomatic Protocol`,
+                    title: `High-Level Events & VIP Protocol`,
                     subtitle: `Where Prestige Meets Perfection`
                 },
                 montenegro: {
@@ -1079,7 +1281,7 @@ filter: brightness(0.45) contrast(1.05);
                     contact: `İletişim`
                 },
                 hero: {
-                    title: `Üst Düzey Etkinlikler & VIP Diplomatik Protokol`,
+                    title: `Üst Düzey Etkinlikler & VIP Protokol`,
                     subtitle: `Prestijin Mükemmellikle Buluştuğu Yer`
                 },
                 montenegro: {
@@ -1218,7 +1420,7 @@ filter: brightness(0.45) contrast(1.05);
                     contact: `Kontakt`
                 },
                 hero: {
-                    title: `Visokoprofilni događaji i VIP diplomatski protokol`,
+                    title: `Visokoprofilni događaji i VIP protokol`,
                     subtitle: `Gdje se prestiž susreće sa savršenstvom`
                 },
                 montenegro: {
@@ -1404,28 +1606,31 @@ filter: brightness(0.45) contrast(1.05);
                 setLanguage(savedLang);
 
                 const dropdown = langSelector.querySelector('.lang-dropdown');
+                const currentBtn = langSelector.querySelector('.lang-current');
 
-                // HOVER İLE AÇ / KAPAT (GEÇ KAPANSIN)
-                let langCloseTimeout = null;
+                if (currentBtn) {
+                    currentBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        langSelector.classList.toggle('open');
+                    });
+                }
 
-                langSelector.addEventListener('mouseenter', () => {
-                    if (langCloseTimeout) clearTimeout(langCloseTimeout);
-                    langSelector.classList.add('open');
-                });
-
-                langSelector.addEventListener('mouseleave', () => {
-                    langCloseTimeout = setTimeout(() => {
+                document.addEventListener('click', (e) => {
+                    if (!langSelector.contains(e.target)) {
                         langSelector.classList.remove('open');
-                    }, 200); // 200ms tolerans
+                    }
                 });
 
                 if (dropdown) {
+                    dropdown.addEventListener('click', (e) => e.stopPropagation());
                     dropdown.querySelectorAll('[data-lang]').forEach(btn => {
                         btn.addEventListener('click', function (e) {
                             e.preventDefault();
                             const lang = this.dataset.lang;
                             setLanguage(lang);
                             localStorage.setItem('dp_lang', lang);
+                            langSelector.classList.remove('open');
                         });
                     });
                 }

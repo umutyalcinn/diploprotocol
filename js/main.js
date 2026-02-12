@@ -142,6 +142,21 @@ const langSelector = document.querySelector('.lang-selector');
         setLanguage(savedLang);
 
         const dropdown = langSelector.querySelector('.lang-dropdown');
+        const currentBtn = langSelector.querySelector('.lang-current');
+
+        if (currentBtn) {
+            currentBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                langSelector.classList.toggle('open');
+            });
+        }
+
+        document.addEventListener('click', (e) => {
+            if (!langSelector.contains(e.target)) {
+                langSelector.classList.remove('open');
+            }
+        });
 
         // HOVER İLE AÇ / KAPAT (GEÇ KAPANSIN)
         let langCloseTimeout = null;
@@ -158,6 +173,7 @@ const langSelector = document.querySelector('.lang-selector');
         });
 
         if (dropdown) {
+            dropdown.addEventListener('click', (e) => e.stopPropagation());
             dropdown.querySelectorAll('[data-lang]').forEach(btn => {
                 btn.addEventListener('click', function (e) {
                     e.preventDefault();

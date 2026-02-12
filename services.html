@@ -23,10 +23,12 @@
         .lang-selector {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 0.5rem;
-            background: none;
-            border-radius: var(--radius-sm);
+            gap: 0.3rem;
+            padding: 0.35rem 0.45rem;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(201,162,39,0.55);
+            border-radius: 999px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.35);
             cursor: pointer;
         }
 
@@ -45,11 +47,12 @@
 
         .lang-current img,
         .lang-option img {
-            width: 32px;
-            height: 24px;
+            width: 26px;
+            height: 20px;
             object-fit: cover;
             display: block;
-            border-radius: 4px;
+            border-radius: 6px;
+            border: 1px solid rgba(255,255,255,0.35);
         }
 
         .lang-current svg {
@@ -61,17 +64,21 @@
             top: 110%;
             left: 0;
 
+            background: rgba(26, 60, 52, 0.95);
+            border: 1px solid rgba(201,162,39,0.5);
             border-radius: 0.75rem;
-            padding: 0.4rem 0.3rem;
+            padding: 0.3rem 0.25rem;
             display: none;
             flex-direction: column;
-            gap: 0.35rem;
+            gap: 0.25rem;
             z-index: 10000;
+            box-shadow: 0 16px 30px rgba(0,0,0,0.4);
+            backdrop-filter: blur(10px);
 
             transform: scale(0.92) translateY(4px);
             opacity: 0;
             transition: transform 0.18s ease-out, opacity 0.18s ease-out, box-shadow 0.18s ease-out;
-
+   
         }
 
         .lang-selector.open .lang-dropdown {
@@ -92,6 +99,32 @@
         @media (max-width: 992px) {
             .navbar .lang-selector {
                 margin-left: 0.75rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar .lang-selector {
+                margin-left: 0;
+            }
+
+            .lang-selector {
+                padding: 0.25rem 0.4rem;
+            }
+
+            .lang-current svg {
+                display: none;
+            }
+
+            .lang-current,
+            .lang-option {
+                width: 36px;
+                height: 26px;
+            }
+
+            .lang-current img,
+            .lang-option img {
+                width: 26px;
+                height: 20px;
             }
         }
         /* 3 sütunda: son kartı (4. kart) ortala */
@@ -123,19 +156,267 @@
   }
 }
 
+.services-intro {
+  background: var(--beige);
+  padding: 4.2rem 0 1.6rem;
+  text-align: center;
+}
+
+.services-intro .intro-subtitle {
+  color: var(--gold);
+  font-size: 0.95rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.services-intro h1 {
+  color: var(--gold);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  margin-top: 12px;
+  margin-bottom: 1rem;
+}
+
+.services-intro h1 span {
+  color: var(--gold);
+}
+
+.services-intro .intro-divider {
+  width: 120px;
+  height: 2px;
+  background: var(--gold);
+  margin: 1.1rem auto 1.4rem;
+}
+
+.services-intro p {
+  max-width: 760px;
+  margin: 0 auto;
+  color: rgba(0, 0, 0, 0.72);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.services-section {
+  padding-top: 2rem;
+}
+
+.services-section .section-header h2 {
+  color: var(--gold);
+}
+
+.services-section .section-header p {
+  margin-bottom: 0.3rem;
+}
+
+.services-section .services-grid {
+  gap: 0.9rem;
+}
+
+.services-section .card {
+  background: #fffcf6;
+  border: 1px solid rgba(201, 162, 39, 0.2);
+  border-radius: 14px;
+  padding: 0.85rem;
+  box-shadow: 0 10px 22px rgba(26, 60, 52, 0.1);
+}
+
+.services-section .card-icon {
+  width: 46px;
+  height: 46px;
+  margin-bottom: 0.85rem;
+  border-radius: 50%;
+  background: rgba(201, 162, 39, 0.08);
+  border: 1px solid rgba(201, 162, 39, 0.25);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.55);
+}
+
+.services-section .card-icon svg {
+  width: 24px;
+  height: 24px;
+  stroke-width: 1.4;
+}
+
+.services-section .card h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #1a3c34;
+}
+
+.services-section .card p {
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  margin-bottom: 0;
+}
+
+.events-section h2 {
+  color: var(--gold);
+}
+
+.events-section .core-services-title {
+  color: var(--gold);
+}
+
+.events-section .btn.btn-outline {
+  background: var(--dark-green);
+  color: var(--white);
+  border: 1px solid rgba(26, 60, 52, 0.7);
+  box-shadow: 0 10px 22px rgba(26, 60, 52, 0.18);
+  padding: 0.8rem 2rem;
+  border-radius: 999px;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+}
+
+.events-section .btn.btn-outline:hover {
+  background: var(--dark-green-light);
+  color: var(--white);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 26px rgba(26, 60, 52, 0.24);
+}
+
+.event-types-section .section-header h2 {
+  color: var(--gold);
+}
+
+.event-types-section .section-header p {
+  color: rgba(26, 60, 52, 0.7);
+}
+
+.event-types-section .event-types-grid {
+  gap: 0.9rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.event-types-section .event-type-card {
+  background: linear-gradient(135deg, #fffdf7, #fdf6e8);
+  border: 1px solid rgba(201, 162, 39, 0.22);
+  border-top: 2px solid rgba(201, 162, 39, 0.45);
+  border-radius: 12px;
+  padding: 0.95rem 1.1rem;
+  box-shadow: 0 8px 18px rgba(26, 60, 52, 0.08);
+  text-align: center;
+  min-height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.event-types-section .event-type-card h4 {
+  color: #1a3c34;
+  font-size: 0.98rem;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.event-types-section .event-cta {
+  text-align: center;
+  margin-top: 1.6rem;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+.event-types-section .event-cta .event-cta-btn {
+  background: var(--dark-green);
+  color: var(--white);
+  padding: 0.9rem 2.4rem;
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: none;
+  outline: none;
+  box-shadow: 0 10px 22px rgba(26, 60, 52, 0.22);
+}
+
+.event-types-section .event-cta .event-cta-btn:hover {
+  background: var(--dark-green-light);
+  color: var(--white);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 26px rgba(26, 60, 52, 0.26);
+}
+
+.logistics-section .section-header h2 {
+  color: var(--gold);
+}
+
+.logistics-section .services-grid {
+  gap: 1rem;
+}
+
+.logistics-section .card {
+  background: #fffcf6;
+  border: 1px solid rgba(201, 162, 39, 0.2);
+  border-radius: 14px;
+  padding: 0.95rem;
+  box-shadow: 0 10px 22px rgba(26, 60, 52, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.logistics-section .card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 26px rgba(26, 60, 52, 0.14);
+}
+
+.logistics-section .card-icon {
+  width: 46px;
+  height: 46px;
+  margin-bottom: 0.85rem;
+  border-radius: 50%;
+  background: rgba(201, 162, 39, 0.08);
+  border: 1px solid rgba(201, 162, 39, 0.25);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.55);
+}
+
+.logistics-section .card-icon svg {
+  width: 24px;
+  height: 24px;
+  stroke-width: 1.4;
+}
+
+.logistics-section .card h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #1a3c34;
+}
+
+.logistics-section .card p {
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  margin-bottom: 0;
+}
+
+@media (max-width: 992px) {
+  .event-types-section .event-types-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 576px) {
+  .event-types-section .event-types-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
     </style>
 </head>
 <body>
 
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" style="background: #1a3c34;">
         <div class="container">
             <a href="index.html" class="navbar-brand">
-                <img src="images/logo1yesil.png" alt="Diplomatic Protocol Logo" 
+                <img src="images/logo.png" alt="Diplomatic Protocol Logo" 
                     style="width: 100px; 
-                            height: 100%; 
-                            max-height: 150px; 
-                            background-color: var(--dark-green);">
+                            height: auto; 
+                            max-height: 150px;">
                 <span>DIPLOMATIC PROTOCOL</span>
             </a>
             
@@ -160,31 +441,32 @@
 
                 <!-- <a href="references.html">References</a> -->
                 <a href="contact.html" data-i18n="nav.contact">Contact Us</a>
+            </div>
 
-                <!-- LANG SELECTOR DROPDOWN: SADECE BAYRAKLAR -->
-                <div class="lang-selector">
-                    <button class="lang-current" type="button" data-lang="en" aria-label="Change language">
+            <!-- LANG SELECTOR DROPDOWN: SADECE BAYRAKLAR -->
+            <div class="lang-selector">
+                <button class="lang-current" type="button" data-lang="en" aria-label="Change language">
+                    <img src="https://flagcdn.com/w40/gb.png" alt="English">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                </button>
+
+                <div class="lang-dropdown" aria-label="Language options">
+                    <button class="lang-option" type="button" data-lang="en">
                         <img src="https://flagcdn.com/w40/gb.png" alt="English">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M6 9l6 6 6-6"/>
-                        </svg>
                     </button>
-
-                    <div class="lang-dropdown" aria-label="Language options">
-                        <button class="lang-option" type="button" data-lang="en">
-                            <img src="https://flagcdn.com/w40/gb.png" alt="English">
-                        </button>
-                        <button class="lang-option" type="button" data-lang="tr">
-                            <img src="https://flagcdn.com/w40/tr.png" alt="Türkçe">
-                        </button>
-                        <button class="lang-option" type="button" data-lang="me">
-                            <img src="https://flagcdn.com/w40/me.png" alt="Montenegrin">
-                        </button>
-                    </div>
+                    <button class="lang-option" type="button" data-lang="tr">
+                        <img src="https://flagcdn.com/w40/tr.png" alt="Türkçe">
+                    </button>
+                    <button class="lang-option" type="button" data-lang="me">
+                        <img src="https://flagcdn.com/w40/me.png" alt="Montenegrin">
+                    </button>
                 </div>
             </div>
             
             <div class="menu-toggle">
+
                 <span></span>
                 <span></span>
                 <span></span>
@@ -192,21 +474,20 @@
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <section class="hero" style="min-height: 50vh;">
+    <!-- Services Intro -->
+    <section class="services-intro">
         <div class="container">
-            <div class="hero-content" style="max-width: 100%; text-align: center;">
-                <p class="hero-subtitle" data-i18n="servicesPage.heroSubtitle">WHAT WE OFFER</p>
-                <h1 class="hero-title" data-i18n="servicesPage.heroTitle">Our <span>Services</span></h1>
-                <p class="hero-description" style="max-width: 700px; margin: 0 auto;" data-i18n="servicesPage.heroDescription">
-                    We transform every engagement into a seamless blend of prestige, precision, and sophistication. From high-level corporate and diplomatic events to bespoke VIP experiences, our services are designed to elevate your presence, strengthen your relationships, and leave an enduring impression. Explore our offerings and discover how our expertise can turn every detail into a statement of excellence.
-                </p>
-            </div>
+            <p class="intro-subtitle" data-i18n="servicesPage.heroSubtitle">WHAT WE OFFER</p>
+            <h1 data-i18n="servicesPage.heroTitle">Our <span>Services</span></h1>
+            <div class="intro-divider"></div>
+            <p data-i18n="servicesPage.heroDescription">
+                We transform every engagement into a seamless blend of prestige, precision, and sophistication. From high-level corporate and diplomatic events to bespoke VIP experiences, our services are designed to elevate your presence, strengthen your relationships, and leave an enduring impression. Explore our offerings and discover how our expertise can turn every detail into a statement of excellence.
+            </p>
         </div>
     </section>
 
     <!-- 6 Service Cards Grid -->
-    <section class="section section-beige" id="protocol">
+    <section class="section section-beige services-section" id="protocol">
         <div class="container">
             <div class="services-grid stagger-children">
                 
@@ -262,7 +543,7 @@
     </section>
 
     <!-- Events Planning Detail -->
-    <section class="section" id="events">
+    <section class="section events-section" id="events">
         <div class="container">
             <div class="two-col">
                 <div class="two-col-image animate-on-scroll2">
@@ -273,7 +554,7 @@
                     <h2 data-i18n="servicesPage.eventsSection.title">Events Planning & Management</h2>
                     <p data-i18n="servicesPage.eventsSection.intro">From intimate diplomatic dinners to large-scale international summits, our team delivers flawless execution with meticulous attention to protocol and detail.</p>
                     
-                    <h4 class="text-gold mt-4 mb-2" data-i18n="servicesPage.eventsSection.coreTitle">Core Services:</h4>
+                    <h4 class="text-gold mt-4 mb-2 core-services-title" data-i18n="servicesPage.eventsSection.coreTitle">Core Services:</h4>
                     <ul>
                         <li data-i18n="servicesPage.eventsSection.list1">Hospitality & Guest Logistics</li>
                         <li data-i18n="servicesPage.eventsSection.list2">Airport transfers and chauffeured transportation</li>
@@ -288,7 +569,7 @@
     </section>
 
     <!-- Event Types -->
-    <section class="section section-beige">
+    <section class="section section-beige event-types-section">
         <div class="container">
             <div class="section-header animate-on-scroll">
                 <h2 data-i18n="servicesPage.eventTypes.title">Event Types</h2>
@@ -322,8 +603,8 @@
                 </div>
             </div>
             
-            <div style="background: var(--black); padding: 1.5rem 2rem; border-radius: var(--radius-md); text-align: center; margin-top: 3rem;" class="animate-on-scroll">
-                <a href="contact.html" style="color: var(--gold); font-size: 1.125rem; font-weight: 500;" data-i18n="servicesPage.eventTypes.cta">
+            <div class="event-cta animate-on-scroll">
+                <a href="contact.html" class="event-cta-btn" data-i18n="servicesPage.eventTypes.cta">
                     Plan Your Event With Us →
                 </a>
             </div>
@@ -331,7 +612,7 @@
     </section>
 
     <!-- VIP Transfer & Logistics -->
-    <section class="section">
+    <section class="section logistics-section">
         <div class="container">
             <div class="section-header animate-on-scroll">
                 <h2 data-i18n="servicesPage.logistics.title">Logistics & VIP Guest Services</h2>
@@ -374,7 +655,7 @@
     </section>
 
     <!-- Technical & Production Support -->
-    <section class="section section-beige">
+    <section class="section section-beige events-section technical-section">
         <div class="container">
             <div class="two-col two-col-reverse">
                 <div class="two-col-content animate-on-scroll">
@@ -874,26 +1155,30 @@
                 const savedLang = localStorage.getItem('dp_lang') || 'en';
                 setLanguage(savedLang);
 
-                let langCloseTimeout = null;
+                const currentBtn = langSelector.querySelector('.lang-current');
+                if (currentBtn) {
+                    currentBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        langSelector.classList.toggle('open');
+                    });
+                }
 
-                langSelector.addEventListener('mouseenter', () => {
-                    if (langCloseTimeout) clearTimeout(langCloseTimeout);
-                    langSelector.classList.add('open');
-                });
-
-                langSelector.addEventListener('mouseleave', () => {
-                    langCloseTimeout = setTimeout(() => {
+                document.addEventListener('click', (e) => {
+                    if (!langSelector.contains(e.target)) {
                         langSelector.classList.remove('open');
-                    }, 200);
+                    }
                 });
 
                 if (dropdown) {
+                    dropdown.addEventListener('click', (e) => e.stopPropagation());
                     dropdown.querySelectorAll('[data-lang]').forEach(btn => {
                         btn.addEventListener('click', function (e) {
                             e.preventDefault();
                             const lang = this.dataset.lang;
                             setLanguage(lang);
                             localStorage.setItem('dp_lang', lang);
+                            langSelector.classList.remove('open');
                         });
                     });
                 }

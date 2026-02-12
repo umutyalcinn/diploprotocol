@@ -153,34 +153,94 @@
         }
 
         /* CONTACT SAYFASINA ÖZEL STİLLER */
+        .contact-main {
+            padding-top: 6.8rem;
+            padding-bottom: 2.5rem;
+        }
+
         .contact-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 2.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .contact-section h2 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+            margin-top: 0.8rem;
+            font-size: 1.5rem;
+        }
+
+        .contact-form {
+            gap: 0.9rem;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            padding: 0.7rem 0.8rem;
+            font-size: 0.9rem;
+        }
+
+        .form-group textarea {
+            min-height: 110px;
+        }
+
+        .contact-main .btn.btn-outline {
+            background: var(--dark-green);
+            color: var(--white);
+            padding: 0.6rem 1.5rem;
+            font-size: 0.88rem;
+            border-radius: 999px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            border: 1px solid rgba(26, 60, 52, 0.7);
+            box-shadow: 0 10px 22px rgba(26, 60, 52, 0.18);
+        }
+
+        .contact-main .btn.btn-outline:hover {
+            background: var(--dark-green-light);
+            color: var(--white);
+            transform: translateY(-1px);
+            box-shadow: 0 14px 26px rgba(26, 60, 52, 0.24);
         }
         .contact-info-card {
-            background: var(--beige-light);
-            border-radius: var(--radius-md);
-            padding: 2rem;
-            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #fffdf7, #fdf6e8);
+            border: 1px solid rgba(201, 162, 39, 0.2);
+            border-radius: 14px;
+            padding: 1.1rem 1.2rem;
+            margin-bottom: 0.75rem;
+            box-shadow: 0 10px 22px rgba(26, 60, 52, 0.08);
         }
         .contact-info-card h4 {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
+            gap: 0.6rem;
+            margin-bottom: 0.65rem;
+            color: #1a3c34;
+            font-size: 1rem;
         }
         .contact-info-card h4 svg {
-            width: 24px;
-            height: 24px;
+            width: 20px;
+            height: 20px;
             stroke: var(--gold);
             stroke-width: 1.5;
             fill: none;
+            padding: 5px;
+            border-radius: 50%;
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            background: rgba(201, 162, 39, 0.08);
         }
         .contact-info-card p,
         .contact-info-card a {
-            color: var(--text-muted);
-            font-size: 1rem;
+            color: rgba(0, 0, 0, 0.68);
+            font-size: 0.9rem;
         }
         .contact-info-card a:hover {
             color: var(--gold);
@@ -208,13 +268,16 @@
         .lang-selector {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 0.5rem;
-            background: none;
-            border-radius: var(--radius-sm);
+            gap: 0.3rem;
+            padding: 0.35rem 0.45rem;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(201,162,39,0.55);
+            border-radius: 999px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.35);
             cursor: pointer;
         }
 
+        /* Üst ve alt tüm bayrak kutuları aynı genişlikte olsun */
         .lang-current,
         .lang-option {
             width: 42px;
@@ -230,48 +293,87 @@
 
         .lang-current img,
         .lang-option img {
-            width: 32px;
-            height: 24px;
+            width: 26px;
+            height: 20px;
             object-fit: cover;
             display: block;
-            border-radius: 4px;
+            border-radius: 6px;
+            border: 1px solid rgba(255,255,255,0.35);
         }
 
         .lang-current svg {
             margin-left: 6px;
         }
 
+        /* Dropdown kutusu başlangıç hali */
         .lang-dropdown {
             position: absolute;
             top: 110%;
             left: 0;
 
+            background: rgba(26, 60, 52, 0.95);
+            border: 1px solid rgba(201,162,39,0.5);
             border-radius: 0.75rem;
-            padding: 0.4rem 0.3rem;
+            padding: 0.3rem 0.25rem;
             display: none;
             flex-direction: column;
-            gap: 0.35rem;
+            gap: 0.25rem;
             z-index: 10000;
+            box-shadow: 0 16px 30px rgba(0,0,0,0.4);
+            backdrop-filter: blur(10px);
 
             transform: scale(0.92) translateY(4px);
             opacity: 0;
             transition: transform 0.18s ease-out, opacity 0.18s ease-out, box-shadow 0.18s ease-out;
-      
+   
         }
 
         .lang-selector.open .lang-dropdown {
             display: flex;
             transform: scale(1) translateY(0);
             opacity: 1;
-   
         }
 
+        /* Dropdown içindeki bayrak hover olunca bayrak biraz büyüsün */
         .lang-option img {
             transition: transform 0.15s ease-out;
         }
 
         .lang-option:hover img {
             transform: scale(1.18);
+        }
+
+        /* Tablet ve küçük ekranlar */
+        @media (max-width: 992px) {
+            .navbar .lang-selector {
+                margin-left: 0.75rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar .lang-selector {
+                margin-left: 0;
+            }
+
+            .lang-selector {
+                padding: 0.25rem 0.4rem;
+            }
+
+            .lang-current svg {
+                display: none;
+            }
+
+            .lang-current,
+            .lang-option {
+                width: 36px;
+                height: 26px;
+            }
+
+            .lang-current img,
+            .lang-option img {
+                width: 26px;
+                height: 20px;
+            }
         }
 
         /* Tablet ve küçük ekranlar */
@@ -401,7 +503,7 @@
 <body>
 
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" style="background: #1a3c34;">
         <div class="container">
             <a href="index.html" class="navbar-brand">
                 <img src="images/logo1yesil.png" alt="Diplomatic Protocol Logo" 
@@ -431,31 +533,32 @@
                 </div>
 
                 <a href="contact.html" data-i18n="nav.contact">Contact Us</a>
+            </div>
 
-                <!-- LANG SELECTOR DROPDOWN: SADECE BAYRAKLAR -->
-                <div class="lang-selector">
-                    <button class="lang-current" type="button" data-lang="en" aria-label="Change language">
+            <!-- LANG SELECTOR DROPDOWN: SADECE BAYRAKLAR -->
+            <div class="lang-selector">
+                <button class="lang-current" type="button" data-lang="en" aria-label="Change language">
+                    <img src="https://flagcdn.com/w40/gb.png" alt="English">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                </button>
+
+                <div class="lang-dropdown" aria-label="Language options">
+                    <button class="lang-option" type="button" data-lang="en">
                         <img src="https://flagcdn.com/w40/gb.png" alt="English">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M6 9l6 6 6-6"/>
-                        </svg>
                     </button>
-
-                    <div class="lang-dropdown" aria-label="Language options">
-                        <button class="lang-option" type="button" data-lang="en">
-                            <img src="https://flagcdn.com/w40/gb.png" alt="English">
-                        </button>
-                        <button class="lang-option" type="button" data-lang="tr">
-                            <img src="https://flagcdn.com/w40/tr.png" alt="Türkçe">
-                        </button>
-                        <button class="lang-option" type="button" data-lang="me">
-                            <img src="https://flagcdn.com/w40/me.png" alt="Montenegrin">
-                        </button>
-                    </div>
+                    <button class="lang-option" type="button" data-lang="tr">
+                        <img src="https://flagcdn.com/w40/tr.png" alt="Türkçe">
+                    </button>
+                    <button class="lang-option" type="button" data-lang="me">
+                        <img src="https://flagcdn.com/w40/me.png" alt="Montenegrin">
+                    </button>
                 </div>
             </div>
             
             <div class="menu-toggle">
+
                 <span></span>
                 <span></span>
                 <span></span>
@@ -463,21 +566,8 @@
         </div>
     </nav>
 
-    <!-- Hero -->
-    <section class="hero" style="min-height: 50vh;">
-        <div class="container">
-            <div class="hero-content" style="max-width: 100%; text-align: center;">
-                <p class="hero-subtitle" data-i18n="contactPage.heroSubtitle">GET IN TOUCH</p>
-                <h1 class="hero-title" style="color: #c9a227;" data-i18n="contactPage.heroTitle">Contact Us</h1>
-                <p class="hero-description" style="max-width: 700px; margin: 0 auto;" data-i18n="contactPage.heroDescription">
-                    Ready to elevate your protocol standards? We're here to discuss how we can serve your organization.
-                </p>
-            </div>
-        </div>
-    </section>
-
     <!-- Contact Section -->
-    <section class="section">
+    <section class="section contact-main">
         <div class="container">
             <div class="contact-section">
                 <!-- Form -->
@@ -573,41 +663,6 @@
                             Sunday: Closed
                         </p>
                     </div>
-<div class="footer-social-icons" style="display: flex; gap: 1rem; margin-top: 2rem;">
-    
-    <!-- Instagram -->
-    <a href="#" aria-label="Instagram" class="social-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24">
-            <rect x="2" y="2" width="20" height="20" rx="5"/>
-            <circle cx="12" cy="12" r="4"/>
-            <circle cx="18" cy="6" r="1"/>
-        </svg>
-    </a>
-
-    <!-- Twitter -->
-    <a href="#" aria-label="Twitter" class="social-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24">
-            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
-        </svg>
-    </a>
-
-    <!-- LinkedIn -->
-    <a href="#" aria-label="LinkedIn" class="social-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24">
-            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-            <rect x="2" y="9" width="4" height="12"/>
-            <circle cx="4" cy="4" r="2"/>
-        </svg>
-    </a>
-
-    <!-- TikTok -->
-    <a href="#" aria-label="TikTok" class="social-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24">
-            <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
-        </svg>
-    </a>
-
-</div>
 
                 </div>
             </div>
@@ -1025,26 +1080,30 @@
                 const savedLang = localStorage.getItem('dp_lang') || 'en';
                 setLanguage(savedLang);
 
-                let langCloseTimeout = null;
+                const currentBtn = langSelector.querySelector('.lang-current');
+                if (currentBtn) {
+                    currentBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        langSelector.classList.toggle('open');
+                    });
+                }
 
-                langSelector.addEventListener('mouseenter', () => {
-                    if (langCloseTimeout) clearTimeout(langCloseTimeout);
-                    langSelector.classList.add('open');
-                });
-
-                langSelector.addEventListener('mouseleave', () => {
-                    langCloseTimeout = setTimeout(() => {
+                document.addEventListener('click', (e) => {
+                    if (!langSelector.contains(e.target)) {
                         langSelector.classList.remove('open');
-                    }, 200);
+                    }
                 });
 
                 if (dropdown) {
+                    dropdown.addEventListener('click', (e) => e.stopPropagation());
                     dropdown.querySelectorAll('[data-lang]').forEach(btn => {
                         btn.addEventListener('click', function (e) {
                             e.preventDefault();
                             const lang = this.dataset.lang;
                             setLanguage(lang);
                             localStorage.setItem('dp_lang', lang);
+                            langSelector.classList.remove('open');
                         });
                     });
                 }
