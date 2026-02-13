@@ -54,6 +54,19 @@ document.addEventListener('DOMContentLoaded', function() {
     }, observerOptions);
     
     animatedElements.forEach(el => observer.observe(el));
+
+    const secondaryAnimatedElements = document.querySelectorAll('.animate-on-scroll2');
+
+    const secondaryObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                secondaryObserver.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    secondaryAnimatedElements.forEach(el => secondaryObserver.observe(el));
     
     // ---------- Smooth Scroll for Anchor Links ----------
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

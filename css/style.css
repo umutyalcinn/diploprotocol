@@ -386,6 +386,9 @@ ul { list-style: none; }
     stroke: var(--gold);
     stroke-width: 1.5;
     fill: none;
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .card h3, .card h4 {
@@ -2645,6 +2648,7 @@ ul { list-style: none; }
 .reference-logo svg {
     height: 50px;
     width: auto;
+    max-width: 100%;
 }
 
 .testimonial-card {
@@ -2882,8 +2886,61 @@ ul { list-style: none; }
         font-size: clamp(1.4rem, 5.5vw, 2rem);
     }
 
+    .hero-cta {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-cta .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .card-icon {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 1rem;
+    }
+
+    .card-icon svg {
+        width: 32px;
+        height: 32px;
+    }
+
+    .event-types-section .event-type-card {
+        min-height: auto;
+        padding: 0.85rem 1rem;
+    }
+
+    .reference-logo {
+        height: 52px;
+    }
+
+    .reference-logo svg {
+        height: 42px;
+    }
+
+    .testimonial-author {
+        align-items: flex-start;
+    }
+
+    .testimonial-author img {
+        width: 44px;
+        height: 44px;
+    }
+
     .home-services .image-card {
         height: 230px;
+    }
+
+    .image-card,
+    .academy-media-card img,
+    .about-hero-image img,
+    .schedule-image img,
+    .events-section .two-col-image img,
+    .technical-section .two-col-image img {
+        height: auto;
+        aspect-ratio: 4 / 3;
     }
 
     .services-intro {
@@ -2931,8 +2988,35 @@ ul { list-style: none; }
 }
 
 @media (max-width: 420px) {
+    .navbar-brand img {
+        height: 38px;
+    }
+
+    .navbar-brand span {
+        font-size: 0.9rem;
+        letter-spacing: 0.05em;
+    }
+
+    .navbar-menu {
+        width: min(280px, 84vw);
+    }
+
     .hero-title-secondary {
         font-size: 1.45rem;
+    }
+
+    .card-icon {
+        width: 44px;
+        height: 44px;
+    }
+
+    .card-icon svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .home-services .image-card {
+        height: 210px;
     }
 
     .call-widget-text {
@@ -2945,5 +3029,83 @@ ul { list-style: none; }
 
     .about-hero-image img {
         height: 200px;
+    }
+}
+
+@media (max-width: 390px) {
+    body {
+        font-size: 15.5px;
+    }
+
+    .hero-title {
+        font-size: 1.9rem;
+    }
+
+    .hero-title-secondary {
+        font-size: 1.35rem;
+    }
+
+    .navbar-brand span {
+        font-size: 0.82rem;
+    }
+
+    .section {
+        padding: 2.8rem 0;
+    }
+
+    .card,
+    .about-highlight-card,
+    .services-section .card {
+        padding: 1rem;
+    }
+
+    .reference-card {
+        padding: 1.6rem;
+    }
+}
+
+@media (max-width: 360px) {
+    body {
+        font-size: 15px;
+    }
+
+    .navbar-brand img {
+        height: 34px;
+    }
+
+    .navbar-brand span {
+        font-size: 0.78rem;
+    }
+
+    .card-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .card-icon svg {
+        width: 26px;
+        height: 26px;
+    }
+
+    .hero-title {
+        font-size: 1.75rem;
+    }
+
+    .hero-title-secondary {
+        font-size: 1.25rem;
+    }
+
+    .home-services .image-card,
+    .image-card {
+        height: 200px;
+    }
+
+    .call-agent-img {
+        width: 56px;
+        height: 56px;
+    }
+
+    .call-widget-text {
+        font-size: 0.7rem;
     }
 }
