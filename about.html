@@ -11,355 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 
-    <style>
-        /* LANG SELECTOR (SADECE BAYRAKLI DROPDOWN) */
-        .navbar .lang-selector {
-            position: relative;
-            margin-left: 1.5rem;
-            display: inline-flex;
-            align-items: center;
-        }
-
-        .lang-selector {
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
-            padding: 0.35rem 0.45rem;
-            background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(201,162,39,0.55);
-            border-radius: 999px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.35);
-            cursor: pointer;
-        }
-
-        /* Üst ve alt tüm bayrak kutuları aynı genişlikte olsun */
-        .lang-current,
-        .lang-option {
-            width: 42px;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-        }
-
-        .lang-current img,
-        .lang-option img {
-            width: 26px;
-            height: 20px;
-            object-fit: cover;
-            display: block;
-            border-radius: 6px;
-            border: 1px solid rgba(255,255,255,0.35);
-        }
-
-        .lang-current svg {
-            margin-left: 6px;
-        }
-
-        /* Dropdown kutusu başlangıç hali */
-        .lang-dropdown {
-            position: absolute;
-            top: 110%;
-            left: 0;
-
-            background: rgba(26, 60, 52, 0.95);
-            border: 1px solid rgba(201,162,39,0.5);
-            border-radius: 0.75rem;
-            padding: 0.3rem 0.25rem;
-            display: none;
-            flex-direction: column;
-            gap: 0.25rem;
-            z-index: 10000;
-            box-shadow: 0 16px 30px rgba(0,0,0,0.4);
-            backdrop-filter: blur(10px);
-
-            transform: scale(0.92) translateY(4px);
-            opacity: 0;
-            transition: transform 0.18s ease-out, opacity 0.18s ease-out, box-shadow 0.18s ease-out;
-   
-        }
-
-        .lang-selector.open .lang-dropdown {
-            display: flex;
-            transform: scale(1) translateY(0);
-            opacity: 1;
-        }
-
-        /* Dropdown içindeki bayrak hover olunca bayrak biraz büyüsün */
-        .lang-option img {
-            transition: transform 0.15s ease-out;
-        }
-
-        .lang-option:hover img {
-            transform: scale(1.18);
-        }
-
-        /* Tablet ve küçük ekranlar */
-        @media (max-width: 992px) {
-            .navbar .lang-selector {
-                margin-left: 0.75rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .navbar .lang-selector {
-                margin-left: 0;
-            }
-
-            .lang-selector {
-                padding: 0.25rem 0.4rem;
-            }
-
-            .lang-current svg {
-                display: none;
-            }
-
-            .lang-current,
-            .lang-option {
-                width: 36px;
-                height: 26px;
-            }
-
-            .lang-current img,
-            .lang-option img {
-                width: 26px;
-                height: 20px;
-            }
-        }
-        /* ABOUT SECTION */
-.about-section {
-  padding: 120px 0 70px;
-  background: #fffdf6;
-}
-
-.about-hero-grid {
-  display: grid;
-  grid-template-columns: 1.05fr 1fr;
-  gap: 2.5rem;
-  align-items: center;
-}
-
-.about-hero-text {
-  max-width: 600px;
-}
-
-.about-title {
-  font-size: clamp(2rem, 4vw, 2.6rem);
-  margin-bottom: 1.25rem;
-  color: var(--gold);
-}
-
-.about-title span {
-  color: var(--gold);
-}
-
-.about-hero-text p {
-  font-size: 1.05rem;
-  line-height: 1.8;
-  color: rgba(0,0,0,0.7);
-  margin-bottom: 1rem;
-}
-
-.about-hero-image {
-  position: relative;
-  border-radius: 24px;
-  padding: 14px 10px 10px;
-  background: #fbf7ee;
-  border: 1px solid rgba(201, 162, 39, 0.28);
-  box-shadow: 0 22px 50px rgba(26, 60, 52, 0.16), inset 0 0 0 1px rgba(201, 162, 39, 0.32);
-}
-
-.about-hero-image img {
-  width: 100%;
-  height: 420px;
-  object-fit: cover;
-  object-position: top center;
-  display: block;
-  border-radius: 18px;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
-}
-
-.about-highlights {
-  padding-top: 6rem;
-  padding-bottom: 38px;
-}
-
-.about-highlights .section-header h2,
-#team .section-header h2 {
-  color: var(--gold);
-}
-
-.about-highlights-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.95rem;
-}
-
-.about-highlight-card {
-  background: #fffcf6;
-  border: 1px solid rgba(201, 162, 39, 0.2);
-  border-radius: 14px;
-  padding: 1.2rem;
-  box-shadow: 0 10px 22px rgba(26, 60, 52, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.about-highlight-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 26px rgba(26, 60, 52, 0.14);
-}
-
-.about-highlight-card .card-icon {
-  width: 52px;
-  height: 52px;
-  margin-bottom: 1rem;
-  border-radius: 50%;
-  background: rgba(201, 162, 39, 0.08);
-  border: 1px solid rgba(201, 162, 39, 0.25);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.55);
-}
-
-.about-highlight-card .card-icon svg {
-  width: 28px;
-  height: 28px;
-  stroke-width: 1.4;
-}
-
-.about-highlight-card h4 {
-  margin-bottom: 0.6rem;
-  font-size: 1.15rem;
-  color: #1a3c34;
-}
-
-.about-highlight-card p {
-  color: rgba(0,0,0,0.65);
-  font-size: 0.98rem;
-  line-height: 1.6;
-  margin-bottom: 0;
-}
-
-.about-mission {
-  background: #f5f0e8;
-  color: var(--text-dark);
-  padding: 44px 0 52px;
-}
-
-.about-mission-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.2rem;
-}
-
-.about-mission-card {
-  background: #fffcf6;
-  border: 1px solid rgba(201, 162, 39, 0.22);
-  border-radius: 14px;
-  padding: 1.35rem;
-  box-shadow: 0 10px 24px rgba(26, 60, 52, 0.1);
-}
-
-.about-mission-card h3 {
-  color: #142f28;
-  margin-bottom: 0.6rem;
-  font-size: 1.3rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-}
-
-.about-mission-card p {
-  color: rgba(0,0,0,0.66);
-  line-height: 1.6;
-  margin-bottom: 0;
-}
-
-/* Responsive */
-@media (max-width: 992px) {
-  .about-hero-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .about-hero-text {
-    max-width: 100%;
-  }
-
-  .about-hero-image img {
-    height: 360px;
-  }
-
-  .about-highlights-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 0.9rem;
-  }
-
-  .about-mission-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 768px) {
-  .about-section {
-    padding: 80px 0 60px;
-  }
-
-  .about-hero-image img {
-    height: 300px;
-  }
-
-  .about-highlights-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .about-mission {
-    padding: 40px 0 50px;
-  }
-
-  .about-mission-card {
-    padding: 1.35rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .about-hero-image img {
-    height: 260px;
-  }
-}
-
-/* CTA Button Override */
-.section-dark .btn.btn-outline {
-  background: var(--gold);
-  border: 1px solid rgba(155, 120, 28, 0.6);
-  color: #1a3c34;
-  padding: 1rem 2.4rem;
-  border-radius: 999px;
-  box-shadow: 0 10px 22px rgba(26, 60, 52, 0.22);
-  letter-spacing: 0.02em;
-  font-size: 1.1rem;
-}
-
-.section-dark .btn.btn-outline:hover {
-  background: #b8922a;
-  color: #1a3c34;
-  transform: translateY(-1px);
-  box-shadow: 0 14px 28px rgba(26, 60, 52, 0.26);
-}
-
-/* SCROLL ANIMATION - FADE UP */
-.animate-on-scroll2 {
-  opacity: 0;
-  transform: translateY(80px);
-  transition: opacity 0.8s ease, transform 1.2s ease;
-}
-
-.animate-on-scroll2.is-visible {
-  opacity: 1;
-  transform: translateY(0px);
-}
-
-    </style>
 </head>
 <body>
 
@@ -448,40 +99,6 @@
         </div>
     </section>
 
-    <section class="section section-beige about-highlights">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <h2 data-i18n="about.valuesTitle">Our Core Values</h2>
-                <p data-i18n="about.valuesSubtitle">The principles that guide everything we do</p>
-            </div>
-
-            <div class="about-highlights-grid">
-                <div class="about-highlight-card">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                    </div>
-                    <h4 data-i18n="about.values.excellenceTitle">Excellence</h4>
-                    <p data-i18n="about.values.excellenceText">We pursue the highest standards in every aspect of our work, from training delivery to event execution. Mediocrity is never an option.</p>
-                </div>
-
-                <div class="about-highlight-card">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                    </div>
-                    <h4 data-i18n="about.values.discretionTitle">Discretion</h4>
-                    <p data-i18n="about.values.discretionText">Trust is the foundation of diplomatic relations. We maintain absolute confidentiality and discretion in all our engagements.</p>
-                </div>
-
-                <div class="about-highlight-card">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                    </div>
-                    <h4 data-i18n="about.values.culturalTitle">Cultural Intelligence</h4>
-                    <p data-i18n="about.values.culturalText">Understanding diverse cultures and customs is essential. We bring deep cultural awareness to every interaction and training program.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <section class="section about-mission">
         <div class="container">
@@ -503,54 +120,6 @@
         </div>
     </section>
 
-    <!-- Team Section -->
-    <section class="section" id="team">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <h2 data-i18n="about.teamTitle">Our Leadership</h2>
-                <p data-i18n="about.teamSubtitle">Experienced professionals dedicated to diplomatic excellence</p>
-            </div>
-
-            <div class="services-grid stagger-children team-grid">
-                <div class="card text-center">
-                    <div style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; margin: 0 auto 1.5rem; border: 3px solid var(--gold);">
-                        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600&h=600&fit=crop" alt="Melanie Bulatović" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-
-                    <h4>Melanie Bulatović</h4>
-                    <p class="text-gold mb-1" data-i18n="about.team.melanieRole">Founder & CEO</p>
-                    <p style="font-size: 0.9rem;" data-i18n="about.team.melanieText">Former diplomatic advisor with 20+ years of experience in international protocol and elite hospitality.</p>
-                </div>
-
-                <div class="card text-center">
-                    <div style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; margin: 0 auto 1.5rem; border: 3px solid var(--gold);">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&h=200&fit=crop" alt="Team Member" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <h4>Sarah Wellington</h4>
-                    <p class="text-gold mb-1" data-i18n="about.team.sarahRole">Director of Training</p>
-                    <p style="font-size: 0.9rem;" data-i18n="about.team.sarahText">Protocol specialist with extensive experience in corporate and governmental training.</p>
-                </div>
-
-                <div class="card text-center">
-                    <div style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; margin: 0 auto 1.5rem; border: 3px solid var(--gold);">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop" alt="Team Member" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <h4>James Crawford</h4>
-                    <p class="text-gold mb-1" data-i18n="about.team.jamesRole">Head of Events</p>
-                    <p style="font-size: 0.9rem;" data-i18n="about.team.jamesText">Event management expert specializing in high-profile diplomatic functions.</p>
-                </div>
-
-                <div class="card text-center">
-                    <div style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; margin: 0 auto 1.5rem; border: 3px solid var(--gold);">
-                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&h=200&fit=crop" alt="Team Member" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <h4>Elena Rodriguez</h4>
-                    <p class="text-gold mb-1" data-i18n="about.team.elenaRole">VIP Services Director</p>
-                    <p style="font-size: 0.9rem;" data-i18n="about.team.elenaText">Luxury hospitality expert with background in five-star hotel management.</p>
-                </div>
-            </div>
-        </div>
-    </section>
  
      <!-- CTA -->
 
@@ -956,42 +525,46 @@
                 callWidget.style.pointerEvents = 'auto';
             }
 
-            const langSelector = document.querySelector('.lang-selector');
-            if (langSelector) {
-                const dropdown = langSelector.querySelector('.lang-dropdown');
-                const savedLang = localStorage.getItem('dp_lang') || 'en';
-                setLanguage(savedLang);
+            if (!window.__langSelectorInitialized) {
+                const langSelector = document.querySelector('.lang-selector');
+                if (langSelector) {
+                    const dropdown = langSelector.querySelector('.lang-dropdown');
+                    const savedLang = localStorage.getItem('dp_lang') || 'en';
+                    setLanguage(savedLang);
 
-                const currentBtn = langSelector.querySelector('.lang-current');
-                if (currentBtn) {
-                    currentBtn.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        langSelector.classList.toggle('open');
-                    });
-                }
-
-                document.addEventListener('click', (e) => {
-                    if (!langSelector.contains(e.target)) {
-                        langSelector.classList.remove('open');
-                    }
-                });
-
-                if (dropdown) {
-                    dropdown.addEventListener('click', (e) => e.stopPropagation());
-                    dropdown.querySelectorAll('[data-lang]').forEach(btn => {
-                        btn.addEventListener('click', function (e) {
+                    const currentBtn = langSelector.querySelector('.lang-current');
+                    if (currentBtn) {
+                        currentBtn.addEventListener('click', (e) => {
                             e.preventDefault();
-                            const lang = this.dataset.lang;
-                            setLanguage(lang);
-                            localStorage.setItem('dp_lang', lang);
-                            langSelector.classList.remove('open');
+                            e.stopPropagation();
+                            langSelector.classList.toggle('open');
                         });
+                    }
+
+                    document.addEventListener('click', (e) => {
+                        if (!langSelector.contains(e.target)) {
+                            langSelector.classList.remove('open');
+                        }
                     });
+
+                    if (dropdown) {
+                        dropdown.addEventListener('click', (e) => e.stopPropagation());
+                        dropdown.querySelectorAll('[data-lang]').forEach(btn => {
+                            btn.addEventListener('click', function (e) {
+                                e.preventDefault();
+                                const lang = this.dataset.lang;
+                                setLanguage(lang);
+                                localStorage.setItem('dp_lang', lang);
+                                langSelector.classList.remove('open');
+                            });
+                        });
+                    }
+                } else {
+                    const savedLang = localStorage.getItem('dp_lang') || 'en';
+                    setLanguage(savedLang);
                 }
-            } else {
-                const savedLang = localStorage.getItem('dp_lang') || 'en';
-                setLanguage(savedLang);
+
+                window.__langSelectorInitialized = true;
             }
         });
     </script>
