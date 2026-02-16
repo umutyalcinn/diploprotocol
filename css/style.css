@@ -44,7 +44,6 @@ html {
 body {
     font-family: 'Cormorant Garamond', 'Times New Roman', serif;
     font-size: 18px;
-    line-height: 1.7;
     color: var(--text-dark);
     background: var(--white);
     overflow-x: hidden;
@@ -426,7 +425,7 @@ ul { list-style: none; }
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 2rem;
+    padding: 1rem 2rem;
     background: linear-gradient(transparent, rgba(0,0,0,0.8));
     color: var(--white);
 }
