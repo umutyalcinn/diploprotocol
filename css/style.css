@@ -305,7 +305,7 @@ ul { list-style: none; }
 
 /* ---------- Section Styles ---------- */
 .section {
-    padding: 6rem 0;
+    padding-bottom: 2rem;
 }
 
 .section-dark {
@@ -319,11 +319,6 @@ ul { list-style: none; }
 
 .section-header {
     text-align: center;
-    margin-bottom: 4rem;
-}
-
-.section-header h2 {
-    margin-bottom: 1rem;
 }
 
 .home-services .section-header h2 {
@@ -333,7 +328,7 @@ ul { list-style: none; }
 .section-header p {
     color: var(--text-muted);
     max-width: 600px;
-    margin: 0 auto;
+    margin: 0 auto 2rem auto;
 }
 
 .section-dark .section-header p {
@@ -746,7 +741,7 @@ ul { list-style: none; }
 .footer {
     background: var(--black);
     color: var(--white);
-    padding: 5rem 0 2rem;
+    padding: 2rem 0 2rem;
     font-family: 'Playfair Display', 'Cormorant Garamond', 'Times New Roman', serif;
 }
 
@@ -1035,10 +1030,6 @@ ul { list-style: none; }
 }
 
 @media (max-width: 768px) {
-    .section {
-        padding: 4rem 0;
-    }
-    
     .services-grid {
         grid-template-columns: 1fr;
     }
@@ -1472,11 +1463,7 @@ ul { list-style: none; }
 }
 
 .home-services {
-    padding: 3.5rem 0;
-}
-
-.home-services .section-header h2 {
-    font-size: 1.6rem;
+    padding: 2rem 0;
 }
 
 .home-services .services-grid {
@@ -1500,8 +1487,6 @@ ul { list-style: none; }
     box-shadow: 0 10px 22px rgba(26, 60, 52, 0.08);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    min-height: 220px;
     flex: 1;
 }
 
@@ -1674,7 +1659,7 @@ ul { list-style: none; }
 
 .services-intro {
     background: var(--beige);
-    padding: 4.2rem 0 1.6rem;
+    padding: 110px 0 2rem;
     text-align: center;
 }
 
@@ -1710,10 +1695,6 @@ ul { list-style: none; }
     color: rgba(0, 0, 0, 0.72);
     font-size: 1rem;
     line-height: 1.65;
-}
-
-.services-section {
-    padding-top: 2rem;
 }
 
 .services-section .section-header h2 {
@@ -1779,6 +1760,7 @@ ul { list-style: none; }
 .technical-section h2 {
     color: var(--gold);
     margin-top: 0;
+    margin-bottom: 2rem;
 }
 
 .event-types-section .section-header p {
@@ -2169,6 +2151,7 @@ ul { list-style: none; }
     margin: 0 0 0.6rem;
     line-height: 1.2;
     font-size: clamp(2rem, 3vw, 2.4rem);
+    margin-bottom: 2rem;
 }
 
 .formats-text p,
@@ -2228,7 +2211,6 @@ ul { list-style: none; }
 }
 
 #benefits.section,
-#approach.section,
 #programs.section,
 #certificates.section {
     padding-top: 40px;
@@ -2452,7 +2434,7 @@ ul { list-style: none; }
 }
 
 .schedule-section .academy-approach-title {
-    margin-bottom: 1rem;
+    margin: 2rem 0;
 }
 
 .schedule-section .schedule-text {
@@ -2702,11 +2684,7 @@ ul { list-style: none; }
 /* ---------- Responsive Refinements ---------- */
 @media (max-width: 1200px) {
     .home-services .image-card {
-        height: 300px;
-    }
-
-    .image-card {
-        height: 360px;
+        width: 100%;
     }
 
     .programs-grid {
@@ -2729,10 +2707,6 @@ ul { list-style: none; }
 
     .hero-content {
         padding-block: 4.5rem;
-    }
-
-    .home-services .image-card {
-        height: 280px;
     }
 
     .services-grid.center-last-single {
@@ -2764,7 +2738,7 @@ ul { list-style: none; }
     }
 
     .academy-intro {
-        padding: 60px 0 70px;
+        padding: 60px 0 2rem;
     }
 
     .academy-intro-media {
@@ -2822,10 +2796,6 @@ ul { list-style: none; }
 
     .hero-cta {
         justify-content: center;
-    }
-
-    .home-services .image-card {
-        height: 260px;
     }
 
     .services-grid.center-last-single {
@@ -2929,10 +2899,6 @@ ul { list-style: none; }
         height: 44px;
     }
 
-    .home-services .image-card {
-        height: 230px;
-    }
-
     .image-card,
     .academy-media-card img,
     .about-hero-image img,
@@ -2944,7 +2910,7 @@ ul { list-style: none; }
     }
 
     .services-intro {
-        padding: 3.6rem 0 1.3rem;
+        padding: 110px 0 2rem;
     }
 
     .programs-grid {
@@ -3013,10 +2979,6 @@ ul { list-style: none; }
     .card-icon svg {
         width: 28px;
         height: 28px;
-    }
-
-    .home-services .image-card {
-        height: 210px;
     }
 
     .call-widget-text {
@@ -3093,11 +3055,6 @@ ul { list-style: none; }
 
     .hero-title-secondary {
         font-size: 1.25rem;
-    }
-
-    .home-services .image-card,
-    .image-card {
-        height: 200px;
     }
 
     .call-agent-img {
