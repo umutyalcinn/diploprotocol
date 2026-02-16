@@ -1,0 +1,21 @@
+<svg width="640" height="640" viewBox="0 0 640 640" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="leafGold" x1="140" y1="120" x2="520" y2="520" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#6f5113"/>
+      <stop offset="40%" stop-color="#cda448"/>
+      <stop offset="65%" stop-color="#f6e1a0"/>
+      <stop offset="85%" stop-color="#c28f2f"/>
+      <stop offset="100%" stop-color="#8b5f17"/>
+    </linearGradient>
+  </defs>
+
+  <g>
+    <path d="M180 140 C230 220 280 310 330 420" stroke="url(#leafGold)" stroke-width="18" stroke-linecap="round"/>
+
+    <ellipse cx="200" cy="130" rx="70" ry="30" transform="rotate(-20 200 130)" fill="url(#leafGold)"/>
+    <ellipse cx="250" cy="190" rx="72" ry="32" transform="rotate(-12 250 190)" fill="url(#leafGold)"/>
+    <ellipse cx="300" cy="260" rx="70" ry="30" transform="rotate(-8 300 260)" fill="url(#leafGold)"/>
+    <ellipse cx="340" cy="330" rx="66" ry="28" transform="rotate(-4 340 330)" fill="url(#leafGold)"/>
+    <ellipse cx="380" cy="400" rx="60" ry="26" transform="rotate(0 380 400)" fill="url(#leafGold)"/>
+  </g>
+</svg>

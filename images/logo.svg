@@ -1,0 +1,33 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="goldGradient" x1="80" y1="80" x2="420" y2="420" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#6f5113"/>
+      <stop offset="35%" stop-color="#cda448"/>
+      <stop offset="55%" stop-color="#f6e1a0"/>
+      <stop offset="80%" stop-color="#c28f2f"/>
+      <stop offset="100%" stop-color="#8b5f17"/>
+    </linearGradient>
+    <linearGradient id="goldHighlight" x1="120" y1="60" x2="260" y2="300" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#f9e9b9"/>
+      <stop offset="100%" stop-color="#b7802a"/>
+    </linearGradient>
+  </defs>
+
+  <g>
+    <path d="M140 110 C175 165 205 225 235 300" stroke="url(#goldGradient)" stroke-width="8" stroke-linecap="round"/>
+    <ellipse cx="150" cy="105" rx="40" ry="18" transform="rotate(-20 150 105)" fill="url(#goldGradient)"/>
+    <ellipse cx="178" cy="145" rx="42" ry="18" transform="rotate(-12 178 145)" fill="url(#goldGradient)"/>
+    <ellipse cx="205" cy="188" rx="42" ry="18" transform="rotate(-8 205 188)" fill="url(#goldGradient)"/>
+    <ellipse cx="225" cy="230" rx="38" ry="17" transform="rotate(-5 225 230)" fill="url(#goldGradient)"/>
+    <ellipse cx="245" cy="270" rx="34" ry="16" transform="rotate(0 245 270)" fill="url(#goldGradient)"/>
+
+    <path d="M122 102 C146 96 170 100 190 116" stroke="url(#goldHighlight)" stroke-width="2" stroke-linecap="round"/>
+    <path d="M152 140 C178 132 204 138 222 152" stroke="url(#goldHighlight)" stroke-width="2" stroke-linecap="round"/>
+    <path d="M180 182 C206 174 230 182 246 196" stroke="url(#goldHighlight)" stroke-width="2" stroke-linecap="round"/>
+    <path d="M204 222 C226 216 248 222 260 236" stroke="url(#goldHighlight)" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <path d="M368 140 A170 170 0 1 1 212 432" stroke="url(#goldGradient)" stroke-width="14" stroke-linecap="round"/>
+
+  <text x="175" y="315" font-family="Times New Roman, serif" font-size="150" fill="url(#goldGradient)" letter-spacing="4">CD</text>
+</svg>
