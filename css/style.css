@@ -3066,6 +3066,6 @@ ul { list-style: none; }
     }
 }
 
-body html {
+html body {
     overflow-x: hidden;
 }
