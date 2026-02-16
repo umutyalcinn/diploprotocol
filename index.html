@@ -88,7 +88,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero filigree-hero">
         <video class="hero-bg-video" autoplay muted loop playsinline>
             <source src="images/karsilama3.mp4" type="video/mp4">
         </video>
@@ -114,7 +114,7 @@
     </section>
  <!-- Our Services - 9 Cards -->
 
-<section class="section section-beige home-services">
+<section class="section section-beige home-services filigree">
     <div class="container">
         <div class="section-header animate-on-scroll">
             <h2 data-i18n="sections.services.title">Our Services</h2>
@@ -261,7 +261,7 @@
 </section>
 
     <!-- Protocol Services -->
-    <section class="section section-beige services-highlights">
+    <section class="section section-beige services-highlights filigree">
         <div class="container">
             <div class="section-header animate-on-scroll">
                 <h2 class="gold-heading" data-i18n="highlights.title">Services Highlights</h2>
@@ -269,24 +269,39 @@
 
             <div class="benefits-strip stagger-children animated">
                 <div class="benefit-item">
-                    <div class="benefit-number">1</div>
-                    <p data-i18n="highlights.card1">Official Protocol Planning<br>End to end protocol design for official engagements, briefings, seating, flags, introductions, and ceremony flow.</p>
+                    <div class="benefit-header">
+                        <div class="benefit-number">1</div>
+                        <h3 class="benefit-title" data-i18n="highlights.card1Title">Official Protocol Planning</h3>
+                    </div>
+                    <p data-i18n="highlights.card1Text">End to end protocol design for official engagements, briefings, seating, flags, introductions, and ceremony flow.</p>
                 </div>
                 <div class="benefit-item">
-                    <div class="benefit-number">2</div>
-                    <p data-i18n="highlights.card2">State Visits and Delegations<br>High level visit coordination, stakeholder alignment, schedules, and on site protocol execution.</p>
+                    <div class="benefit-header">
+                        <div class="benefit-number">2</div>
+                        <h3 class="benefit-title" data-i18n="highlights.card2Title">State Visits and Delegations</h3>
+                    </div>
+                    <p data-i18n="highlights.card2Text">High level visit coordination, stakeholder alignment, schedules, and on site protocol execution.</p>
                 </div>
                 <div class="benefit-item">
-                    <div class="benefit-number">3</div>
-                    <p data-i18n="highlights.card3">Corporate Summits and VIP Events<br>Executive events managed with diplomatic precision from agenda to stage management and host scripts.</p>
+                    <div class="benefit-header">
+                        <div class="benefit-number">3</div>
+                        <h3 class="benefit-title" data-i18n="highlights.card3Title">Corporate Summits and VIP Events</h3>
+                    </div>
+                    <p data-i18n="highlights.card3Text">Executive events managed with diplomatic precision from agenda to stage management and host scripts.</p>
                 </div>
                 <div class="benefit-item">
-                    <div class="benefit-number">4</div>
-                    <p data-i18n="highlights.card4">VIP Hospitality and Concierge Support<br>Discreet guest handling, airport meets, secure transfers, hosting, and premium guest experience.</p>
+                    <div class="benefit-header">
+                        <div class="benefit-number">4</div>
+                        <h3 class="benefit-title" data-i18n="highlights.card4Title">VIP Hospitality and Concierge Support</h3>
+                    </div>
+                    <p data-i18n="highlights.card4Text">Discreet guest handling, airport meets, secure transfers, hosting, and premium guest experience.</p>
                 </div>
                 <div class="benefit-item">
-                    <div class="benefit-number">5</div>
-                    <p data-i18n="highlights.card5">Training and Advisory<br>Practical protocol training for teams plus tailored advisory for institutions and leadership offices.</p>
+                    <div class="benefit-header">
+                        <div class="benefit-number">5</div>
+                        <h3 class="benefit-title" data-i18n="highlights.card5Title">Training and Advisory</h3>
+                    </div>
+                    <p data-i18n="highlights.card5Text">Practical protocol training for teams plus tailored advisory for institutions and leadership offices.</p>
                 </div>
             </div>
 
@@ -298,7 +313,7 @@
     </section>
 
     <!-- Diplomatic Protocol Academy Teaser -->
-    <section class="section" style="margin-top: 2rem;">
+    <section class="section filigree" style="margin-top: 2rem;">
         <div class="container">
             <div class="two-col">
                 <div class="two-col-content animate-on-scroll">
@@ -516,11 +531,16 @@
 
                 highlights: {
                     title: "Services Highlights",
-                    card1: "Official Protocol Planning<br>End to end protocol design for official engagements, briefings, seating, flags, introductions, and ceremony flow.",
-                    card2: "State Visits and Delegations<br>High level visit coordination, stakeholder alignment, schedules, and on site protocol execution.",
-                    card3: "Corporate Summits and VIP Events<br>Executive events managed with diplomatic precision from agenda to stage management and host scripts.",
-                    card4: "VIP Hospitality and Concierge Support<br>Discreet guest handling, airport meets, secure transfers, hosting, and premium guest experience.",
-                    card5: "Training and Advisory<br>Practical protocol training for teams plus tailored advisory for institutions and leadership offices.",
+                    card1Title: "Official Protocol Planning",
+                    card1Text: "End to end protocol design for official engagements, briefings, seating, flags, introductions, and ceremony flow.",
+                    card2Title: "State Visits and Delegations",
+                    card2Text: "High level visit coordination, stakeholder alignment, schedules, and on site protocol execution.",
+                    card3Title: "Corporate Summits and VIP Events",
+                    card3Text: "Executive events managed with diplomatic precision from agenda to stage management and host scripts.",
+                    card4Title: "VIP Hospitality and Concierge Support",
+                    card4Text: "Discreet guest handling, airport meets, secure transfers, hosting, and premium guest experience.",
+                    card5Title: "Training and Advisory",
+                    card5Text: "Practical protocol training for teams plus tailored advisory for institutions and leadership offices.",
                     ctaText: "Deliver every visit, meeting, and event with diplomatic excellence and flawless coordination."
                 },
 
@@ -659,11 +679,16 @@
                 },
                 highlights: {
                     title: "Öne Çıkan Hizmetler",
-                    card1: "Resmî Protokol Planlaması<br>Resmî temaslar için brifing, oturma düzeni, bayraklar, takdimler ve tören akışını kapsayan uçtan uca protokol tasarımı.",
-                    card2: "Devlet Ziyaretleri ve Heyetler<br>Üst düzey ziyaret koordinasyonu, paydaş uyumu, programlama ve sahada protokol uygulaması.",
-                    card3: "Kurumsal Zirveler ve VIP Etkinlikler<br>Gündemden sahne yönetimine ve sunucu metinlerine kadar diplomatik hassasiyetle yönetilen üst düzey etkinlikler.",
-                    card4: "VIP Ağırlama ve Concierge Desteği<br>Gizli misafir yönetimi, havaalanı karşılama, güvenli transferler ve premium misafir deneyimi.",
-                    card5: "Eğitim ve Danışmanlık<br>Ekipler için uygulamalı protokol eğitimi ve kurumlar ile liderlik ofislerine özel danışmanlık.",
+                    card1Title: "Resmî Protokol Planlaması",
+                    card1Text: "Resmî temaslar için brifing, oturma düzeni, bayraklar, takdimler ve tören akışını kapsayan uçtan uca protokol tasarımı.",
+                    card2Title: "Devlet Ziyaretleri ve Heyetler",
+                    card2Text: "Üst düzey ziyaret koordinasyonu, paydaş uyumu, programlama ve sahada protokol uygulaması.",
+                    card3Title: "Kurumsal Zirveler ve VIP Etkinlikler",
+                    card3Text: "Gündemden sahne yönetimine ve sunucu metinlerine kadar diplomatik hassasiyetle yönetilen üst düzey etkinlikler.",
+                    card4Title: "VIP Ağırlama ve Concierge Desteği",
+                    card4Text: "Gizli misafir yönetimi, havaalanı karşılama, güvenli transferler ve premium misafir deneyimi.",
+                    card5Title: "Eğitim ve Danışmanlık",
+                    card5Text: "Ekipler için uygulamalı protokol eğitimi ve kurumlar ile liderlik ofislerine özel danışmanlık.",
                     ctaText: "Her ziyareti, toplantıyı ve etkinliği diplomatik mükemmeliyet ve kusursuz koordinasyonla gerçekleştirin."
                 },
                     academy: {
@@ -800,11 +825,16 @@
                 },
                 highlights: {
                     title: "Istaknute usluge",
-                    card1: "Planiranje zvaničnog protokola<br>Kompletan dizajn protokola za zvanične angažmane, brifinge, raspored sjedenja, zastave, predstavljanja i tok ceremonije.",
-                    card2: "Državne posjete i delegacije<br>Koordinacija posjeta na visokom nivou, usklađivanje aktera, rasporedi i protokolarna izvedba na licu mjesta.",
-                    card3: "Korporativni samiti i VIP događaji<br>Događaji vođeni diplomatskom preciznošću od agende do upravljanja scenom i skripti domaćina.",
-                    card4: "VIP gostoprimstvo i concierge podrška<br>Diskretno zbrinjavanje gostiju, aerodromski dočeci, sigurni transferi i premium iskustvo.",
-                    card5: "Obuka i savjetovanje<br>Praktična protokolarna obuka za timove i prilagođeno savjetovanje za institucije i rukovodstvo.",
+                    card1Title: "Planiranje zvaničnog protokola",
+                    card1Text: "Kompletan dizajn protokola za zvanične angažmane, brifinge, raspored sjedenja, zastave, predstavljanja i tok ceremonije.",
+                    card2Title: "Državne posjete i delegacije",
+                    card2Text: "Koordinacija posjeta na visokom nivou, usklađivanje aktera, rasporedi i protokolarna izvedba na licu mjesta.",
+                    card3Title: "Korporativni samiti i VIP događaji",
+                    card3Text: "Događaji vođeni diplomatskom preciznošću od agende do upravljanja scenom i skripti domaćina.",
+                    card4Title: "VIP gostoprimstvo i concierge podrška",
+                    card4Text: "Diskretno zbrinjavanje gostiju, aerodromski dočeci, sigurni transferi i premium iskustvo.",
+                    card5Title: "Obuka i savjetovanje",
+                    card5Text: "Praktična protokolarna obuka za timove i prilagođeno savjetovanje za institucije i rukovodstvo.",
                     ctaText: "Svaku posjetu, sastanak i događaj realizujte uz diplomatsku izvrsnost i besprijekornu koordinaciju."
                 },
                     academy: {

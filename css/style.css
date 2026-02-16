@@ -13,6 +13,7 @@
     --gold-hover: #b8922a;
     --beige: #f5f0e8;
     --beige-light: #faf7f2;
+    --filigree-image: url('../images/logo.png');
     --white: #ffffff;
     --black: #111111;
     --text-dark: #2a2a2a;
@@ -307,6 +308,68 @@ ul { list-style: none; }
     padding-bottom: 2rem;
 }
 
+/* ---------- Filigree ---------- */
+.filigree {
+    position: relative;
+    overflow: hidden;
+}
+
+.filigree::before,
+.filigree::after {
+    content: '';
+    position: absolute;
+    width: min(520px, 52vw);
+    height: min(520px, 52vw);
+    background-image: var(--filigree-image);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: 0.05;
+    filter: grayscale(1) brightness(1.1);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.filigree::before {
+    top: -140px;
+    right: -160px;
+    transform: rotate(-12deg);
+}
+
+.filigree::after {
+    bottom: -160px;
+    left: -180px;
+    transform: rotate(14deg) scale(0.92);
+    opacity: 0.035;
+}
+
+.filigree > * {
+    position: relative;
+    z-index: 1;
+}
+
+.hero.filigree-hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero.filigree-hero::after {
+    content: '';
+    position: absolute;
+    width: min(620px, 60vw);
+    height: min(620px, 60vw);
+    right: -120px;
+    bottom: -180px;
+    background-image: var(--filigree-image);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: 0.08;
+    filter: grayscale(1) brightness(1.15);
+    pointer-events: none;
+    z-index: 2;
+}
+
 .section-dark {
     background: var(--dark-green);
     color: var(--white);
@@ -371,7 +434,6 @@ ul { list-style: none; }
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1.5rem;
 }
 
 .card-icon svg {
@@ -468,6 +530,19 @@ ul { list-style: none; }
     animation-delay: 0s; /* JS ile dinamik güncellenecek */
 }
 
+.benefit-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.benefit-title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1f2937;
+}
+
 /* Kart numarası görünümü */
 .benefit-number {
     font-family: "Cormorant Garamond", serif;
@@ -475,7 +550,10 @@ ul { list-style: none; }
     font-weight: 600;
     color: #cfa845; /* görseldeki altın/bej tonu gibi */
     line-height: 1;
-    margin-bottom: 0.25rem;
+    margin: 0;
+    padding: 0;
+    display: block;
+    height: 100%;
 }
 
 /* Metinler */
@@ -1060,6 +1138,32 @@ ul { list-style: none; }
         text-align: center;
     }
 
+    .filigree::before,
+    .filigree::after {
+        width: min(360px, 70vw);
+        height: min(360px, 70vw);
+        opacity: 0.035;
+    }
+
+    .filigree::before {
+        top: -120px;
+        right: -140px;
+    }
+
+    .filigree::after {
+        bottom: -140px;
+        left: -150px;
+        opacity: 0.025;
+    }
+
+    .hero.filigree-hero::after {
+        width: min(420px, 75vw);
+        height: min(420px, 75vw);
+        right: -110px;
+        bottom: -140px;
+        opacity: 0.05;
+    }
+
             /* Call widget mobil yerleşim */
             .call-widget {
                 left: 12px;
@@ -1413,12 +1517,20 @@ ul { list-style: none; }
 }
 
 .hero-title-secondary {
-    font-size: clamp(1.6rem, 3.2vw, 2.6rem);
-    line-height: 1.15;
-    margin-top: 0.85rem;
-    margin-bottom: 1.8rem;
-    opacity: 0.95;
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    line-height: 1.2;
+    margin-top: 1.25rem;
+    margin-bottom: 2.1rem;
+    padding: 0.55rem 1.4rem;
+    display: inline-block;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-variant: small-caps;
     color: var(--gold);
+    background: rgba(10, 24, 20, 0.62);
+    border: 1px solid rgba(201, 162, 39, 0.45);
+    border-radius: 10px;
+    box-shadow: 0 14px 32px rgba(8, 18, 15, 0.35);
 }
 
 .gold-heading {
@@ -1492,7 +1604,11 @@ ul { list-style: none; }
 .services-highlights .benefit-number {
     color: var(--gold);
     font-size: 3.4rem;
-    margin-bottom: 0.4rem;
+    margin: 0;
+}
+
+.services-highlights .benefit-title {
+    font-size: 1.1rem;
 }
 
 .services-highlights .benefit-item p {
@@ -1719,11 +1835,17 @@ ul { list-style: none; }
 .services-section .card-icon {
     width: 46px;
     height: 46px;
-    margin-bottom: 0.85rem;
     border-radius: 50%;
     background: rgba(201, 162, 39, 0.08);
     border: 1px solid rgba(201, 162, 39, 0.25);
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.55);
+}
+
+.services-section .card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.6rem;
 }
 
 .services-section .card-icon svg {
@@ -1733,7 +1855,7 @@ ul { list-style: none; }
 }
 
 .services-section .card h4 {
-    margin-bottom: 0.5rem;
+    margin: 0;
     font-size: 1rem;
     color: #1a3c34;
 }

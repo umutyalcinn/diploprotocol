@@ -3,39 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | Diplomatic Protocol</title>
-    <meta name="description" content="Get in touch with Diplomatic Protocol for inquiries about our services, training programs, and event management.">
-    
-    <!-- Fonts -->
+    <title>Diplomatic Protocol | Diplomatic Protocol Academy</title>
+    <meta name="description" content="Diplomatic Protocol training with a focus on formal standards, cultural awareness, and professional excellence.">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Main Styles -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
     <link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48.png">
     <link rel="icon" type="image/png" sizes="64x64" href="images/favicon-64.png">
-    
-    <!-- Mobile & Call Widget Overrides + Contact Page Styles -->
 </head>
-<body>
+<body class="academy-page">
 
     <!-- Navigation -->
     <nav class="navbar" style="background: #1a3c34;">
         <div class="container">
             <a href="index.html" class="navbar-brand">
-                <img src="images/logo.png" alt="Diplomatic Protocol Logo" 
-                    style="width: 100px; 
-                            height: 100%; 
-                            max-height: 150px; 
-                            background-color: var(--dark-green);">
+                <img src="images/logo.png" alt="Diplomatic Protocol Logo"
+                    style="width: 100px;
+                           height: auto;
+                           max-height: 150px;">
                 <span>DIPLOMATIC PROTOCOL</span>
             </a>
-            
+
             <div class="navbar-menu">
-                <a href="index.html" class="active" data-i18n="nav.home">Home</a>
+                <a href="index.html" data-i18n="nav.home">Home</a>
                 <a href="about.html" data-i18n="nav.about">About Us</a>
                 <a href="services.html" data-i18n="nav.services">Services</a>
 
@@ -43,20 +37,20 @@
                     <a href="academy.html" class="dropdown-toggle" data-i18n="nav.academy">
                         Diplomatic Protocol Academy
                     </a>
+
                     <div class="dropdown-menu">
                         <a href="academy.html#approach" data-i18n="nav.academyApproach">Our Approach</a>
                         <a href="academy.html#programs" data-i18n="nav.academyPrograms">Programs & Training Levels</a>
                         <a href="academy.html#formats" data-i18n="nav.academyFormats">Formats of Training</a>
                         <a href="academy.html#benefits" data-i18n="nav.academyBenefits">Benefits of the Training</a>
                         <a href="academy.html#certificates" data-i18n="nav.academyCertificates">Certificates & Recognition</a>
-                        <a href="academy.html#schedule" data-i18n="nav.academyCalendar">Schedule</a>
+                        <a href="academy.html#schedule" data-i18n="nav.academyCalendar">Calendar</a>
                     </div>
                 </div>
 
                 <a href="contact.html" data-i18n="nav.contact">Contact Us</a>
             </div>
 
-            <!-- LANG SELECTOR DROPDOWN: SADECE BAYRAKLAR -->
             <div class="lang-selector">
                 <button class="lang-current" type="button" data-lang="en" aria-label="Change language">
                     <img src="https://flagcdn.com/w40/gb.png" alt="English">
@@ -70,16 +64,15 @@
                         <img src="https://flagcdn.com/w40/gb.png" alt="English">
                     </button>
                     <button class="lang-option" type="button" data-lang="tr">
-                        <img src="https://flagcdn.com/w40/tr.png" alt="Türkçe">
+                        <img src="https://flagcdn.com/w40/tr.png" alt="Turkish">
                     </button>
                     <button class="lang-option" type="button" data-lang="me">
                         <img src="https://flagcdn.com/w40/me.png" alt="Montenegrin">
                     </button>
                 </div>
             </div>
-            
-            <div class="menu-toggle">
 
+            <div class="menu-toggle">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -87,127 +80,79 @@
         </div>
     </nav>
 
-    <!-- Contact Section -->
-    <section class="section contact-main filigree">
+    <section class="services-intro">
         <div class="container">
-            <div class="contact-section">
-                <!-- Form -->
-                <div class="animate-on-scroll">
-                    <h2 class="mb-3" data-i18n="contactPage.form.title">Send Us a Message</h2>
-                    <form class="contact-form">
-                        <div class="form-group">
-                            <label for="name" data-i18n="contactPage.form.nameLabel">Full Name *</label>
-                            <input type="text" id="name" name="name" required placeholder="Your full name">
-                        </div>
+            <div class="intro-subtitle" data-i18n="diplomaticProtocolPage.introSubtitle">DIPLOMATIC PROTOCOL ACADEMY</div>
+            <h1 data-i18n="diplomaticProtocolPage.heroTitle">Diplomatic Protocol - The Language That Speaks Without Words</h1>
+            <div class="intro-divider"></div>
+            <p data-i18n="diplomaticProtocolPage.introP1">Diplomatic protocol is the codified set of rules and procedures governing behavior, communication, and ceremonial actions in interactions between states, embassies, international organizations, corporate executives, and their teams. Its purpose is to ensure respect, equality, and dignity for all participants, whether in international diplomacy or high-profile corporate engagements.</p>
+            <p data-i18n="diplomaticProtocolPage.introP2">At our Academy, we treat diplomatic protocol with utmost care and precision, because we believe that details make the difference, not only in the impression your organization leaves, but in the message it conveys to clients, partners, and stakeholders worldwide.</p>
+        </div>
+    </section>
 
-                        <div class="form-group">
-                            <label for="organization" data-i18n="contactPage.form.organizationLabel">Organization</label>
-                            <input type="text" id="organization" name="organization" placeholder="Your organization">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email" data-i18n="contactPage.form.emailLabel">Email Address *</label>
-                            <input type="email" id="email" name="email" required placeholder="your@email.com">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="phone" data-i18n="contactPage.form.phoneLabel">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" placeholder="+382 (555) 000-0000">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="subject" data-i18n="contactPage.form.subjectLabel">Subject *</label>
-                            <select id="subject" name="subject" required>
-                                <option value="" data-i18n="contactPage.form.subjectPlaceholder">Select a subject</option>
-                                <option value="training" data-i18n="contactPage.form.subjectTraining">Training Programs</option>
-                                <option value="events" data-i18n="contactPage.form.subjectEvents">Event Management</option>
-                                <option value="protocol" data-i18n="contactPage.form.subjectProtocol">Protocol Services</option>
-                                <option value="vip" data-i18n="contactPage.form.subjectVip">VIP Services</option>
-                                <option value="careers" data-i18n="contactPage.form.subjectCareers">Careers</option>
-                                <option value="other" data-i18n="contactPage.form.subjectOther">Other</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message" data-i18n="contactPage.form.messageLabel">Message *</label>
-                            <textarea id="message" name="message" required placeholder="How can we help you?"></textarea>
-                        </div>
-
-                        <button type="submit" class="btn btn-outline" data-i18n="contactPage.form.button">Send Message</button>
-                    </form>
+    <section class="section">
+        <div class="container">
+            <div class="two-col">
+                <div class="two-col-content">
+                    <h2 data-i18n="diplomaticProtocolPage.whoTitle">Who Should Attend</h2>
+                    <ul class="mt-3">
+                        <li data-i18n="diplomaticProtocolPage.whoLi1">Employees of government institutions</li>
+                        <li data-i18n="diplomaticProtocolPage.whoLi2">Embassy and consular staff</li>
+                        <li data-i18n="diplomaticProtocolPage.whoLi3">PR and protocol departments</li>
+                        <li data-i18n="diplomaticProtocolPage.whoLi4">Assistants to high-ranking officials and delegations</li>
+                        <li data-i18n="diplomaticProtocolPage.whoLi5">Corporate executives, client-facing teams, and employees in all sectors</li>
+                        <li data-i18n="diplomaticProtocolPage.whoLi6">Staff in tourism, hospitality, hotels, and service industries who engage directly with VIP clients, partners, and international guests</li>
+                        <li data-i18n="diplomaticProtocolPage.whoLi7">Corporate communications and client relations staff representing their organizations in domestic and global contexts</li>
+                    </ul>
+                    <p class="mt-3" data-i18n="diplomaticProtocolPage.whoP">This program equips professionals with the knowledge, cultural awareness, and refined behavior necessary to excel in formal, diplomatic, and high-profile corporate settings, ensuring that every interaction communicates respect, credibility, and authority.</p>
                 </div>
-
-                <!-- Contact Info -->
-                <div class="animate-on-scroll">
-                    <h2 class="mb-3" data-i18n="contactPage.info.title">Contact Information</h2>
-
-                    <div class="contact-info-card">
-                        <h4>
-                            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                            <span data-i18n="contactPage.info.addressTitle">Address</span>
-                        </h4>
-                        <p data-i18n="contactPage.info.addressText">
-                            Bulevar Svetog Petra Cetinjskog 1<br>Podgorica, 81000<br>Montenegro
-                        </p>
-                    </div>
-
-                    <div class="contact-info-card">
-                        <h4>
-                            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                            <span data-i18n="contactPage.info.phoneTitle">Phone</span>
-                        </h4>
-                        <p>
-                            <a href="tel:+3825551234567" data-i18n="contactPage.info.phoneLine1">+382 (555) 123-4567</a><br>
-                            <a href="tel:+3825551234568" data-i18n="contactPage.info.phoneLine2">+382 (555) 123-4568</a>
-                        </p>
-                    </div>
-
-                    <div class="contact-info-card">
-                        <h4>
-                            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                            <span data-i18n="contactPage.info.emailTitle">Email</span>
-                        </h4>
-                        <p>
-                            <a href="mailto:info@diplomaticprotocol.me" data-i18n="contactPage.info.emailLine1">info@diplomaticprotocol.me</a><br>
-                            <a href="mailto:training@diplomaticprotocol.me" data-i18n="contactPage.info.emailLine2">training@diplomaticprotocol.me</a>
-                        </p>
-                    </div>
-
-                    <div class="contact-info-card">
-                        <h4>
-                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                            <span data-i18n="contactPage.info.hoursTitle">Office Hours</span>
-                        </h4>
-                        <p data-i18n="contactPage.info.hoursText">
-                            Monday - Friday: 9:00 AM - 6:00 PM<br>
-                            Saturday: 10:00 AM - 2:00 PM<br>
-                            Sunday: Closed
-                        </p>
-                    </div>
-
+                <div class="two-col-content">
+                    <h2 data-i18n="diplomaticProtocolPage.trainingTitle">Training Name</h2>
+                    <p><strong data-i18n="diplomaticProtocolPage.trainingName">Diplomatic Protocol Mastery for Professionals</strong></p>
+                    <h3 class="mt-3" data-i18n="diplomaticProtocolPage.objectivesTitle">Objectives</h3>
+                    <ul class="mt-2">
+                        <li data-i18n="diplomaticProtocolPage.objective1">Provide a deep understanding of international diplomatic rules and procedures</li>
+                        <li data-i18n="diplomaticProtocolPage.objective2">Develop the skills to execute ceremonies, meetings, and official interactions with precision</li>
+                        <li data-i18n="diplomaticProtocolPage.objective3">Instill confidence in navigating formal diplomatic and high-level corporate environments</li>
+                        <li data-i18n="diplomaticProtocolPage.objective4">Enable staff to interact with clients and stakeholders in a professional, elegant, and culturally aware manner</li>
+                        <li data-i18n="diplomaticProtocolPage.objective5">Equip employees to represent their organizations flawlessly in all sectors, including tourism, hospitality, and service industries</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Map -->
     <section class="section section-beige">
         <div class="container">
-            <div class="map-container animate-on-scroll">
-                <iframe
-                    width="100%"
-                    height="100%"
-                    style="border:0;"
-                    loading="lazy"
-                    allowfullscreen
-                    referrerpolicy="no-referrer-when-downgrade"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28462.027595398736!2d19.228643!3d42.441286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x134deb61b5cd2d1f%3A0x6f6e2e3aa8b0c21!2sPodgorica!5e0!3m2!1sen!2sme!4v1700000000000!5m2!1sen!2sme">
-                </iframe>
-            </div>
+            <h2 data-i18n="diplomaticProtocolPage.benefitsTitle">Benefits</h2>
+            <ul class="mt-3">
+                <li data-i18n="diplomaticProtocolPage.benefit1">Elevate personal and organizational presence, prestige, and reputation</li>
+                <li data-i18n="diplomaticProtocolPage.benefit2">Strengthen trust, respect, and influence across corporate, diplomatic, and high-stakes client interactions</li>
+                <li data-i18n="diplomaticProtocolPage.benefit3">Gain practical expertise directly applicable to real-world diplomatic and corporate scenarios</li>
+            </ul>
         </div>
     </section>
 
-    <!-- Footer -->
+    <div class="call-widget">
+        <div class="call-widget-box">
+            <img src="images/help1.png" alt="Support Agent" class="call-agent-img">
+
+            <div class="call-widget-texts">
+                <p class="call-widget-text" data-i18n="callWidget.text">We’re here to ensure<br>perfection</p>
+
+                <a href="contact.html" class="call-start-btn" data-i18n="buttons.startCall">
+                    <svg width="18" height="18" fill="white" viewBox="0 0 24 24">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 3 5.18
+                        2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.72c.12 1.05.37 2.07.73 3.06a2
+                        2 0 0 1-.45 2.11l-1.27 1.27a16 16 0 0 0 7.07 7.07l1.27-1.27a2
+                        2 0 0 1 2.11-.45 12.84 12.84 0 0 0 3.06.73A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                    Start a call
+                </a>
+            </div>
+        </div>
+    </div>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -253,40 +198,16 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p data-i18n="footer.rights">&copy; 2025 DiplomaticProtocol.me – All rights reserved.</p>
+                <p data-i18n="footer.rights">&copy; 2025 DiplomaticProtocol.me - All rights reserved.</p>
                 <div>
-                    <a href="#" data-i18n="footer.privacy">Privacy Policy</a> | 
+                    <a href="#" data-i18n="footer.privacy">Privacy Policy</a> |
                     <a href="#" data-i18n="footer.refund">Refund Policy</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Call Widget -->
-    <div class="call-widget">
-        <div class="call-widget-box">
-            <img src="images/help1.png" alt="Support Agent" class="call-agent-img">
-
-            <div class="call-widget-texts">
-                <p class="call-widget-text" data-i18n="callWidget.text">We’re here to ensure<br>perfection</p>
-
-                <a href="contact.html" class="call-start-btn" data-i18n="buttons.startCall">
-                    <svg width="18" height="18" fill="white" viewBox="0 0 24 24">
-                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 3 5.18
-                        2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.72c.12 1.05.37 2.07.73 3.06a2
-                        2 0 0 1-.45 2.11l-1.27 1.27a16 16 0 0 0 7.07 7.07l1.27-1.27a2
-                        2 0 0 1 2.11-.45 12.84 12.84 0 0 0 3.06.73A2 2 0 0 1 22 16.92z"/>
-                    </svg>
-                    Start a call
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <!-- JS -->
     <script src="js/main.js"></script>
-
-    <!-- i18n + Lang Menu + Call Widget JS -->
     <script>
         const translations = {
             en: {
@@ -333,44 +254,36 @@
                     companyDescription: `Leading provider of diplomatic protocol services, training, and event management.`,
                     emailLabel: `Email:`,
                     phoneLabel: `Phone:`,
-                    rights: `© 2025 DiplomaticProtocol.me – All rights reserved.`,
+                    rights: `© 2025 DiplomaticProtocol.me - All rights reserved.`,
                     privacy: `Privacy Policy`,
                     refund: `Refund Policy`
                 },
-                contactPage: {
-                    heroSubtitle: `GET IN TOUCH`,
-                    heroTitle: `Contact Us`,
-                    heroDescription: `Ready to elevate your protocol standards? We're here to discuss how we can serve your organization.`,
-                    form: {
-                        title: `Send Us a Message`,
-                        nameLabel: `Full Name *`,
-                        organizationLabel: `Organization`,
-                        emailLabel: `Email Address *`,
-                        phoneLabel: `Phone Number`,
-                        subjectLabel: `Subject *`,
-                        subjectPlaceholder: `Select a subject`,
-                        subjectTraining: `Training Programs`,
-                        subjectEvents: `Event Management`,
-                        subjectProtocol: `Protocol Services`,
-                        subjectVip: `VIP Services`,
-                        subjectCareers: `Careers`,
-                        subjectOther: `Other`,
-                        messageLabel: `Message *`,
-                        button: `Send Message`
-                    },
-                    info: {
-                        title: `Contact Information`,
-                        addressTitle: `Address`,
-                        addressText: `Bulevar Svetog Petra Cetinjskog 1<br>Podgorica, 81000<br>Montenegro`,
-                        phoneTitle: `Phone`,
-                        phoneLine1: `+382 (555) 123-4567`,
-                        phoneLine2: `+382 (555) 123-4568`,
-                        emailTitle: `Email`,
-                        emailLine1: `info@diplomaticprotocol.me`,
-                        emailLine2: `training@diplomaticprotocol.me`,
-                        hoursTitle: `Office Hours`,
-                        hoursText: `Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 2:00 PM<br>Sunday: Closed`
-                    }
+                diplomaticProtocolPage: {
+                    introSubtitle: `DIPLOMATIC PROTOCOL ACADEMY`,
+                    heroTitle: `Diplomatic Protocol - The Language That Speaks Without Words`,
+                    introP1: `Diplomatic protocol is the codified set of rules and procedures governing behavior, communication, and ceremonial actions in interactions between states, embassies, international organizations, corporate executives, and their teams. Its purpose is to ensure respect, equality, and dignity for all participants, whether in international diplomacy or high-profile corporate engagements.`,
+                    introP2: `At our Academy, we treat diplomatic protocol with utmost care and precision, because we believe that details make the difference, not only in the impression your organization leaves, but in the message it conveys to clients, partners, and stakeholders worldwide.`,
+                    whoTitle: `Who Should Attend`,
+                    whoLi1: `Employees of government institutions`,
+                    whoLi2: `Embassy and consular staff`,
+                    whoLi3: `PR and protocol departments`,
+                    whoLi4: `Assistants to high-ranking officials and delegations`,
+                    whoLi5: `Corporate executives, client-facing teams, and employees in all sectors`,
+                    whoLi6: `Staff in tourism, hospitality, hotels, and service industries who engage directly with VIP clients, partners, and international guests`,
+                    whoLi7: `Corporate communications and client relations staff representing their organizations in domestic and global contexts`,
+                    whoP: `This program equips professionals with the knowledge, cultural awareness, and refined behavior necessary to excel in formal, diplomatic, and high-profile corporate settings, ensuring that every interaction communicates respect, credibility, and authority.`,
+                    trainingTitle: `Training Name`,
+                    trainingName: `Diplomatic Protocol Mastery for Professionals`,
+                    objectivesTitle: `Objectives`,
+                    objective1: `Provide a deep understanding of international diplomatic rules and procedures`,
+                    objective2: `Develop the skills to execute ceremonies, meetings, and official interactions with precision`,
+                    objective3: `Instill confidence in navigating formal diplomatic and high-level corporate environments`,
+                    objective4: `Enable staff to interact with clients and stakeholders in a professional, elegant, and culturally aware manner`,
+                    objective5: `Equip employees to represent their organizations flawlessly in all sectors, including tourism, hospitality, and service industries`,
+                    benefitsTitle: `Benefits`,
+                    benefit1: `Elevate personal and organizational presence, prestige, and reputation`,
+                    benefit2: `Strengthen trust, respect, and influence across corporate, diplomatic, and high-stakes client interactions`,
+                    benefit3: `Gain practical expertise directly applicable to real-world diplomatic and corporate scenarios`
                 }
             },
             tr: {
@@ -409,52 +322,44 @@
                     servicesTrainingInstitute: `Eğitim Enstitüsü`,
                     servicesProtocol: `Protokol Hizmetleri`,
                     servicesEvents: `Etkinlik Planlama & Yönetimi`,
-                    scheduleTitle: `Takvim / Programlar`,
+                    scheduleTitle: `Program / Takvim`,
                     schedulePublic: `Açık Eğitimler`,
-                    schedulePrivate: `Kuruma Özel Eğitimler`,
+                    schedulePrivate: `Özel Grup Eğitimleri`,
                     scheduleUpcoming: `Yaklaşan Programlar`,
                     companyTitle: `Diplomatic Protocol`,
                     companyDescription: `Diplomatik protokol hizmetleri, eğitim ve etkinlik yönetimi alanında lider bir sağlayıcıdır.`,
                     emailLabel: `E-posta:`,
                     phoneLabel: `Telefon:`,
-                    rights: `© 2025 DiplomaticProtocol.me – Tüm hakları saklıdır.`,
+                    rights: `© 2025 DiplomaticProtocol.me - Tüm hakları saklıdır.`,
                     privacy: `Gizlilik Politikası`,
                     refund: `İade Politikası`
                 },
-                contactPage: {
-                    heroSubtitle: `BİZE ULAŞIN`,
-                    heroTitle: `İletişim`,
-                    heroDescription: `Protokol standartlarınızı yükseltmeye hazır mısınız? Kurumunuza nasıl destek olabileceğimizi konuşmak için buradayız.`,
-                    form: {
-                        title: `Bize Mesaj Gönderin`,
-                        nameLabel: `Ad Soyad *`,
-                        organizationLabel: `Kurum / Şirket`,
-                        emailLabel: `E-posta Adresi *`,
-                        phoneLabel: `Telefon Numarası`,
-                        subjectLabel: `Konu *`,
-                        subjectPlaceholder: `Bir konu seçin`,
-                        subjectTraining: `Eğitim Programları`,
-                        subjectEvents: `Etkinlik Yönetimi`,
-                        subjectProtocol: `Protokol Hizmetleri`,
-                        subjectVip: `VIP Hizmetleri`,
-                        subjectCareers: `Kariyer`,
-                        subjectOther: `Diğer`,
-                        messageLabel: `Mesajınız *`,
-                        button: `Mesaj Gönder`
-                    },
-                    info: {
-                        title: `İletişim Bilgileri`,
-                        addressTitle: `Adres`,
-                        addressText: ` Bulevar Svetog Petra Cetinjskog 1<br>Podgorica, 81000<br>Karadağ`,
-                        phoneTitle: `Telefon`,
-                        phoneLine1: `+382 (555) 123-4567`,
-                        phoneLine2: `+382 (555) 123-4568`,
-                        emailTitle: `E-posta`,
-                        emailLine1: `info@diplomaticprotocol.me`,
-                        emailLine2: `training@diplomaticprotocol.me`,
-                        hoursTitle: `Çalışma Saatleri`,
-                        hoursText: `Pazartesi - Cuma: 09:00 - 18:00<br>Cumartesi: 10:00 - 14:00<br>Pazar: Kapalı`
-                    }
+                diplomaticProtocolPage: {
+                    introSubtitle: `DİPLOMATİK PROTOKOL AKADEMİSİ`,
+                    heroTitle: `Diplomatik Protokol - Sözsüz Konuşan Dil`,
+                    introP1: `Diplomatik protokol, devletler, elçilikler, uluslararası kuruluşlar, kurumsal yöneticiler ve ekipler arasındaki etkileşimlerde davranış, iletişim ve törensel eylemleri düzenleyen kodlanmış kural ve prosedürler bütünüdür. Amacı, uluslararası diplomasi veya üst düzey kurumsal etkileşimlerde tüm taraflar için saygı, eşitlik ve saygınlığı güvence altına almaktır.`,
+                    introP2: `Akademimizde diplomatik protokole en yüksek özen ve hassasiyetle yaklaşırız; çünkü detayların sadece kurumunuzun bıraktığı izlenimde değil, dünya genelindeki müşterilere, iş ortaklarına ve paydaşlara verdiği mesajda da fark yarattığına inanıyoruz.`,
+                    whoTitle: `Kimler Katılmalı`,
+                    whoLi1: `Kamu kurumları çalışanları`,
+                    whoLi2: `Elçilik ve konsolosluk personeli`,
+                    whoLi3: `PR ve protokol departmanları`,
+                    whoLi4: `Üst düzey yetkililere ve delegasyonlara asistanlık yapanlar`,
+                    whoLi5: `Kurumsal yöneticiler, müşteriyle yüz yüze çalışan ekipler ve tüm sektörlerdeki çalışanlar`,
+                    whoLi6: `Turizm, konaklama, otelcilik ve hizmet sektörlerinde VIP müşteriler, iş ortakları ve uluslararası misafirlerle doğrudan temas kuran personel`,
+                    whoLi7: `Kurumlarını ulusal ve uluslararası ortamlarda temsil eden kurumsal iletişim ve müşteri ilişkileri ekipleri`,
+                    whoP: `Bu program, profesyonellere resmî, diplomatik ve yüksek profilli kurumsal ortamlarda başarı için gerekli bilgi, kültürel farkındalık ve rafine davranışı kazandırarak her etkileşimin saygı, güvenilirlik ve otoriteyi yansıtmasını sağlar.`,
+                    trainingTitle: `Eğitim Adı`,
+                    trainingName: `Profesyoneller için Diplomatik Protokol Ustalığı`,
+                    objectivesTitle: `Hedefler`,
+                    objective1: `Uluslararası diplomatik kurallar ve prosedürler hakkında derin bir anlayış kazandırmak`,
+                    objective2: `Törenleri, toplantıları ve resmî etkileşimleri hassasiyetle yürütme becerisi geliştirmek`,
+                    objective3: `Resmî diplomatik ve üst düzey kurumsal ortamlarda güvenle hareket etmeyi pekiştirmek`,
+                    objective4: `Çalışanların müşteriler ve paydaşlarla profesyonel, zarif ve kültürel açıdan bilinçli şekilde etkileşim kurmasını sağlamak`,
+                    objective5: `Turizm, konaklama ve hizmet sektörleri dahil tüm alanlarda kurumlarını kusursuz temsil etmeleri için çalışanları donatmak`,
+                    benefitsTitle: `Faydalar`,
+                    benefit1: `Kişisel ve kurumsal duruşu, prestiji ve itibarı yükseltmek`,
+                    benefit2: `Kurumsal, diplomatik ve yüksek riskli müşteri etkileşimlerinde güveni, saygıyı ve etkiyi güçlendirmek`,
+                    benefit3: `Gerçek dünyadaki diplomatik ve kurumsal senaryolara doğrudan uygulanabilir pratik uzmanlık kazanmak`
                 }
             },
             me: {
@@ -488,57 +393,49 @@
                     exploreWhoWeAre: `Ko smo`,
                     exploreTeam: `Tim`,
                     explorePastEvents: `Prethodni događaji`,
-                    exploreCareers: `Karijera`,
+                    exploreCareers: `Karijere`,
                     servicesTitle: `Usluge`,
                     servicesTrainingInstitute: `Trening institut`,
                     servicesProtocol: `Protokolarne usluge`,
-                    servicesEvents: `Planiranje i organizacija događaja`,
+                    servicesEvents: `Planiranje i upravljanje događajima`,
                     scheduleTitle: `Raspored / Programi`,
                     schedulePublic: `Javne obuke`,
                     schedulePrivate: `Privatne grupne obuke`,
-                    scheduleUpcoming: `Predstojeći programi`,
+                    scheduleUpcoming: `Naredni programi`,
                     companyTitle: `Diplomatic Protocol`,
-                    companyDescription: `Vodeći provajder protokolarnih usluga, obuka i menadžmenta događaja.`,
+                    companyDescription: `Lider u oblasti diplomatskog protokola, obuka i menadžmenta događaja.`,
                     emailLabel: `Email:`,
                     phoneLabel: `Telefon:`,
-                    rights: `© 2025 DiplomaticProtocol.me – Sva prava zadržana.`,
+                    rights: `© 2025 DiplomaticProtocol.me - Sva prava zadržana.`,
                     privacy: `Politika privatnosti`,
-                    refund: `Pravila povraćaja`
+                    refund: `Politika povraćaja`
                 },
-                contactPage: {
-                    heroSubtitle: `KONTAKTIRAJTE NAS`,
-                    heroTitle: `Kontakt`,
-                    heroDescription: `Spremni da podignete svoje protokolarne standarde? Tu smo da razgovaramo kako možemo podržati vašu organizaciju.`,
-                    form: {
-                        title: `Pošaljite nam poruku`,
-                        nameLabel: `Ime i prezime *`,
-                        organizationLabel: `Organizacija / Kompanija`,
-                        emailLabel: `Email adresa *`,
-                        phoneLabel: `Broj telefona`,
-                        subjectLabel: `Tema *`,
-                        subjectPlaceholder: `Odaberite temu`,
-                        subjectTraining: `Programi obuke`,
-                        subjectEvents: `Organizacija događaja`,
-                        subjectProtocol: `Protokolarne usluge`,
-                        subjectVip: `VIP usluge`,
-                        subjectCareers: `Karijera`,
-                        subjectOther: `Ostalo`,
-                        messageLabel: `Vaša poruka *`,
-                        button: `Pošalji poruku`
-                    },
-                    info: {
-                        title: `Kontakt informacije`,
-                        addressTitle: `Adresa`,
-                        addressText: `Bulevar Svetog Petra Cetinjskog 1<br>Podgorica, 81000<br>Crna Gora`,
-                        phoneTitle: `Telefon`,
-                        phoneLine1: `+382 (555) 123-4567`,
-                        phoneLine2: `+382 (555) 123-4568`,
-                        emailTitle: `Email`,
-                        emailLine1: `info@diplomaticprotocol.me`,
-                        emailLine2: `training@diplomaticprotocol.me`,
-                        hoursTitle: `Radno vrijeme`,
-                        hoursText: `Ponedjeljak - Petak: 09:00 - 18:00<br>Subota: 10:00 - 14:00<br>Nedjelja: Ne radimo`
-                    }
+                diplomaticProtocolPage: {
+                    introSubtitle: `AKADEMIJA DIPLOMATSKOG PROTOKOLA`,
+                    heroTitle: `Diplomatski protokol - Jezik koji govori bez riječi`,
+                    introP1: `Diplomatski protokol je kodifikovani skup pravila i procedura koji uređuje ponašanje, komunikaciju i ceremonijalne radnje u interakcijama između država, ambasada, međunarodnih organizacija, korporativnih rukovodilaca i njihovih timova. Njegova svrha je da obezbijedi poštovanje, jednakost i dostojanstvo za sve učesnike, bilo u međunarodnoj diplomatiji ili u visokom korporativnom okruženju.`,
+                    introP2: `U našoj Akademiji diplomatski protokol tretiramo s najvećom pažnjom i preciznošću, jer vjerujemo da detalji prave razliku, ne samo u utisku koji vaša organizacija ostavlja, već i u poruci koju šalje klijentima, partnerima i zainteresovanim stranama širom svijeta.`,
+                    whoTitle: `Ko treba da prisustvuje`,
+                    whoLi1: `Zaposleni u državnim institucijama`,
+                    whoLi2: `Ambasadno i konzularno osoblje`,
+                    whoLi3: `PR i protokolarni sektori`,
+                    whoLi4: `Asistenti visokim zvaničnicima i delegacijama`,
+                    whoLi5: `Korporativni rukovodioci, timovi koji rade s klijentima i zaposleni u svim sektorima`,
+                    whoLi6: `Zaposleni u turizmu, ugostiteljstvu, hotelijerstvu i uslužnim djelatnostima koji direktno rade s VIP klijentima, partnerima i međunarodnim gostima`,
+                    whoLi7: `Timovi za korporativne komunikacije i odnose s klijentima koji predstavljaju organizaciju u domaćem i globalnom okruženju`,
+                    whoP: `Ovaj program osposobljava profesionalce znanjem, kulturnom sviješću i rafiniranim ponašanjem potrebnim za uspjeh u formalnim, diplomatskim i visoko profilisanim korporativnim okruženjima, kako bi svaka interakcija odražavala poštovanje, kredibilitet i autoritet.`,
+                    trainingTitle: `Naziv obuke`,
+                    trainingName: `Usavršavanje diplomatskog protokola za profesionalce`,
+                    objectivesTitle: `Ciljevi`,
+                    objective1: `Obezbijediti dubinsko razumijevanje međunarodnih diplomatskih pravila i procedura`,
+                    objective2: `Razviti vještine za precizno izvođenje ceremonija, sastanaka i zvaničnih interakcija`,
+                    objective3: `Učvrstiti sigurnost u kretanju kroz formalna diplomatska i visoko korporativna okruženja`,
+                    objective4: `Omogućiti zaposlenima da s klijentima i zainteresovanim stranama komuniciraju profesionalno, elegantno i kulturno osviješćeno`,
+                    objective5: `Osposobiti zaposlene da besprijekorno predstavljaju svoje organizacije u svim sektorima, uključujući turizam, ugostiteljstvo i uslužne djelatnosti`,
+                    benefitsTitle: `Prednosti`,
+                    benefit1: `Podići lični i organizacioni nastup, prestiž i reputaciju`,
+                    benefit2: `Ojačati povjerenje, poštovanje i uticaj u korporativnim, diplomatskim i visokorizičnim interakcijama s klijentima`,
+                    benefit3: `Steći praktičnu ekspertizu koja se neposredno primjenjuje u realnim diplomatskim i korporativnim scenarijima`
                 }
             }
         };
@@ -588,7 +485,6 @@
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            // Call widget aktif
             const callWidget = document.querySelector('.call-widget');
             if (callWidget) {
                 callWidget.style.opacity = '1';
