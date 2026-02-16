@@ -3067,5 +3067,6 @@ ul { list-style: none; }
 }
 
 html body {
-    overflow-x: hidden;
+    overflow-x: hidden!important;
+    width: 100vh!important;
 }
