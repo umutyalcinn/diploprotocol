@@ -388,9 +388,19 @@ body.page-filigree::after {
     opacity: 0.16;
 }
 
-body.page-filigree > * {
+body.page-filigree > *:not(.navbar):not(.call-widget) {
     position: relative;
     z-index: 1;
+}
+
+body.page-filigree > .navbar {
+    position: fixed;
+    z-index: 2000;
+}
+
+body.page-filigree > .call-widget {
+    position: fixed;
+    z-index: 9999;
 }
 
 .filigree > * {
