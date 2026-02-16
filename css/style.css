@@ -3065,3 +3065,7 @@ ul { list-style: none; }
         font-size: 0.7rem;
     }
 }
+
+body html {
+    overflow-x: hidden;
+}
