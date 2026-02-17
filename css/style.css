@@ -1692,6 +1692,18 @@ body.page-filigree > .call-widget {
     display: flex;
     flex-direction: column;
     flex: 1;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.services-highlights .benefit-item:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 4px;
+}
+
+.services-highlights .benefit-item.is-open {
+    border-color: rgba(201, 162, 39, 0.6);
+    box-shadow: 0 14px 28px rgba(26, 60, 52, 0.16);
 }
 
 .services-highlights .benefit-number {
@@ -1701,12 +1713,36 @@ body.page-filigree > .call-widget {
 }
 
 .services-highlights .benefit-title {
-    font-size: 1.1rem;
+    font-family: inherit;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.services-highlights .benefit-title::after {
+    content: "▸";
+    font-size: 0.95rem;
+    color: var(--gold);
+}
+
+.services-highlights .benefit-item.is-open .benefit-title::after {
+    content: "▾";
 }
 
 .services-highlights .benefit-item p {
     color: rgba(0, 0, 0, 0.7);
     margin-bottom: 0;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, opacity 0.25s ease;
+}
+
+.services-highlights .benefit-item.is-open p {
+    max-height: 260px;
+    opacity: 1;
+    margin-top: 0.35rem;
 }
 
 .services-highlights .cta-banner {

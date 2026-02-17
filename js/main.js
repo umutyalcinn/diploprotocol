@@ -67,6 +67,36 @@ document.addEventListener('DOMContentLoaded', function() {
     }, observerOptions);
 
     secondaryAnimatedElements.forEach(el => secondaryObserver.observe(el));
+
+    // ---------- Services Highlights Accordion ----------
+    const highlightItems = document.querySelectorAll('.services-highlights .benefit-item');
+    if (highlightItems.length) {
+        const setExpanded = (item, isExpanded) => {
+            item.classList.toggle('is-open', isExpanded);
+            item.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+        };
+
+        highlightItems.forEach(item => {
+            item.setAttribute('role', 'button');
+            item.setAttribute('tabindex', '0');
+            item.setAttribute('aria-expanded', 'false');
+
+            item.addEventListener('click', () => {
+                const isOpen = item.classList.contains('is-open');
+                highlightItems.forEach(other => setExpanded(other, false));
+                if (!isOpen) {
+                    setExpanded(item, true);
+                }
+            });
+
+            item.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    item.click();
+                }
+            });
+        });
+    }
     
     // ---------- Smooth Scroll for Anchor Links ----------
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
