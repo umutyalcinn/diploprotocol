@@ -1199,6 +1199,10 @@ body.page-filigree > .call-widget {
     .services-grid {
         grid-template-columns: 1fr;
     }
+
+    .operational-corporate-page .operational-card-grid {
+        grid-template-columns: 1fr;
+    }
     
     .event-types-grid {
         grid-template-columns: 1fr;
@@ -2224,10 +2228,6 @@ body.page-filigree > .call-widget {
     align-items: center;
 }
 
-.about-hero-text {
-    max-width: 600px;
-}
-
 .about-hero-text p {
     font-size: 1.1rem;
     line-height: 1.7;
@@ -2235,13 +2235,7 @@ body.page-filigree > .call-widget {
 }
 
 .operational-corporate-page .about-hero-grid {
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 2.8rem;
-    align-items: start;
-}
-
-.operational-corporate-page .about-hero-text {
-    max-width: 620px;
+    display: block;
 }
 
 .operational-corporate-page .about-hero-image {
@@ -2289,6 +2283,36 @@ body.page-filigree > .call-widget {
 
 .operational-corporate-page .about-hero-text .dp-compact-list li::before {
     top: 0.55rem;
+}
+
+.operational-corporate-page .operational-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.6rem;
+    margin: 1.3rem 0 0;
+}
+
+.operational-corporate-page .operational-card {
+    padding: 1.6rem 1.7rem;
+}
+
+.operational-corporate-page .operational-card p {
+    position: relative;
+    margin-bottom: 0;
+    padding-left: 1.4rem;
+    color: rgba(0, 0, 0, 0.72);
+    line-height: 1.6;
+}
+
+.operational-corporate-page .operational-card p::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 999px;
+    background: var(--gold);
 }
 
 
