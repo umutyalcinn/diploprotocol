@@ -3109,8 +3109,12 @@ body.page-filigree > .call-widget {
     margin-bottom: 0;
 }
 
+.schedule-image {
+    padding-top: 20px;
+}
+
 .schedule-image img {
-    height: 360px;
+    height: 320px;
 }
 
 /* Contact page */
@@ -3456,7 +3460,7 @@ body.page-filigree > .call-widget {
     }
 
     .schedule-image img {
-        height: 300px;
+        height: 280px;
     }
 
     .contact-section {
@@ -3519,7 +3523,7 @@ body.page-filigree > .call-widget {
     }
 
     .schedule-image img {
-        height: 260px;
+        height: 250px;
     }
 
     .reference-card {
@@ -3606,7 +3610,7 @@ body.page-filigree > .call-widget {
     }
 
     .schedule-image img {
-        height: 240px;
+        height: 220px;
     }
 
     .map-container {
