@@ -3260,10 +3260,6 @@ body.page-filigree > .call-widget {
     fill: #0077b5;
 }
 
-.footer-social-icons a[aria-label="TikTok"]:hover svg {
-    fill: #69c9d0;
-}
-
 /* References page */
 .reference-card {
     background: var(--white);
