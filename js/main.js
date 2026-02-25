@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     secondaryAnimatedElements.forEach(el => secondaryObserver.observe(el));
 
-    // ---------- Services Highlights Accordion ----------
+    /* ---------- Services Highlights Accordion (disabled) ----------
     const highlightItems = document.querySelectorAll('.services-highlights .benefit-item');
     if (highlightItems.length) {
         const setExpanded = (item, isExpanded) => {
@@ -97,6 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+    */
     
     // ---------- Smooth Scroll for Anchor Links ----------
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

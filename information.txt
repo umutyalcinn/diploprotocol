@@ -52,9 +52,9 @@ Whether preparing teams for international events, VIP engagements, or high-profi
 23. After the third paragraph, the four indicated sentences should be deleted, as they are not part of our text.
 24. For Programs & Training Levels, the title should be removed, and the text should be written directly under Programs & Trainings.
 25. After the text "Our programs include", visually separate the following sections:
-• Developing and deepening understanding of etiquette - mastering the rules of polite, cultured, and professional conduct applicable in all business and diplomatic contexts.
-• Mastering principles of diplomatic and corporate protocol - aligned with contemporary international standards, enabling confident and elegant navigation of formal events and meetings.
-• Acquiring practical skills - through simulations and real-life examples, participants learn how to act and respond effectively in national and international settings.
+ï¿½ Developing and deepening understanding of etiquette - mastering the rules of polite, cultured, and professional conduct applicable in all business and diplomatic contexts.
+ï¿½ Mastering principles of diplomatic and corporate protocol - aligned with contemporary international standards, enabling confident and elegant navigation of formal events and meetings.
+ï¿½ Acquiring practical skills - through simulations and real-life examples, participants learn how to act and respond effectively in national and international settings.
 After that, highlight the sentence:
 "Our courses are designed to enhance personal and organizational reputation, enabling participants to make a lasting impression on clients, partners, and VIP guests."
 26. The options that follow should have titles, for example:
@@ -62,7 +62,7 @@ Diplomatic Protocol
 The Language That Speaks Without Words
 When clicking on Diplomatic Protocol, the following text sent by Mr. Klaric should open. Therefore, use the text from the document that we will send to you again, with a request to go through it carefully, section by section, in order to avoid multiple versions of the text.
 Diplomatic protocol is the codified set of rules and procedures governing behavior, communication, and ceremonial actions in interactions between states, embassies, international organizations, corporate executives, and their teams. Its purpose is to ensure respect, equality, and dignity for all participants-whether in international diplomacy or high-profile corporate engagements.
-At our Academy, we treat diplomatic protocol with utmost care and precision, because we believe that details make the difference-not only in the impression your organization leaves, but in the message it conveys to clients, partners, and stakeholders worldwide.
+
 Who Should Attend
 Our specialized training in Diplomatic Protocol is designed for a wide range of professionals who interact at high levels of diplomacy and business:
 * Employees of government institutions

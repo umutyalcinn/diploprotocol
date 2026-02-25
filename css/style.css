@@ -490,13 +490,34 @@ body.page-filigree > .call-widget {
     background: var(--dark-green);
 }
 
-.academy-teaser h2,
-.academy-teaser p {
+.academy-teaser--highlight {
+    padding: 2.5rem 0 2.25rem;
+}
+
+.academy-teaser--highlight h2 {
+    color: var(--gold);
+    white-space: nowrap;
+    font-size: clamp(1.7rem, 3.2vw, 2.8rem);
+    letter-spacing: 0.02em;
+    margin-bottom: 0.75rem;
+}
+
+.academy-teaser--highlight p {
+    color: var(--white);
+}
+
+.academy-teaser--highlight .btn-outline:hover {
     color: var(--gold);
 }
 
-.academy-teaser .btn-outline:hover {
-    color: var(--gold);
+.academy-teaser--highlight.filigree::before,
+.academy-teaser--highlight.filigree::after {
+    opacity: 0.2;
+    filter: grayscale(0.1) brightness(1.3);
+}
+
+.academy-teaser--highlight.filigree::after {
+    opacity: 0.14;
 }
 
 /* ---------- Cards ---------- */
@@ -754,6 +775,12 @@ body.page-filigree > .call-widget {
     background: #fbf7ee;
     border: 1px solid rgba(201, 162, 39, 0.28);
     box-shadow: 0 22px 50px rgba(26, 60, 52, 0.16), inset 0 0 0 1px rgba(201, 162, 39, 0.32);
+}
+
+.academy-teaser--highlight .elegant-media-card {
+    background: #143028;
+    border: 2px solid var(--gold);
+    box-shadow: 0 24px 48px rgba(12, 32, 27, 0.28), inset 0 0 0 1px rgba(201, 162, 39, 0.5);
 }
 
 .elegant-media-card img {
@@ -1219,6 +1246,7 @@ body.page-filigree > .call-widget {
         min-height: auto;
     }
 
+    /* Services Highlights (disabled)
     .services-highlights .benefits-strip {
         gap: 1rem;
     }
@@ -1245,6 +1273,7 @@ body.page-filigree > .call-widget {
         opacity: 1;
         margin-top: 0.35rem;
     }
+    */
     
     .cta-banner {
         flex-direction: column;
@@ -1633,6 +1662,20 @@ body.page-filigree > .call-widget {
     padding-block: 5rem;
 }
 
+.hero-content--center {
+    margin-inline: auto;
+    text-align: center;
+}
+
+.hero-content--center .hero-title-secondary {
+    margin-bottom: 0;
+}
+
+.hero-content--center .hero-cta {
+    justify-content: center;
+    margin-top: 3.5rem;
+}
+
 .hero-title {
     font-size: clamp(2.2rem, 4vw, 3.5rem);
     line-height: 1.1;
@@ -1707,6 +1750,7 @@ body.page-filigree > .call-widget {
     height: 320px;
 }
 
+/* Services Highlights (disabled)
 .services-highlights .benefits-strip {
     gap: 1.5rem;
     align-items: stretch;
@@ -1795,6 +1839,7 @@ body.page-filigree > .call-widget {
     background: var(--dark-green-light);
     color: var(--white);
 }
+*/
 
 .vip-services .card {
     background: #fffcf6;
@@ -2137,6 +2182,50 @@ body.page-filigree > .call-widget {
     margin-bottom: 0;
 }
 
+.services-section--gold {
+    background: var(--dark-green);
+}
+
+.services-section--gold .section-header h2,
+.services-section--gold .section-header p {
+    color: var(--gold);
+}
+
+.services-section--gold .card {
+    background: #143028;
+    border: 2px solid rgba(201, 162, 39, 0.75);
+    box-shadow: 0 14px 28px rgba(12, 32, 27, 0.22), inset 0 0 0 1px rgba(201, 162, 39, 0.4);
+}
+
+.services-section--gold .card h4,
+.services-section--gold .card p {
+    color: var(--gold);
+}
+
+.services-section--gold .card-icon {
+    background: rgba(20, 48, 40, 0.9);
+    border: 1px solid rgba(201, 162, 39, 0.65);
+    box-shadow: inset 0 0 0 1px rgba(201, 162, 39, 0.4);
+}
+
+.services-section--gold .card-icon svg {
+    stroke: var(--gold);
+}
+
+.services-intro--gold {
+    background: var(--dark-green);
+}
+
+.services-intro--gold h1,
+.services-intro--gold p,
+.services-intro--gold h1 span {
+    color: var(--gold);
+}
+
+.services-intro--gold .intro-divider {
+    background: var(--gold);
+}
+
 .events-section,
 .event-types-section,
 .logistics-section,
@@ -2284,6 +2373,22 @@ body.page-filigree > .call-widget {
 .about-section {
     padding: 120px 0 70px;
     background: #fffdf6;
+}
+
+.about-section--gold {
+    background: var(--dark-green);
+}
+
+.about-section--gold .about-title,
+.about-section--gold .about-title span,
+.about-section--gold .about-hero-text p {
+    color: var(--gold);
+}
+
+.about-section--gold .about-hero-image {
+    background: #143028;
+    border: 2px solid var(--gold);
+    box-shadow: 0 22px 50px rgba(12, 32, 27, 0.22), inset 0 0 0 1px rgba(201, 162, 39, 0.4);
 }
 
 .about-hero-grid {
@@ -2497,7 +2602,15 @@ body.page-filigree > .call-widget {
     box-shadow: 0 18px 32px rgba(26, 60, 52, 0.12);
 }
 
-.about-mission-card::before {
+.about-mission-media {
+    margin-bottom: 1.2rem;
+}
+
+.about-mission-media.about-hero-image img {
+    height: 200px;
+}
+
+.about-mission-card h3::before {
     content: '';
     width: 52px;
     height: 2px;
@@ -2516,7 +2629,7 @@ body.page-filigree > .call-widget {
 }
 
 .about-mission-card p {
-    color: rgba(0, 0, 0, 0.68);
+    color: #1a4b3a;
     line-height: 1.7;
     margin-bottom: 0;
 }
@@ -2555,7 +2668,7 @@ body.page-filigree > .call-widget {
 .dp-compact-card h3 {
     position: relative;
     color: var(--gold);
-    font-size: 1rem;
+    font-size: 0.9rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     margin-bottom: 0.85rem;
@@ -2575,7 +2688,7 @@ body.page-filigree > .call-widget {
 .dp-compact-highlight {
     color: #7f5f12;
     font-weight: 600;
-    font-size: 0.98rem;
+    font-size: 1.1rem;
     margin-bottom: 0.75rem;
 }
 
