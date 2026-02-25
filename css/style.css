@@ -3656,6 +3656,15 @@ body.page-filigree > .call-widget {
         padding: 1.35rem;
     }
 
+    .operational-corporate-page .operational-card-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .operational-corporate-page .operational-card {
+        padding: 1.2rem 1.25rem;
+    }
+
     .academy-media-card img {
         height: 260px;
     }
