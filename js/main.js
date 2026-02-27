@@ -98,6 +98,39 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     */
+
+    // ---------- Training Cards Accordion ----------
+    const trainingCards = document.querySelectorAll('[data-training-card]');
+    if (trainingCards.length) {
+        const setExpanded = (card, isExpanded) => {
+            const button = card.querySelector('.training-card__button');
+            const content = card.querySelector('.training-card__content');
+            card.classList.toggle('is-open', isExpanded);
+            if (button) {
+                button.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+            }
+            if (content) {
+                content.hidden = !isExpanded;
+            }
+        };
+
+        trainingCards.forEach(card => {
+            const button = card.querySelector('.training-card__button');
+            const content = card.querySelector('.training-card__content');
+            if (content) {
+                content.hidden = true;
+            }
+            if (button) {
+                button.addEventListener('click', () => {
+                    const isOpen = card.classList.contains('is-open');
+                    trainingCards.forEach(other => setExpanded(other, false));
+                    if (!isOpen) {
+                        setExpanded(card, true);
+                    }
+                });
+            }
+        });
+    }
     
     // ---------- Smooth Scroll for Anchor Links ----------
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
