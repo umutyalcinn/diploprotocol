@@ -209,6 +209,13 @@ ul { list-style: none; }
     position: relative;
 }
 
+.navbar .ampersand,
+.footer .ampersand {
+    font-family: Arial, sans-serif;
+    font-weight: 400;
+    letter-spacing: 0;
+}
+
 .navbar-menu a::after {
     content: '';
     position: absolute;
