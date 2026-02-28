@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // ---------- Scroll Animations ----------
-    const animatedElements = document.querySelectorAll('.animate-on-scroll, .stagger-children');
+    const animatedElements = document.querySelectorAll('.animate-on-scroll, .animate-on-scroll-rtl, .stagger-children');
     
     const observerOptions = {
         threshold: 0.1,
@@ -67,6 +67,42 @@ document.addEventListener('DOMContentLoaded', function() {
     }, observerOptions);
 
     secondaryAnimatedElements.forEach(el => secondaryObserver.observe(el));
+
+    // ---------- Scroll Translate X ----------
+    const scrollTranslateElements = document.querySelectorAll('.scroll-translate-x');
+    if (scrollTranslateElements.length) {
+        const maxTranslate = 80;
+        let scrollTranslateTicking = false;
+
+        const updateScrollTranslate = () => {
+            const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+            const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+            const maxTranslate = viewportWidth;
+            const start = viewportHeight;
+            const end = viewportHeight * 0.5;
+            const range = start - end || 1;
+
+            scrollTranslateElements.forEach(element => {
+                const rect = element.getBoundingClientRect();
+                const progress = Math.min(Math.max((start - rect.top) / range, 0), 1);
+                const translateX = maxTranslate * (1 - progress);
+                element.style.transform = `translateX(${translateX}px)`;
+            });
+
+            scrollTranslateTicking = false;
+        };
+
+        const handleScrollTranslate = () => {
+            if (!scrollTranslateTicking) {
+                scrollTranslateTicking = true;
+                window.requestAnimationFrame(updateScrollTranslate);
+            }
+        };
+
+        updateScrollTranslate();
+        window.addEventListener('scroll', handleScrollTranslate);
+        window.addEventListener('resize', handleScrollTranslate);
+    }
 
     /* ---------- Services Highlights Accordion (disabled) ----------
     const highlightItems = document.querySelectorAll('.services-highlights .benefit-item');
