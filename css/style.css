@@ -142,10 +142,11 @@ ul { list-style: none; }
     padding: 0.7rem 0;
     transition: var(--transition);
     font-family: 'Playfair Display', 'Cormorant Garamond', 'Times New Roman', serif;
+    border-bottom: 3px solid rgba(201, 162, 39, 0.95);
 }
 
 .academy-page .navbar {
-    border-bottom: 1px solid rgba(201, 162, 39, 0.65);
+    border-bottom: 3px solid var(--gold);
 }
 
 .navbar.scrolled {
