@@ -510,8 +510,11 @@ body.page-filigree > .call-widget {
     color: var(--gold);
     white-space: normal;
     font-size: clamp(1.7rem, 3.2vw, 2.8rem);
-    letter-spacing: 0.02em;
+    letter-spacing: normal;
     margin-bottom: 0.75rem;
+    font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+    font-weight: 600;
+    text-transform: none;
 }
 
 .academy-teaser--highlight p {
@@ -1207,6 +1210,7 @@ body.page-filigree > .call-widget {
 
 .emirati-intro {
     padding: 3.5rem 0;
+    background: var(--dark-green);
 }
 
 .emirati-intro-content {
@@ -1222,6 +1226,17 @@ body.page-filigree > .call-widget {
 .emirati-intro-content p {
     font-size: 1.1rem;
     line-height: 1.8;
+    color: var(--gold);
+}
+
+.emirati-intro .btn-outline {
+    background: transparent;
+    color: var(--gold);
+    border-color: var(--gold);
+}
+
+.emirati-intro .btn-outline:hover {
+    background: var(--gold);
     color: var(--dark-green);
 }
 
@@ -3005,6 +3020,18 @@ body.page-filigree > .call-widget {
     margin: 0 auto 2rem;
 }
 
+.academy-intro-content {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+    align-items: center;
+}
+
+.academy-intro-content .academy-intro-media {
+    margin-bottom: 0;
+    grid-template-columns: 1fr;
+}
+
 .academy-intro-text .hero-subtitle {
     color: var(--gold);
     letter-spacing: 0.18em;
@@ -3259,7 +3286,9 @@ body.page-filigree > .call-widget {
     padding: 0.85rem;
     height: 100%;
     position: relative;
-    border: 1px solid rgba(201, 162, 39, 0.2);
+    border: 1px solid rgba(201, 162, 39, 0.6);
+    background: var(--dark-green);
+    color: var(--gold);
     cursor: pointer;
 }
 
@@ -3278,7 +3307,8 @@ body.page-filigree > .call-widget {
 .programs-grid .card:focus-visible {
     transform: translateY(-4px);
     box-shadow: var(--shadow-md);
-    border-color: rgba(201, 162, 39, 0.6);
+    border-color: rgba(201, 162, 39, 0.9);
+    background: var(--dark-green-light);
 }
 
 .programs-grid .card:hover::after,
@@ -3288,18 +3318,20 @@ body.page-filigree > .call-widget {
 }
 
 .programs-grid .card:visited {
-    background-color: #f0dfb2;
-    border-color: #b58b1f;
-    color: #5b4510;
+    background-color: var(--dark-green);
+    border-color: rgba(201, 162, 39, 0.6);
+    color: var(--gold);
 }
 
 .programs-grid .card h4 {
     font-size: 1.08rem;
+    color: var(--gold);
 }
 
 .programs-grid .card p {
     font-size: 0.98rem;
     line-height: 1.45;
+    color: var(--gold);
     overflow-wrap: anywhere;
 }
 
@@ -3312,6 +3344,9 @@ body.page-filigree > .call-widget {
 .programs-grid .card-icon svg {
     width: 22px;
     height: 22px;
+    color: var(--gold);
+    stroke: var(--gold);
+    fill: none;
 }
 
 #programs.section {
@@ -3714,6 +3749,10 @@ body.page-filigree > .call-widget {
 
     .academy-intro {
         padding: 60px 0 2rem;
+    }
+
+    .academy-intro-content {
+        grid-template-columns: 1fr;
     }
 
     .academy-intro-media {
