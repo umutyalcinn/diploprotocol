@@ -3335,10 +3335,28 @@ body.page-filigree > .call-widget {
     overflow-wrap: anywhere;
 }
 
+.card-training-label {
+    display: inline-block;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 0;
+    line-height: 1;
+}
+
+.programs-grid .card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.7rem;
+}
+
 .programs-grid .card-icon {
     width: 44px;
     height: 44px;
-    margin-bottom: 0.7rem;
+    margin-bottom: 0;
 }
 
 .programs-grid .card-icon svg {
@@ -3379,6 +3397,10 @@ body.page-filigree > .call-widget {
 
 .certificates-grid .card {
     padding: 1.25rem;
+}
+
+.certificates-grid .card .card-training-label {
+    margin-bottom: 0.4rem;
 }
 
 .certificates-grid .card h4 {
