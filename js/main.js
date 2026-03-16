@@ -252,16 +252,14 @@ if (window.location.pathname.toLowerCase().includes('academy.html')) {
     const langSelector = document.querySelector('.lang-selector');
     const fallbackFlags = {
         en: 'https://flagcdn.com/w40/gb.png',
-        tr: 'https://flagcdn.com/w40/tr.png',
         me: 'https://flagcdn.com/w40/me.png'
     };
     const fallbackNames = {
         en: 'English',
-        tr: 'Türkçe',
         me: 'Montenegrin'
     };
     const applyLanguage = (lang) => {
-        const supported = ['en', 'tr', 'me'];
+        const supported = ['en', 'me'];
         const resolved = supported.includes(lang) ? lang : 'en';
 
         if (typeof setLanguage === 'function') {
@@ -285,7 +283,10 @@ if (window.location.pathname.toLowerCase().includes('academy.html')) {
 
     if (langSelector) {
         const savedLang = localStorage.getItem('dp_lang') || 'en';
-        applyLanguage(savedLang);
+        const resolvedLang = applyLanguage(savedLang);
+        if (resolvedLang !== savedLang) {
+            localStorage.setItem('dp_lang', resolvedLang);
+        }
 
         const dropdown = langSelector.querySelector('.lang-dropdown');
         const currentBtn = langSelector.querySelector('.lang-current');
@@ -356,8 +357,9 @@ if (window.location.pathname.toLowerCase().includes('academy.html')) {
         }
     } else {
         const savedLang = localStorage.getItem('dp_lang') || 'en';
-        if (typeof setLanguage === 'function') {
-            setLanguage(savedLang);
+        const resolvedLang = applyLanguage(savedLang);
+        if (resolvedLang !== savedLang) {
+            localStorage.setItem('dp_lang', resolvedLang);
         }
     }
 
